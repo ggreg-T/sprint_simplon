@@ -42,10 +42,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
+                            <label for="Phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="texst" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="Phone" type="text" class="form-control @error('Phone') is-invalid @enderror" name="Phone" value="{{ old('Phone') }}" required autocomplete="Phone">
                             </div>
                         </div>
 
@@ -113,7 +113,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-6">
                                 <button type="submit" class="btn btn-primary px-4">
-                                    {{ __('Register') }}
+                                    {{ __('register') }}
                                 </button>
                             </div>
                         </div>
