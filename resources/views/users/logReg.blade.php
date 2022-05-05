@@ -1,8 +1,9 @@
 @extends('layouts.home')
 @section('content')
 {{-- #####---Login Form---############################################################################## --}}
-<div class = "row mt-5 ms-5">
-    <div class="col-md-6">
+<div class = "row my-5 ms-5">
+    <h1>Login</h1>
+    <div class="col-md-6 p-4 border rounded-3 bg-info">
         @if(session('success'))
             <p class="alert alert-danger">{{ session('success') }}</p>
         @endif
@@ -34,8 +35,9 @@
     </div>
 </div>
 {{-- #####---Register Form---############################################################################## --}}
-<div class = "row my-5 ms-5">
-    <div class="col-md-6">
+<div class = "row my-5 ms-5 ">
+    <h1>Register</h1>
+    <div class="col-md-6 p-4 border rounded-3 bg-info">
         @if($errors -> any())
             @foreach ($errors -> all() as $err)
                 <p class="alert alert-danger">{{ $err }}</p>
