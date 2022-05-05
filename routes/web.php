@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/main', function () {
-    return view('layouts/main');
-});
+Route::resource('user', userController::class);
+Route::resource('home', HomeController::class);
 
-Auth::routes();
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('userDetails', [userController::class, 'userDetails'])->name('userDetails');
+Route::get('logReg', [userController::class, 'register'])->name('logReg');
+Route::post('register', [userController::class, 'register_action'])->name('register.action');
+Route::post('logReg', [userController::class, 'login_action'])->name('login.action');
+Route::get('changePersoInfos', [userController::class, 'changeUserInfos'])->name('changeUserInfos');
+Route::post('changePersoInfos', [userController::class, 'changeUserInfos_action'])->name('changeUserInfos.action');
+Route::get('logout', [userController::class, 'logout'])->name('logout');
+Route::get('users', [userController::class, 'users'])->name('users');
+Route::get('searchUser', [userController::class, 'searchUser'])->name('searchUser');
+
