@@ -21,7 +21,7 @@ Route::resource('home', HomeController::class);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
-// Route::get('userDetails', [userController::class, 'userDetails'])->name('userDetails');
+Route::post('updateStatus/{id}', [userController::class, 'updateStatus'])->name('updateStatus');
 Route::get('logReg', [userController::class, 'register'])->name('logReg');
 Route::post('register', [userController::class, 'register_action'])->name('register.action');
 Route::post('logReg', [userController::class, 'login_action'])->name('login.action');

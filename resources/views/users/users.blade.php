@@ -29,13 +29,15 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Age</th>
                 <th>Pseudo</th>
                 <th>E-mail</th>
-                <th>Tel</th>
+                <th>Phone</th>
                 <th>Contact 1 Name</th>
                 <th>Contact 1 Tel</th>
                 <th>Contact 2 Name</th>
                 <th>Contact 2 Tel</th>
+                <th>Created at</th>
                 <th>Operator</th>
                 <th>Admin</th>
                 <th>Id</th>
@@ -45,8 +47,9 @@
             <tr>
                 <td>{{ $user ->firstName }}</td>
                 <td>{{ $user ->lastName }}</td>
+                <td>{{ $user ->age }}</td>
                 <td>
-                    <form action="{{ route('users.edit', $user->id) }}" method="get">
+                    <form action="{{ route('user.edit', $user->id) }}" method="get">
                         <input type="text" class="visually-hidden" 
                                 name="inputUserId"
                                 value = "{{ $user->id }}" readonly>
@@ -56,17 +59,17 @@
                     </form>
                 </td>
                 <td>{{ $user ->email }}</td>
-                <td>{{ $user ->tel }}</td>
-                <td>{{ $user ->name1 }}</td>
-                <td>{{ $user ->tel1 }}</td>
-                <td>{{ $user ->name2 }}</td>
-                <td>{{ $user ->tel2 }}</td>
+                <td>{{ $user ->phone }}</td>
+                <td>{{ $user ->contact1 }}</td>
+                <td>{{ $user ->phone1 }}</td>
+                <td>{{ $user ->contact2 }}</td>
+                <td>{{ $user ->phone2 }}</td>
                 <td>{{ \Carbon\Carbon::parse($user->created_at)->locale('nl')->format('d/m/Y H:i:s') }}</td> 
                 <td>{{ $user ->operator }}</td>
                 <td>{{ $user ->admin }}</td>
                 <td>{{ $user ->id }}</td>
-                <td>
-                    <form action="{{ route('users.destroy', $user->id) }}" method="Post"> 
+                <td class="">
+                    <form action="{{ route('user.destroy', $user->id) }}" method="Post"> 
                         @csrf 
                         @method('DELETE') 
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $user->pseudo }} ?');">Delete</button> 

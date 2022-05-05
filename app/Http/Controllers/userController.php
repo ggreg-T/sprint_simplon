@@ -95,30 +95,34 @@ class userController extends Controller
     public function changeUserInfos_action(Request $request)
     {
         $request -> validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'pseudo' => 'required',
-            'email' => 'required',
-            'tel' => 'required',
-            'name1' => 'required',
-            'tel1' => 'required',
-            'name2' => 'required',
-            'tel2' => 'required',
-            'old_password' => 'required|current_password',
-            'new_password' => 'same:new_password_confirmation'
+            'inputFirstName' => 'required',
+            'inputLastName' => 'required',
+            'inputPseudo' => 'required',
+            'inputEmail' => 'required',
+            'inputAge' => 'required',
+            'inputTel' => 'required',
+            'inputContact1' => 'required',
+            'inputPhoneContact1' => 'required',
+            'inputContact2' => 'required',
+            'inputPhoneContact2' => 'required',
+            'inputOld_password' => 'required|current_password',
+            'inputNew_password' => 'same:inputNew_password_confirmation'
         ]);
         $user = User::find(Auth::id());
-        $user -> firstName = $request -> firstName; 
-        $user -> lastName = $request -> lastName;
-        $user -> pseudo = $request -> pseudo;
-        $user -> email = $request -> email;
-        $user -> phone = $request -> tel;
-        $user -> contact1 = $request -> name1;
-        $user -> phone1 = $request -> tel1;
-        $user -> contact2 = $request -> name2;
-        $user -> phone2 = $request -> tel2;
-        if ($request -> new_password != "" OR $request -> new_password != null) {
-            $user -> password = Hash::make($request -> new_password);
+        $user->firstName = $request->inputFirstName;  
+        $user->lastName = $request->inputLastName; 
+        $user->pseudo = $request->inputPseudo;   
+        $user->email = $request->inputEmail;  
+        $user->age = $request->inputAge;  
+        $user->phone = $request->inputTel;  
+        $user->contact1 = $request->inputContact1;  
+        $user->phone1 = $request->inputPhoneContact1;  
+        $user->contact2 = $request->inputContact2;  
+        $user->phone2 = $request->inputPhoneContact2;
+        $user->operator = $request->inputOperator;
+        $user->admin = $request->inputAdmin;
+        if ($request -> inputNew_password != "" OR $request -> inputNew_password != null) {
+            $user -> password = Hash::make($request -> inputNew_password);
         } 
         
         $user -> save();
@@ -170,12 +174,16 @@ class userController extends Controller
             -> with('success', $user->pseudo.' has been deleted successfully');
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('users.userDetails', compact('user'));
+        $data = User::query()
+            ->where('id', '=', $id)
+            ->get();
+
+        return view('users.userDetails', ['user' => $data]);
     }
 
-    public function update(Request $request, $id)
+    public function updateStatus(Request $request, $id)
     {
         $data['userAdmin'] = User::query()
             ->where('admin', '=', 1)
@@ -189,7 +197,8 @@ class userController extends Controller
         }
 
         $user = User::find($id);
-        $user -> admin = $request -> admin;
+        $user -> admin = $request -> inputAdmin;
+        $user -> operator = $request -> inputOperator;
         $user -> save();
 
         if ($user -> admin == true) {
