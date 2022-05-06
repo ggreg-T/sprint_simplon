@@ -69,11 +69,20 @@
                 <td>{{ $user ->admin }}</td>
                 <td>{{ $user ->id }}</td>
                 <td class="">
-                    <form action="{{ route('user.destroy', $user->id) }}" method="Post"> 
-                        @csrf 
-                        @method('DELETE') 
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $user->pseudo }} ?');">Delete</button> 
-                    </form>
+                    @if (Auth::user()->admin == 1)
+                        <form action="{{ route('user.destroy', $user->id) }}" method="Post"> 
+                            @csrf 
+                            @method('DELETE') 
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $user->pseudo }} ?');">Delete</button> 
+                        </form>
+                    @elseif ($user->operator == 0 && $user->admin == 0 && Auth::user()->operator == 1)
+                        <form action="{{ route('user.destroy', $user->id) }}" method="Post"> 
+                            @csrf 
+                            @method('DELETE') 
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $user->pseudo }} ?');">Delete</button> 
+                        </form>
+                    @endif
+                    
                 </td>
             </tr>
             @endforeach

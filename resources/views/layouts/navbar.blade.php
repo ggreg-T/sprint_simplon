@@ -18,7 +18,7 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="{{ route('home')}}">Your Trek</a>
+                                    <a class="nav-link" aria-current="page" href="{{ route('userTreckView')}}">Your Trek</a>
                                 </li>
                                 @auth
                                     @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)

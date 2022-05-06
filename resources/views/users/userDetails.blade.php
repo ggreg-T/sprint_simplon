@@ -80,11 +80,16 @@
             </div>
 
             <div class="form-group form-floating d-flex flex-row">
-                <div class="form-group form-floating mb-3">
+                <div class="form-group form-floating mb-3 flex-fill">
                     <input id="floatingConfirmPassword" type="submit" class="form-control" value="Valide Changes">
                 </div>
-                <div class="form-group form-floating mb-3">
-                    <a class="btn btn-info" href = "{{ route('users') }}">Back</a>
+                @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
+                    <div class="form-group form-floating ms-5 mb-3 flex-fill">
+                        <a class="btn btn-info" href = "{{ route('users') }}">Back List</a>
+                    </div>
+                @endif
+                <div class="form-group form-floating mb-3 ms-5 flex-fill">
+                    <a class="btn btn-info" href = "{{ route('home') }}">Back Home</a>
                 </div>
             </div>
         </form>

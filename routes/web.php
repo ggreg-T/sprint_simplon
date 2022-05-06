@@ -20,6 +20,7 @@ Route::resource('home', HomeController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('userTreckView', [HomeController::class, 'userTreckView'])->name('userTreckView');
 
 Route::post('updateStatus/{id}', [userController::class, 'updateStatus'])->name('updateStatus');
 Route::get('logReg', [userController::class, 'register'])->name('logReg');
