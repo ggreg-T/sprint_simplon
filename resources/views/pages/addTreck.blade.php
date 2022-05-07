@@ -27,16 +27,39 @@
                 <input id="floatingCircuitName" type="text" class="form-control" name="inputCircuitName" required>
                 <label for="floatingCircuitName">CircuitName</label>
             </div>
-            <div class="d-flex flex-row">
-                <div class="form-group form-floating mb-3 me-3 flex-fill">
-                    <input id="floatingHardness" type="text" class="form-control" name="inputHardness" required>
-                    <label for="floatingHardness">Hardness</label>
+
+            <div class="d-flex flex-row mb-3">
+                <div class="form-group form-floating flex-fill me-3">
+                    <input id="floatingTime" type="number" min="0" step=".5" class="form-control" name="inputTime" required>
+                    <label for="floatingTime">Time in Hour H</label>
                 </div>
-                <div class="form-group form-floating mb-3 flex-fill">
-                    <input id="floatingTime" type="text" class="form-control" name="inputTime" required>
-                    <label for="floatingTime">Time</label>
+                <div class="d-flex text-center flex-fill me-2">
+                    <input id="floatingSubmit" type="button" class="btn btn-success flex-fill" name="" value="Hardness :" disabled>
+                    <label for="floatingSubmit"></label>
                 </div>
+                <div class = "d-flex flex-fill me-3">
+                    <input type="radio" name = "inputHardness" value="⭐" class="btn-check" id="btn-check-outlined-1" autocomplete="off" required>
+                    <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-1">⭐</label><br>
+                </div> 
+                <div class = "d-flex flex-fill me-3">
+                    <input type="radio" name = "inputHardness" value="⭐⭐" class="btn-check" id="btn-check-outlined-2" autocomplete="off">
+                    <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-2">⭐⭐</label><br>
+                </div> 
+                <div class = "d-flex flex-fill me-3">
+                    <input type="radio" name = "inputHardness" value="⭐⭐⭐" class="btn-check" id="btn-check-outlined-3" autocomplete="off">
+                    <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-3">⭐⭐⭐</label><br>
+                </div> 
+                <div class = "d-flex flex-fill me-3">
+                    <input type="radio" name = "inputHardness" value="⭐⭐⭐⭐" class="btn-check" id="btn-check-outlined-4" autocomplete="off">
+                    <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-4">⭐⭐⭐⭐</label><br>
+                </div> 
+                <div class = "d-flex flex-fill">
+                    <input type="radio" name = "inputHardness" value="⭐⭐⭐⭐⭐" class="btn-check" id="btn-check-outlined-5" autocomplete="off">
+                    <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-5">⭐⭐⭐⭐⭐</label><br>
+                </div> 
             </div>
+
+                
 
             <div class="d-flex flex-row flex-wrap mb-3">
                 <div class = "d-flex flex-fill me-3">
