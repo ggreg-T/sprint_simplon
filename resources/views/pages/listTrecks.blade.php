@@ -54,7 +54,7 @@
                 <td>{{ $treck ->treckName }}</td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>
-                <td>{{ $treck ->time }}</td>
+                <td>{{ $treck ->time }}h</td>
                 <td>{{ $treck ->profil }}</td>
                 {{-- <td class="">
                     @if (Auth::user()->admin == 1)
