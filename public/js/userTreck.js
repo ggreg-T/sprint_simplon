@@ -101,6 +101,9 @@ async function getMatch(coordinates, radius, profile) {
     // Separate the radiuses with semicolons
     const radiuses = radius.join(";");
     // Create the query
+    // console.log(typeof coordinates);
+    document.getElementById("floatingCoords").value = coordinates;
+    document.getElementById("floatingProfile").value = profile;
     const query = await fetch(
         `https://api.mapbox.com/directions/v5/mapbox/${profile}/${coordinates}?` +
             `geometries=geojson&alternatives=true&continue_straight=true&` +
@@ -181,8 +184,8 @@ function removeRoute() {
 const nav = new mapboxgl.NavigationControl();
 map.addControl(nav);
 
-let direction = new MapboxDirection({
-    accessToken: mapboxgl.accessToken,
-});
+// let direction = new MapboxDirection({
+//     accessToken: mapboxgl.accessToken,
+// });
 
-map.addControl(directions, "top-left");
+// map.addControl(directions, "top-left");

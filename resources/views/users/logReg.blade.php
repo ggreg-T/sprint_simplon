@@ -5,7 +5,7 @@
     <h1>Login</h1>
     <div class="col-md-6 p-4 border rounded-3 bg-info">
         @if(session('success'))
-            <p class="alert alert-danger">{{ session('success') }}</p>
+            <p class="alert alert-success">{{ session('success') }}</p>
         @endif
         @if($errors -> any())
             @foreach ($errors->all() as $err)

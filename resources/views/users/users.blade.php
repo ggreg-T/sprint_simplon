@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-    <div class="container mt-5">
+    <div class="mt-5">
         <div class="row pt-4 mb-4">
             <div class="pull-left">
                 <h2>User List</h2>
@@ -38,8 +38,8 @@
                 <th>Contact 2 Name</th>
                 <th>Contact 2 Tel</th>
                 <th>Created at</th>
-                <th>Operator</th>
-                <th>Admin</th>
+                <th>🎧</th>
+                <th>👑</th>
                 <th>Id</th>
                 <th width="280px">Action</th> 
             </tr>
@@ -53,7 +53,7 @@
                         <input type="text" class="visually-hidden" 
                                 name="inputUserId"
                                 value = "{{ $user->id }}" readonly>
-                        <input type="submit" class="form-control me-2 btn btn-info"  
+                        <input type="submit" class="form-control me-2 btn bg-info"  
                                 name="inputDetailUser" 
                                 value = "{{ $user->pseudo }}" readonly>
                     </form>
