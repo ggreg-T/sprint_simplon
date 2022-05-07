@@ -13,11 +13,17 @@ class treckController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getlistTrecks($location)
-    {
-        $listTrecks = Trecks::query()
-            ->where('location', '=', $location)
-            ->get();
+    { 
         $title = "Treck Réunion ".$location;
+
+        if ($location == "all") {
+            $listTrecks = Trecks::orderBy('created_at', 'ASC')->paginate(100);
+        } else {
+            $listTrecks = Trecks::query()
+            ->where('location', '=', $location)
+            ->orderBy('created_at', 'ASC')->paginate(100)
+            ->get();
+        }
 
         $nbTreck = count($listTrecks);
         if ($nbTreck == 0) {
