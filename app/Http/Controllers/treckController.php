@@ -21,7 +21,7 @@ class treckController extends Controller
         } else {
             $listTrecks = Trecks::query()
             ->where('location', '=', $location)
-            ->orderBy('created_at', 'ASC')->paginate(100)
+            // ->orderBy('created_at', 'ASC')->paginate(100)
             ->get();
         }
 
