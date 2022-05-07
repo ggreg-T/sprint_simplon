@@ -23,4 +23,10 @@ class HomeController extends Controller
         $title = 'Welcome on TreckingSecu.re';
         return view('pages.userTreck', ['title' => $title]);
     }
+
+    public function watchTreckers()
+    {
+        $title = 'Trecking Tours engaged and in stand by';
+        return view('pages.watchTrecker', ['title' => $title]);
+    }
 }

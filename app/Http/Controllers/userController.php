@@ -56,7 +56,7 @@ class userController extends Controller
         $user->save();
         return redirect() 
             -> route('logReg')
-            -> with('success', 'inscription succed, please login');
+            -> with('success', 'inscription successed, please login');
     }
 
     // public function login() 
