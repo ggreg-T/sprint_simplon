@@ -24,8 +24,8 @@ class treckController extends Controller
             $error = "There are no trecks for the Réunion $location yet.";
             return view('pages.listTrecks', ['title' => $title, 'trecks' => $listTrecks, 'error' => $error]);
         }
-
-        return view('pages.listTrecks', ['title' => $title, 'trecks' => $listTrecks]);
+        $error = "";
+        return view('pages.listTrecks', ['title' => $title, 'trecks' => $listTrecks, 'error' => $error]);
     }
 
     /**
