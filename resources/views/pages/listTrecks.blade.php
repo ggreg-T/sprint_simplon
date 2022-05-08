@@ -43,8 +43,8 @@
             </tr>
             @foreach ($trecks as $treck)
             <tr>
-                {{-- <td>
-                    <form action="{{ route('treck.edit', $treck->id) }}" method="get">
+                <td>
+                    <form action="{{ route('detailTrek', $treck->id) }}" method="get">
                         <input type="text" class="visually-hidden" 
                                 name="inputTreckId"
                                 value = "{{ $treck->id }}" readonly>
@@ -52,7 +52,7 @@
                                 name="inputDetailUser" 
                                 value = "{{ $treck->treckName }}" readonly>
                     </form>
-                </td> --}}
+                </td>
                 <td>{{ $treck ->treckName }}</td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>

@@ -1,5 +1,8 @@
 mapboxgl.accessToken =
     "pk.eyJ1IjoiY29sb3NzdXMxOTg1IiwiYSI6ImNsMm9penoxcjFoNGIzZG5xdm95eGhicDQifQ.0F6F6Mgivxm8qkGavUsXOw";
+coords = document.getElementById("coords").value;
+profile = document.getElementById("profile").value;
+
 let distance = 0;
 const map = new mapboxgl.Map({
     container: "map",
@@ -75,33 +78,34 @@ const draw = new MapboxDraw({
 map.addControl(draw);
 
 // Add create, update, or delete actions
-map.on("draw.create", updateRoute);
-map.on("draw.update", updateRoute);
-map.on("draw.delete", removeRoute);
+// map.on("draw.create", updateRoute);
+// map.on("draw.update", updateRoute);
+// map.on("draw.delete", removeRoute);
 
 // Use the coordinates you just drew to make the Map Matching API request
-function updateRoute() {
-    removeRoute(); // Overwrite any existing layers
+// function updateRoute(profile, coords) {
+// console.log("ici1");
+// removeRoute(); // Overwrite any existing layers
 
-    const profile = "walking"; // Set the profile
+// const profile = "walking"; // Set the profile
 
-    // Get the coordinates
-    const data = draw.getAll();
-    const lastFeature = data.features.length - 1;
-    const coords = data.features[lastFeature].geometry.coordinates;
-    // Format the coordinates
-    const newCoords = coords.join(";");
-    // Set the radius for each coordinate pair to 25 meters
-    const radius = coords.map(() => 25);
-    getMatch(newCoords, radius, profile);
-}
+// // Get the coordinates
+// const data = draw.getAll();
+// const lastFeature = data.features.length - 1;
+// const coords = data.features[lastFeature].geometry.coordinates;
+// // Format the coordinates
+// const newCoords = coords.join(";");
+// // Set the radius for each coordinate pair to 25 meters
+// const radius = coords.map(() => 25);
+getMatch(profile, coords);
+// }
 
 // Make a Map Matching request
-async function getMatch(coordinates, radius, profile) {
+async function getMatch(profile, coordinates) {
     // Separate the radiuses with semicolons
-    const radiuses = radius.join(";");
+    // const radiuses = radius.join(";");
     // Create the query
-    // console.log(typeof coordinates);
+    // console.log("ici2");
 
     const query = await fetch(
         `https://api.mapbox.com/directions/v5/mapbox/${profile}/${coordinates}?` +
@@ -122,32 +126,6 @@ async function getMatch(coordinates, radius, profile) {
     // addRoute(coords);
     addRoute(response.routes[0].geometry);
     getInstructions(response.routes[0]);
-    // console.log(response.routes[0].distance);
-
-    //###---for add route informations in db by the form---###############################################
-    distance = (response.routes[0].distance / 1000).toFixed(2);
-    const goback = document.getElementById("btn-check-outlined-go&back");
-    if (goback) {
-        distance = distance * 2;
-    }
-    let duration = response.routes[0].duration;
-    duration = Math.round(duration / 60);
-
-    document.getElementById("floatingCoords").value = coordinates;
-    document.getElementById("floatingDistance").value = distance;
-    document.getElementById("floatingProfile").value = profile;
-    document.getElementById("floatingTime").value = duration;
-}
-function distanceX2() {
-    let distance1Way = distance;
-    let oneClick = distance;
-    if (distance && oneClick == distance1Way) {
-        distance2Way = distance * 2;
-    }
-    document.getElementById("floatingDistance").value = distance2Way;
-}
-function distanceX1() {
-    document.getElementById("floatingDistance").value = distance;
 }
 
 function getInstructions(data) {
@@ -206,8 +184,8 @@ function removeRoute() {
 
 //####---direction fields---####################################################
 
-const nav = new mapboxgl.NavigationControl();
-map.addControl(nav);
+// const nav = new mapboxgl.NavigationControl();
+// map.addControl(nav);
 
 // let direction = new MapboxDirection({
 //     accessToken: mapboxgl.accessToken,

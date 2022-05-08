@@ -42,4 +42,3 @@
     </body>
     @include('layouts.footer')
 </html>
-<script type="text/javascript" src='{{ url('js/userTreck.js') }}'></script>

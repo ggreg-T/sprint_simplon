@@ -36,3 +36,4 @@ Route::get('searchUser', [userController::class, 'searchUser'])->name('searchUse
 
 Route::get('listTrecks/{location}', [treckController::class, 'getlistTrecks'])->name('getlistTrecks');
 Route::get('addTrecks', [treckController::class, 'addTrecks'])->name('addTrecks');
+Route::get('detailTrek/{treckId}', [treckController::class, 'detailTrek'])->name('detailTrek');
