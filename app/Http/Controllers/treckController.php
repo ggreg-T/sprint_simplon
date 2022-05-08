@@ -62,7 +62,8 @@ class treckController extends Controller
             'inputLocation' => 'required',
             'inputDescription' => 'required',
             'inputCoords' => 'required',
-            'inputProfile' => 'required'
+            'inputProfile' => 'required',
+            'inputType' => 'required'
         ]);
 
         $treck = new Trecks;
@@ -74,6 +75,8 @@ class treckController extends Controller
         $treck->location = $request->inputLocation;
         $treck->coords = $request->inputCoords;
         $treck->profil = $request->inputProfile;
+        $treck->distance = $request->inputDistance;
+        $treck->type = $request->inputType;
         $treck->save();
 
         return redirect()->back()

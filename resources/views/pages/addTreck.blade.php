@@ -59,25 +59,39 @@
                 </div> 
             </div>
 
-                
-
             <div class="d-flex flex-row flex-wrap mb-3">
-                <div class = "d-flex flex-fill me-3">
-                    <input type="radio" name = "inputLocation" value="north" class="btn-check" id="btn-check-outlined-north" autocomplete="off" required>
-                    <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-north">North</label><br>
-                </div> 
-                <div class = "d-flex flex-fill me-3">
-                    <input type="radio" name = "inputLocation" value="east" class="btn-check" id="btn-check-outlined-east" autocomplete="off">
-                    <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-east">East</label><br>
+                <div class="d-flex flex-fill me-5">
+                    <div class = "d-flex flex-fill me-3">
+                        <input type="radio" name = "inputType" value="round" class="btn-check" id="btn-check-outlined-round" autocomplete="off" required onclick="distanceX1()">
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-round">Round</label><br>
                     </div> 
-                <div class = "d-flex flex-fill me-3">
-                    <input type="radio" name = "inputLocation" value="south" class="btn-check" id="btn-check-outlined-south" autocomplete="off">
-                    <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-south">South</label><br>
-                </div> 
-                <div class = "d-flex flex-fill">
-                    <input type="radio" name = "inputLocation" value="west" class="btn-check" id="btn-check-outlined-west" autocomplete="off">
-                    <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-west">West</label><br>
-               </div> 
+                    <div class = "d-flex flex-fill me-3">
+                        <input type="radio" name = "inputType" value="go&back" class="btn-check" id="btn-check-outlined-go&back" autocomplete="off" onclick="distanceX2()">
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-go&back">Go & Back</label><br>
+                        </div> 
+                    <div class = "d-flex flex-fill me-3">
+                        <input type="radio" name = "inputType" value="oneway" class="btn-check" id="btn-check-outlined-oneway" autocomplete="off" onclick="distanceX1()">
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-oneway">One Way</label><br>
+                    </div> 
+                </div>
+                <div class="d-flex flex-fill">
+                    <div class = "d-flex flex-fill me-3">
+                        <input type="radio" name = "inputLocation" value="north" class="btn-check" id="btn-check-outlined-north" autocomplete="off" required>
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-north">North</label><br>
+                    </div> 
+                    <div class = "d-flex flex-fill me-3">
+                        <input type="radio" name = "inputLocation" value="east" class="btn-check" id="btn-check-outlined-east" autocomplete="off">
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-east">East</label><br>
+                        </div> 
+                    <div class = "d-flex flex-fill me-3">
+                        <input type="radio" name = "inputLocation" value="south" class="btn-check" id="btn-check-outlined-south" autocomplete="off">
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-south">South</label><br>
+                    </div> 
+                    <div class = "d-flex flex-fill">
+                        <input type="radio" name = "inputLocation" value="west" class="btn-check" id="btn-check-outlined-west" autocomplete="off">
+                        <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-west">West</label><br>
+                    </div> 
+                </div>
             </div>
             
             <div class="form-group form-floating mb-3">
@@ -92,6 +106,10 @@
                 <div class="form-group form-floating mb-3 me-3">
                     <input id="floatingProfile" type="text" class="form-control" name="inputProfile" readonly required>
                     <label for="floatingProfile">Profile</label>
+                </div>
+                <div class="form-group form-floating mb-3 me-3">
+                    <input id="floatingDistance" type="text" class="form-control" name="inputDistance" readonly required>
+                    <label for="floatingDistance">Distance</label>
                 </div>
                 {{-- <div class="d-flex flex-fill me-3">
                     <input type="radio" class="btn-check flex-fill" name="go_type" id="walking" autocomplete="off" checked>

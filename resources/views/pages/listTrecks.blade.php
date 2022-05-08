@@ -36,6 +36,8 @@
                 <th>Localisation</th>
                 <th>Hardness</th>
                 <th>Time</th>
+                <th>Type</th>
+                <th>Distance</th>
                 <th>Profile</th>
                 <th width="280px">Action</th> 
             </tr>
@@ -55,6 +57,8 @@
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>
                 <td>{{ $treck ->time }}h</td>
+                <td>{{ $treck ->type }}</td>
+                <td>{{ $treck ->distance }}</td>
                 <td>{{ $treck ->profil }}</td>
                 {{-- <td class="">
                     @if (Auth::user()->admin == 1)

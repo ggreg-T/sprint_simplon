@@ -1,6 +1,6 @@
 mapboxgl.accessToken =
     "pk.eyJ1IjoiY29sb3NzdXMxOTg1IiwiYSI6ImNsMm9penoxcjFoNGIzZG5xdm95eGhicDQifQ.0F6F6Mgivxm8qkGavUsXOw";
-
+let distance = 0;
 const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/streets-v11",
@@ -102,8 +102,7 @@ async function getMatch(coordinates, radius, profile) {
     const radiuses = radius.join(";");
     // Create the query
     // console.log(typeof coordinates);
-    document.getElementById("floatingCoords").value = coordinates;
-    document.getElementById("floatingProfile").value = profile;
+
     const query = await fetch(
         `https://api.mapbox.com/directions/v5/mapbox/${profile}/${coordinates}?` +
             `geometries=geojson&alternatives=true&continue_straight=true&` +
@@ -123,6 +122,29 @@ async function getMatch(coordinates, radius, profile) {
     // addRoute(coords);
     addRoute(response.routes[0].geometry);
     getInstructions(response.routes[0]);
+    // console.log(response.routes[0].distance);
+
+    //###---for add route informations in db by the form---###############################################
+    distance = response.routes[0].distance;
+    const goback = document.getElementById("btn-check-outlined-go&back");
+    if (goback) {
+        distance = distance * 2;
+    }
+
+    document.getElementById("floatingCoords").value = coordinates;
+    document.getElementById("floatingDistance").value = distance;
+    document.getElementById("floatingProfile").value = profile;
+}
+function distanceX2() {
+    let distance1Way = distance;
+    let oneClick = distance;
+    if (distance && oneClick == distance1Way) {
+        distance2Way = distance * 2;
+    }
+    document.getElementById("floatingDistance").value = distance2Way;
+}
+function distanceX1() {
+    document.getElementById("floatingDistance").value = distance;
 }
 
 function getInstructions(data) {
