@@ -20,6 +20,8 @@ class Trecks extends Migration
             $table->string('pseudo');
             $table->string('hardness');
             $table->string('time');
+            $table->string('type');
+            $table->string('distance');
             $table->string('location');
             $table->string('coords');
             $table->string('profil');
