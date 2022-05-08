@@ -30,8 +30,8 @@
 
             <div class="d-flex flex-row mb-3">
                 <div class="form-group form-floating flex-fill me-3">
-                    <input id="floatingTime" type="number" min="0" step=".5" class="form-control" name="inputTime" required>
-                    <label for="floatingTime">Time in Hour H</label>
+                    <input id="floatingTime" type="number" class="form-control" name="inputTime" required readonly>
+                    <label for="floatingTime">Time in Minutes</label>
                 </div>
                 <div class="d-flex text-center flex-fill me-2">
                     <input id="floatingSubmit" type="button" class="btn btn-success flex-fill" name="" value="Hardness :" disabled>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="form-group form-floating mb-3 me-3">
                     <input id="floatingDistance" type="text" class="form-control" name="inputDistance" readonly required>
-                    <label for="floatingDistance">Distance</label>
+                    <label for="floatingDistance">Distance in Km</label>
                 </div>
                 {{-- <div class="d-flex flex-fill me-3">
                     <input type="radio" class="btn-check flex-fill" name="go_type" id="walking" autocomplete="off" checked>
@@ -127,4 +127,6 @@
         </form>
     </div>
 </div>
+<script type="text/javascript" src='{{ url('js/userTreck.js') }}'></script>
+
 @endsection

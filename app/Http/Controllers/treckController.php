@@ -75,6 +75,7 @@ class treckController extends Controller
         $treck->location = $request->inputLocation;
         $treck->coords = $request->inputCoords;
         $treck->profil = $request->inputProfile;
+        $treck->description = $request->inputDescription;
         $treck->distance = $request->inputDistance;
         $treck->type = $request->inputType;
         $treck->save();
@@ -89,9 +90,15 @@ class treckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function detailTrek($id)
     {
-        //
+        $treck = Trecks::query()
+            ->where('id', '=', $id)
+            ->get();
+
+        $title = "Treck Réunion ".$treck[0]->location.' '.$treck[0]->treckName;
+        
+        return view('pages.detailTreck', ['trecks' => $treck, 'title' => $title]);
     }
 
     /**

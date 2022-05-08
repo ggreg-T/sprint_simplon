@@ -24,6 +24,7 @@ class Trecks extends Migration
             $table->string('distance');
             $table->string('location');
             $table->string('coords');
+            $table->string('description');
             $table->string('profil');
             $table->timestamps();
         });
