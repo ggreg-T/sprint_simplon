@@ -54,7 +54,7 @@
                                 value = "{{ $treck->treckName }}" readonly>
                     </form>
                 </td>
-                <td>{{ $treck ->img }}</td>
+                <td><img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="{{ $treck->name }}"></td>
                 <td>{{ $treck ->treckName }}</td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>

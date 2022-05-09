@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Trecks extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'treckName',
+        'idUser',
+        'pseudo',
+        'hardness',
+        'time',
+        'type',
+        'distance',
+        'location',
+        'coords',
+        'description',
+        'img',
+        'profil'
+    ];
 }

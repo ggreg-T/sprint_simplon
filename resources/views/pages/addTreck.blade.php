@@ -8,6 +8,9 @@
     @if(session('success'))
         <p class="alert alert-success">{{ session('success') }}</p>
     @endif
+    @if(session('error'))
+        <p class="alert alert-warning">{{ session('error') }}</p>
+    @endif
     <div class="d-flex flex mb-3">
         <div id='map' style='width: 50rem; height: 50rem;'>
         </div>
@@ -19,7 +22,7 @@
         </div>
     </div>
     <div>
-        <form method="POST" action="{{ route('treck.store')}}">
+        <form method="POST" action="{{ route('treck.store')}}" enctype="multipart/form-data">
             @csrf
             <input class="visually-hidden" readonly name="inputPseudo" value="{{ Auth::user()->pseudo }}">
             <input class="visually-hidden" readonly name="inputPseudoId" value="{{ Auth::user()->id }}">
@@ -30,16 +33,20 @@
                 </div>
                 {{-- <div class="form-group form-floating flex-fill">
                     <input id="floatingCircuitImg" type="file" class="form-control flex-fill" name="inputImg" multiple="multiple" required >
-                    {{-- <label for="floatingCircuitImg">Image</label> --}}
-                </div>
-                <div class="form-group">
+                    <label for="floatingCircuitImg">Image</label> 
+                </div>--}}
+                {{-- <div class="form-group">
                     <strong>Poster:</strong>
-                    <input type="file" name="inputImg" class="" id="images" multiple="multiple">
-                    @error('inputImg')
+                    <input type="file" name="img" class="" id="images" multiple="multiple">
+                    @error('img')
                         <div class="alert alert-danger mt-1 mb-1">
                             {{ $message }}
                         </div>
                     @enderror
+                </div> --}}
+                <div class="form-group form-floating mb-3">
+                    {{-- <label class="form-label" for="inputImage">Select Image:</label> --}}
+                    <input type="file" name="img" id="inputImage" class="form-control">
                 </div>
             </div>
 
