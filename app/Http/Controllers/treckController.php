@@ -65,13 +65,21 @@ class treckController extends Controller
             'inputCoords' => 'required',
             'inputProfile' => 'required',
             'inputType' => 'required',
-            // 'inputImg' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            // 'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         // dd($request);
 
-        $path = $request->file('inputImg')->store('public/images');
-        dd($request);
+        if (!$request->hasFile('img')){
+            return redirect()->back()
+                ->with('error', 'no img');
+        } 
+        // else {
+        //    dd($request); 
+        // }
+
+        $path = $request->file('img')->store('public/images');
+        
         $treck = new Trecks;
         $treck->treckName = $request->inputCircuitName;
         $treck->idUser = $request->inputPseudoId;
