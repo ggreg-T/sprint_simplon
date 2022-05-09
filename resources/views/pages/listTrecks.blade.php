@@ -30,7 +30,30 @@
                 <p>{{ $error }}</p>
             </div>
         @endif
-        <table class="table table-bordered">
+
+        <div class="d-flex flex-wrap">
+        @foreach ($trecks as $treck)
+            <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
+                <!-- <img src="logo.png" class="card-img-top" alt="image non chargé"> -->
+                <div class="card-body">
+
+                    
+                    <p class="card-text"><form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                        <input type="text" class="visually-hidden" 
+                                name="inputTreckId"
+                                value = "{{ $treck->id }}" readonly>
+                        <input type="submit" class="form-control me-2 btn bg-info"  
+                                name="inputDetailUser" 
+                                value = "{{ $treck->treckName }}" readonly>
+                    </form></p>
+                   
+                </div>
+            </div>
+
+
+        @endforeach
+        </div>
+        <!-- <table class="table table-bordered">
             <tr>
                 <th>Circuit Name</th>
                 <th>Localisation</th>
@@ -71,6 +94,6 @@
                 </td> --}}
             </tr>
             @endforeach
-        </table>
+        </table> -->
     </div>
 @endsection
