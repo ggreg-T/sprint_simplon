@@ -1,6 +1,6 @@
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-info px-md-5 ">
+        <nav class="navbar navbar-expand-md navbar-dark   px-md-5 "style="background-color:#a8eb44"> 
             <div class="container-fluid ps-md-0">
                 <div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -17,7 +17,7 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="navbar-brand" href="{{route('home')}}">Home</a>
+                                    <a class="navbar-brand" href="{{route('home')}}"><img style="height:50px; width:90px;"src="{{URL::asset('img/logo2.png')}}" alt="Logo"></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link dropdown-toggle navbar-brand text-white ms-3" href="#" id="listTrecks"
@@ -25,11 +25,11 @@
                                         Trecks
                                     </a>
                                     <ul class="dropdown-menu ms-4 px-4 bg-info" aria-labelledby="listTrecks">
-                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', "all") }}">Réunion</a></li>
-                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', "north") }}">North Réunion</a></li>
-                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', "east") }}">East Réunion</a></li>
-                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', "south") }}">South Réunion</a></li>
-                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', "west") }}">West Réunion</a></li>
+                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', 'all') }}">Réunion</a></li>
+                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', 'north') }}">North Réunion</a></li>
+                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', 'east') }}">East Réunion</a></li>
+                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', 'south') }}">South Réunion</a></li>
+                                        <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', 'west') }}">West Réunion</a></li>
                                     </ul>
                                 </li>
                                 

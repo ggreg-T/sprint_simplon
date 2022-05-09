@@ -15,7 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Welcome on TreckingSecu.re';
-        return view('layouts.home', ['title' => $title]);
+        return view('pages.acceuil', ['title' => $title]);
+        
     }
 
     public function userTreckView() 

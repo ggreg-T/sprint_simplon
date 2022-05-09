@@ -35,8 +35,8 @@
         @include('layouts.navbar')
         <main class="px-5">
             {{-- <h2>{{ $title }}</h2> --}}
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quo, veniam ut quis in temporibus adipisci nobis odio rem error. Nobis natus fuga enim necessitatibus atque vitae alias, voluptates facere!</p>
             
+
             @yield('content')
         </main>
     </body>
