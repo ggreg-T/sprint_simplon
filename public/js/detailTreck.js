@@ -75,7 +75,7 @@ const draw = new MapboxDraw({
 });
 
 // Add the draw tool to the map
-map.addControl(draw);
+// map.addControl(draw);
 
 // Add create, update, or delete actions
 // map.on("draw.create", updateRoute);
@@ -97,8 +97,13 @@ map.addControl(draw);
 // const newCoords = coords.join(";");
 // // Set the radius for each coordinate pair to 25 meters
 // const radius = coords.map(() => 25);
-getMatch(profile, coords);
+//getMatch(profile, coords);
 // }
+
+map.on("load", () => {
+    map.addControl(draw);
+    getMatch(profile, coords);
+});
 
 // Make a Map Matching request
 async function getMatch(profile, coordinates) {
