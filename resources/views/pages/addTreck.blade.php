@@ -23,9 +23,24 @@
             @csrf
             <input class="visually-hidden" readonly name="inputPseudo" value="{{ Auth::user()->pseudo }}">
             <input class="visually-hidden" readonly name="inputPseudoId" value="{{ Auth::user()->id }}">
-            <div class="form-group form-floating mb-3">
-                <input id="floatingCircuitName" type="text" class="form-control" name="inputCircuitName" required>
-                <label for="floatingCircuitName">CircuitName</label>
+            <div class="d-flex flex-row mb-3">
+                <div class="form-group form-floating me-3 flex-fill">
+                    <input id="floatingCircuitName" type="text" class="form-control flex-fill" name="inputCircuitName" required>
+                    <label for="floatingCircuitName">CircuitName</label>
+                </div>
+                {{-- <div class="form-group form-floating flex-fill">
+                    <input id="floatingCircuitImg" type="file" class="form-control flex-fill" name="inputImg" multiple="multiple" required >
+                    {{-- <label for="floatingCircuitImg">Image</label> --}}
+                </div>
+                <div class="form-group">
+                    <strong>Poster:</strong>
+                    <input type="file" name="inputImg" class="" id="images" multiple="multiple">
+                    @error('inputImg')
+                        <div class="alert alert-danger mt-1 mb-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
             </div>
 
             <div class="d-flex flex-row mb-3">

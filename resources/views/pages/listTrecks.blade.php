@@ -33,6 +33,7 @@
         <table class="table table-bordered">
             <tr>
                 <th>Circuit Name</th>
+                <th>Image</th>
                 <th>Localisation</th>
                 <th>Hardness</th>
                 <th>Time</th>
@@ -53,6 +54,7 @@
                                 value = "{{ $treck->treckName }}" readonly>
                     </form>
                 </td>
+                <td>{{ $treck ->img }}</td>
                 <td>{{ $treck ->treckName }}</td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>

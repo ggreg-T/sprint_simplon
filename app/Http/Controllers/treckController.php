@@ -53,6 +53,7 @@ class treckController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'inputPseudo' => 'required',
             'inputPseudoId' => 'required',
@@ -63,9 +64,14 @@ class treckController extends Controller
             'inputDescription' => 'required',
             'inputCoords' => 'required',
             'inputProfile' => 'required',
-            'inputType' => 'required'
+            'inputType' => 'required',
+            // 'inputImg' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
+        // dd($request);
+
+        $path = $request->file('inputImg')->store('public/images');
+        dd($request);
         $treck = new Trecks;
         $treck->treckName = $request->inputCircuitName;
         $treck->idUser = $request->inputPseudoId;
@@ -78,6 +84,7 @@ class treckController extends Controller
         $treck->description = $request->inputDescription;
         $treck->distance = $request->inputDistance;
         $treck->type = $request->inputType;
+        $treck->img = $path;
         $treck->save();
 
         return redirect()->back()
