@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function watchTreckers()
     {
-        $title = 'Trecking Tours engaged and in stand by. Updated : '.date("d/m/Y h:m");
+        $title = 'Trecking Tours engaged and in stand by. Updated : '.date("d/m/Y H:i");
         
         $treckers = Treckers::query()
             ->where('endConfirmed', '=', false)

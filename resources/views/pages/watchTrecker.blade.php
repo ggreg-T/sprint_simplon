@@ -1,11 +1,8 @@
 @extends('layouts.home')
 @section('content')
-	<h2>{{ $title }}</h2>
+	<h2 class="mt-5">{{ $title }}</h2>
 
-	<div id="">
-		<div >
-			<a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
-		</div>
+	<div class="my-5">
 		<table class="table table-bordered">
             <tr>
                 <th>Date</th>
@@ -18,8 +15,10 @@
             </tr>
 			@foreach ($treckers as $trecker)
 				<tr 
-				@if ($trecker->treckStandBy == false) class="bg-success" @endif
-				{{-- @elseif ($trecker->treckEndLimit < date("H:m")) class="bg-danger" --}}
+				@if (date("H:i") >= $trecker->treckEndLimit && $trecker->dateTreck == date("Y-m-d")) class="bg-danger"
+				@elseif (date("H:i") >= $trecker->treckEnd && $trecker->dateTreck == date("Y-m-d")) class="bg-warning"
+				@elseif ($trecker->treckStandBy == false) class="bg-success" @endif
+				
 				
 				>
 					<td>{{ $trecker->dateTreck }}</td>
