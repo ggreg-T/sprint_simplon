@@ -23,6 +23,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('userTreckView', [HomeController::class, 'userTreckView'])->name('userTreckView');
 Route::get('watchTreckers', [HomeController::class, 'watchTreckers'])->name('watchTreckers');
+Route::post('planificationTreck', [HomeController::class, 'planificationTreck'])->name('planificationTreck');
 
 Route::post('updateStatus/{id}', [userController::class, 'updateStatus'])->name('updateStatus');
 Route::get('logReg', [userController::class, 'register'])->name('logReg');

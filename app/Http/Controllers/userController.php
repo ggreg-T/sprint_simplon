@@ -17,8 +17,7 @@ class userController extends Controller
 
     public function register() 
     {
-        $data['title'] = 'Register';
-        return view('users.logReg', $data);
+        return redirect()->back();
     }
 
     public function register_action(Request $request) 
@@ -74,10 +73,10 @@ class userController extends Controller
         
         if (Auth::attempt(['pseudo' => $request->inputRegister, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            // return redirect()->intended('/');
         } elseif (Auth::attempt(['email' => $request->inputRegister, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            // return redirect()->intended('/');
         }
         // dd($request);
         // return back();

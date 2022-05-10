@@ -66,20 +66,31 @@
                         </div>
                     </form> --}}
                     @auth
-                        <a class="btn btn-primary ms-3 me-3 text-nowrap" href="{{ route('user.edit', Auth::user()->id) }}">
-                            <b>@if (Auth::user()->admin == 1) 👑 
+                        <div class="btn-group">
+                            <a class="nav-link dropdown-toggle text-white ms-3" href="#" id="userPages"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <b>@if (Auth::user()->admin == 1) 👑 
                                 @elseif (Auth::user()->operator == 1) 🎧 
                                 @endif
                                 {{ Auth::user()->pseudo }}</b>
-                        </a>
+                            </a>
+                                <ul class="dropdown-menu ms-5 px-4 bg-info" aria-labelledby="userPages">
+                                    <li class="list-inline-item"><a class="dropdown-item" href="#">Trecks</a></li>
+                                    <li class="list-inline-item"><a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id) }}">Personal informations</a></li>
+                                </ul>
+                        </div>
                         <a class="btn btn-danger me-3" href="{{ route('logout') }}">Logout</a>
                     @endauth
                     @guest
-                        <a class="btn btn-primary mx-3" href="{{ route('logReg') }}"><b>Visitor</b></a>
-                        <a class="btn btn-primary me-3" href="{{ route('logReg') }}">Login</a>
-                        <a class="btn btn-info me-3" href="{{ route('logReg') }}">Register</a>
+                        <a class="btn btn-primary mx-3" href="#"><b>Visitor</b></a>
+                        <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                            Login</button>
+                        <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                            Register</button>
                     @endguest
                 </div>
             </div>
         </nav>
     </div>
+    @include('composants.modalLogin')
+    @include('composants.modalRegister')
