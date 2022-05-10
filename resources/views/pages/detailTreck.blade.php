@@ -6,10 +6,16 @@
             <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data"> Back</a>
         </div>
     </div>
+    @if(session('success'))
+        <p class="alert alert-success">{{ session('success') }}</p>
+    @endif
+    @if(session('error'))
+        <p class="alert alert-warning">{{ session('error') }}</p>
+    @endif
     @foreach ($trecks as $treck)
-    <input class="visually-hidden" readonly id="profile" value="{{ $treck->profil }}">
-    <input class="visually-hidden" readonly id="coords" value="{{ $treck->coords }}">
-        
+        <input class="visually-hidden" readonly id="profile" value="{{ $treck->profil }}">
+        <input class="visually-hidden" readonly id="coords" value="{{ $treck->coords }}">
+            
         <div class="d-flex flex-row">
             <div class="d-flex flex mb-3">
                 <div id="map" style='width: 50rem; height: 50rem;'>
@@ -48,11 +54,51 @@
                         @endif
                     @endauth --}}
                 
+                </div>
             </div>
         </div>
-    </div>
  {{-- <script type="text/javascript" src='{{ url('js/detailTreck.js') }}'></script> --}}
-     
+        <div>
+            <h2>Make this Trip</h2>
+        @guest
+            <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                Reserve</button>
+        @endguest
+        @auth
+            <div class="d-flex">
+                <form method="POST" action="{{ route('planificationTreck') }}">
+                    @csrf
+                    <input type="text" class="visually-hidden" name="inputTreckName" value="{{ $treck->treckName }}" readonly>
+                    <input type="text" class="visually-hidden" name="inputTreckTime" value="{{ $treck->time }}" readonly>
+                    <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}" readonly>
+                    <input type="text" class="visually-hidden" name="inputProfil" value="{{ $treck->profil }}" readonly>
+                    <div class="d-flex flex-row mb-3">
+                        <div class="form-group form-floating d-flex flex-fill me-3">
+                            <input type="date" class="form-control flex-fill" name="inputDate" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">
+                            <label for="floatingDate">Date</label>
+                        </div>
+                        <div class="form-group form-floating d-flex flex-fill me-3">
+                            <input type="number" class="form-control flex-fill" step="15" min="0" name="inputTimeTampon" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">
+                            <label for="floatingDate">Temps Tampon in Min</label>
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex flex-row">
+                        <div class="form-group form-floating d-flex flex-fill me-3">
+                            <input type="time" class="form-control flex-fill" name="inputTimeStart" id="floatingTimeStart" value="{{ old('inputTimeStart') }}" placeholder="Time Start">
+                            <label for="floatingTimeStart">Time Start</label>
+                        </div>
+                        <div class="form-group form-floating d-flex flex-fill me-3">
+                            <input type="time" class="form-control flex-fill" name="inputTimeArrival" id="floatingTimeArrival" value="{{ old('inputTimeArrival') }}" placeholder="Time Arrival">
+                            <label for="floatingTimeArrival">Time Arrival</label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" type="submit">Reserve</button>
+                </form>
+            </div>
+        @endauth      
+        </div>
+          
     @endforeach  
     <script type="text/javascript" src='{{ url('js/detailTreck.js') }}'></script>  
 @endsection

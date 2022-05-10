@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Trecks;
+use App\Models\Treckers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,8 +19,7 @@ class userController extends Controller
 
     public function register() 
     {
-        $data['title'] = 'Register';
-        return view('users.logReg', $data);
+        return redirect()->back();
     }
 
     public function register_action(Request $request) 
@@ -74,10 +75,10 @@ class userController extends Controller
         
         if (Auth::attempt(['pseudo' => $request->inputRegister, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            // return redirect()->intended('/');
         } elseif (Auth::attempt(['email' => $request->inputRegister, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            // return redirect()->intended('/');
         }
         // dd($request);
         // return back();
@@ -174,6 +175,15 @@ class userController extends Controller
             -> with('success', $user->pseudo.' has been deleted successfully');
     }
 
+    public function destroyResa($treckerId)
+    {
+        // $treckerId->delete();
+        DB::table('treckers')->where('id', '=', $treckerId)->delete();
+
+        return redirect()->back()
+            ->with('success', 'Your trip was deleted with success.');
+    }
+
     public function edit($id)
     {
         $data = User::query()
@@ -211,6 +221,87 @@ class userController extends Controller
             return redirect() -> route('home')
             -> with("success", $user->pseudo." is simple user");
         }
+    }
+
+    public function userTrecksView() 
+    {
+        $title = "Welcome ".Auth::user()->pseudo;
+
+        $trecksResa = Trecks::rightJoin('treckers', 'trecks.id', '=', 'treckers.treckId')
+            ->select('trecks.img',
+                    'trecks.treckName',
+                    'treckers.id',
+                    'treckers.dateTreck',
+                    'treckers.treckStart',
+                    'treckers.treckEnd',
+                    'treckers.treckEndLimit')
+            ->where('treckers.idUser', '=', Auth::user()->id)
+            ->where('treckers.endConfirmed', '=', false)
+            ->where('treckers.treckStandBy', '=', true)
+            ->orderBy('treckers.dateTreck', 'asc')
+            ->get();
+
+        $trecksDone = Trecks::rightJoin('treckers', 'trecks.id', '=', 'treckers.treckId')
+            ->select('trecks.img',
+                    'trecks.treckName',
+                    'treckers.id',
+                    'treckers.dateTreck',
+                    'treckers.treckStart',
+                    'treckers.treckEnd',
+                    'treckers.treckEndLimit')
+            ->where('treckers.idUser', '=', Auth::user()->id)
+            ->where('treckers.endConfirmed', '=', true)
+            ->orderBy('treckers.dateTreck', 'asc')
+            ->get();
+
+        $treckRoad = Trecks::rightJoin('treckers', 'trecks.id', '=', 'treckers.treckId')
+            ->select('trecks.img',
+                    'trecks.treckName',
+                    'treckers.id',
+                    'treckers.dateTreck',
+                    'treckers.treckStart',
+                    'treckers.treckEnd',
+                    'treckers.treckEndLimit')
+            ->where('treckers.idUser', '=', Auth::user()->id)
+            ->where('treckers.treckStandBy', '=', false)
+            ->where('treckers.endConfirmed', '=', false)
+            ->orderBy('treckers.dateTreck', 'asc')
+            ->get();
+
+        return view('users/userTrecksView', [
+            'title' => $title,
+            'treckResa' => $trecksResa,
+            'treckDone' => $trecksDone,
+            'treckRoad' => $treckRoad]);
+    }
+
+    public function goTreck($id)
+    {
+        $controlDouble = Treckers::query()
+            ->where('idUser', '=', Auth::user()->id)
+            ->where('treckStandBy', '=', false)
+            ->where('treckers.endConfirmed', '=', false)
+            ->get();
+        if (count($controlDouble) > 0) {
+            return redirect()->back()
+            ->with('error', 'You can\'t do more then one trip at the same time.');
+        }
+        
+        $trecker = Treckers::find($id);
+        $trecker->treckStandBy = false;
+        $trecker->save();
+        
+        return redirect()->back()
+            ->with('success', 'Good Trip');
+    }
+    public function endTreck($id)
+    {
+        $trecker = Treckers::find($id);
+        $trecker->endConfirmed = true;
+        $trecker->save();
+        
+        return redirect()->back()
+            ->with('success', 'Good Trip');
     }
 }
 
