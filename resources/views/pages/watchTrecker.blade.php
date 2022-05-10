@@ -18,9 +18,9 @@
             </tr>
 			@foreach ($treckers as $trecker)
 				<tr 
-				@if ($trecker->treckStandBy == false) class="bg-succes"
-				@elseif ($trecker->treckEndLimit < date("H:m")) class="bg-danger"
-				@endif
+				@if ($trecker->treckStandBy == false) class="bg-success" @endif
+				{{-- @elseif ($trecker->treckEndLimit < date("H:m")) class="bg-danger" --}}
+				
 				>
 					<td>{{ $trecker->dateTreck }}</td>
 					<td>{{ $trecker->pseudo }}</td>

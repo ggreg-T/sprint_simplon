@@ -54,7 +54,6 @@
                         </form>
                     </td>
                     <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"  alt="{{ $treck->name }}"></td>
-                    <td>{{ $treck ->location }}</td>
                     <td>{{ $treck ->dateTreck }}</td>
                     <td>{{ $treck ->treckStart }}</td>
                     <td>{{ $treck ->treckEnd }}</td>
@@ -100,6 +99,8 @@
                     <td class="d-flex flex-row flex-fill">
                         <form class="flex-fill" action="{{ route('goTreck', $treck->id) }}" method="POST"> 
                             @csrf 
+                            <input name="inputTimeTreck" class="visually-hidden" value="{{ $treck->timeTreck }}" readonly>
+                            <input name="inputTimeTampon" class="visually-hidden" value="{{ $treck->timeTampon }}" readonly>
                             <button type="submit" class="btn btn-success" onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Start Trip</button> 
                         </form>
                         <form class="flex-fill" action="{{ route('destroyResa', $treck->id) }}" method="POST"> 
