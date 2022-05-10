@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast;
 
 class userController extends Controller
 {
@@ -234,7 +235,9 @@ class userController extends Controller
                     'treckers.dateTreck',
                     'treckers.treckStart',
                     'treckers.treckEnd',
-                    'treckers.treckEndLimit')
+                    'treckers.treckEndLimit',
+                    'treckers.timeTreck',
+                    'treckers.timeTampon')
             ->where('treckers.idUser', '=', Auth::user()->id)
             ->where('treckers.endConfirmed', '=', false)
             ->where('treckers.treckStandBy', '=', true)
@@ -275,7 +278,7 @@ class userController extends Controller
             'treckRoad' => $treckRoad]);
     }
 
-    public function goTreck($id)
+    public function goTreck(Request $request, $id)
     {
         $controlDouble = Treckers::query()
             ->where('idUser', '=', Auth::user()->id)
@@ -286,8 +289,28 @@ class userController extends Controller
             return redirect()->back()
             ->with('error', 'You can\'t do more then one trip at the same time.');
         }
-        
+
+        $wrongDay = Treckers::query()
+            ->where('idUser', '=', Auth::user()->id)
+            ->where('Id', '=', $id)
+            ->where('dateTreck', '=', date("Y-m-d"))
+            ->get();
+        if (count($wrongDay) == 0) {
+            return redirect()->back()
+            ->with('error', 'Wrong day, please make à new reservation for today.');
+        }
+
+        //###---update time informations for treck start and end---##############################
+        $timeTreck = $request->inputTimeTreck;
+        $timeTampon = $request->inputTimeTampon;
+        $treckStart = date("H:i");
+        $treckEnd = date("H:i", strtotime($treckStart.' + '.$timeTreck.' minute'));  
+        $treckEndLimit = date('H:i', strtotime($treckEnd.' + '.$timeTampon.' minute'));
+        //----------------------------------------------------------------------------------------
         $trecker = Treckers::find($id);
+        $trecker->treckStart = $treckStart;
+        $trecker->treckEnd = ($treckEnd);
+        $trecker->treckEndLimit = ($treckEndLimit);
         $trecker->treckStandBy = false;
         $trecker->save();
         
@@ -301,7 +324,7 @@ class userController extends Controller
         $trecker->save();
         
         return redirect()->back()
-            ->with('success', 'Good Trip');
+            ->with('success', 'Welcome Back');
     }
 }
 
