@@ -75,7 +75,7 @@
                                 {{ Auth::user()->pseudo }}</b>
                             </a>
                                 <ul class="dropdown-menu ms-5 px-4 bg-info" aria-labelledby="userPages">
-                                    <li class="list-inline-item"><a class="dropdown-item" href="#">Trecks</a></li>
+                                    <li class="list-inline-item"><a class="dropdown-item" href="{{ route('userTrecksView') }}">Trecks</a></li>
                                     <li class="list-inline-item"><a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id) }}">Personal informations</a></li>
                                 </ul>
                         </div>

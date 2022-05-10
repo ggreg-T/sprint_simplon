@@ -15,7 +15,7 @@ class Treckers extends Migration
     {
         Schema::create('treckers', function (Blueprint $table) {
             $table->id();
-            $table->string('treckName')->unique();
+            $table->string('treckName');
             $table->bigInteger('treckId');
             $table->string('pseudo');
             $table->bigInteger('idUser');

@@ -29,8 +29,14 @@ class HomeController extends Controller
 
     public function watchTreckers()
     {
-        $title = 'Trecking Tours engaged and in stand by.  '.date("d-m-Y h:m");
-        return view('pages.watchTrecker', ['title' => $title]);
+        $title = 'Trecking Tours engaged and in stand by. Updated : '.date("d/m/Y h:m");
+        
+        $treckers = Treckers::query()
+            ->where('endConfirmed', '=', false)
+            ->orderBy('dateTreck', 'asc')
+            ->get();
+        // dd($treckers);
+        return view('pages.watchTrecker', ['treckers' => $treckers, 'title' => $title]);
     }
 
     public function planificationTreck(Request $request) 
@@ -55,6 +61,7 @@ class HomeController extends Controller
             ->where('idUser', '=', Auth::user()->id)
             ->where('dateTreck', '=', $request->inputDate)
             ->where('treckEndLimit', '>', $treckStart)
+            ->where('endConfirmed', '=', false)
             ->get();
         $nbTrecksActiv = count($controlDoubleTrecks);
         if ($nbTrecksActiv == 1) {
@@ -79,4 +86,5 @@ class HomeController extends Controller
         return redirect()->back()
         ->with('success', 'Your trip is reserved and checkable in your personnel pages');
     }
+    
 }
