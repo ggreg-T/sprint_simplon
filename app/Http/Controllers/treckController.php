@@ -129,11 +129,6 @@ class treckController extends Controller
         return view('pages.modifyTreck', ['title' => $title, 'treck' => $treck]);
     }
 
-    public function modifyTreck($id)
-    {
-        
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -173,5 +168,25 @@ class treckController extends Controller
 
         return redirect() ->back()
             -> with('success', 'Your treck has been deleted successfully');
+    }
+
+    public function searchTreck(Request $request)
+    {
+        $treckSearched = trim($request -> get('inputSearchTreck'));
+        $title ='Results for '.$treckSearched;
+        
+        $trecks = Trecks::query()
+                ->where('private', '=', 'false')
+                ->where('treckName', 'like', "%{$treckSearched}%")
+                ->orWhere('description', 'like', "%{$treckSearched}%")
+                ->orderBy('created_at', 'ASC')
+                ->get();
+
+        if (count($trecks) == 0){
+            $error = 'No treck found, sorry.';
+            return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks, 'error' => $error]);
+        }
+        $error = '';
+        return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks, 'error' => $error]);
     }
 }

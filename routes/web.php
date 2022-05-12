@@ -43,4 +43,5 @@ Route::post('destroyResa/{treckId}', [userController::class, 'destroyResa'])->na
 Route::get('listTrecks/{location}', [treckController::class, 'getlistTrecks'])->name('getlistTrecks');
 Route::get('addTrecks', [treckController::class, 'addTrecks'])->name('addTrecks');
 Route::get('detailTrek/{treckId}', [treckController::class, 'detailTrek'])->name('detailTrek');
+Route::get('searchTreck', [treckController::class, 'searchTreck'])->name('searchTreck');
 Route::post('treckUpdate/{treckId}', [treckController::class, 'treckUpdate'])->name('treckUpdate');

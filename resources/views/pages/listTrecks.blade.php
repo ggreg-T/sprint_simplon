@@ -6,18 +6,7 @@
                 <h2>{{ $title }}</h2>
             </div>
             <div class="d-flex flex-row">
-                <div >
                     <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
-                </div>
-                <div>
-                    {{-- <form class="d-flex me-5" action="{{ route('searchTreck') }}" method="GET">
-                        @csrf
-                        <div class="input-group">
-                            <input class="form-control me-2" name="inputSearchTreck" placeholder="Search Treck..." aria-label="Search Treck...">
-                            <button class="btn btn-outline-success ms-2" type="submit">🔎</button>
-                        </div>
-                    </form> --}}
-                </div>
             </div>
         </div>
         @if ($message = Session::get('success'))
