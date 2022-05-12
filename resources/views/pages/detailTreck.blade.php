@@ -72,6 +72,7 @@
                     <input type="text" class="visually-hidden" name="inputTreckTime" value="{{ $treck->time }}" readonly>
                     <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}" readonly>
                     <input type="text" class="visually-hidden" name="inputProfil" value="{{ $treck->profil }}" readonly>
+                    <input type="text" class="visually-hidden" name="inputPrivate" value="{{ $treck->private }}" readonly>
                     <div class="d-flex flex-row mb-3">
                         <div class="form-group form-floating d-flex flex-fill me-3">
                             <input type="date" class="form-control flex-fill" name="inputDate" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">

@@ -28,6 +28,7 @@ class Treckers extends Migration
             $table->boolean('treckStandBy')->default(true);
             $table->boolean('endConfirmed')->default(false);
             $table->string('profil');
+            $table->boolean('private');
             $table->timestamps();
         });
     }

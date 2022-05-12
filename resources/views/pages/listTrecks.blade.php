@@ -32,7 +32,7 @@
         @endif
 
         <div class="d-flex flex-wrap">
-        @foreach ($trecks as $treck)
+        {{-- @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
                 <!-- <img src="logo.png" class="card-img-top" alt="image non chargé"> -->
                 <div class="card-body">
@@ -49,11 +49,9 @@
                    
                 </div>
             </div>
-
-
-        @endforeach
+        @endforeach --}}
         </div>
-        <!-- <table class="table table-bordered">
+        <table class="table table-bordered">
             <tr>
                 <th>Circuit Name</th>
                 <th>Image</th>
@@ -77,25 +75,31 @@
                                 value = "{{ $treck->treckName }}" readonly>
                     </form>
                 </td>
-                <td><img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="{{ $treck->name }}"></td>
-                <td>{{ $treck ->treckName }}</td>
+                <td><img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"></td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>
                 <td>{{ $treck ->time }}h</td>
                 <td>{{ $treck ->type }}</td>
                 <td>{{ $treck ->distance }}</td>
                 <td>{{ $treck ->profil }}</td>
-                {{-- <td class="">
-                    @if (Auth::user()->admin == 1)
+                <td class="">
+                    @if (Auth::user()->admin == false && Auth::user()->id == $treck->idUser && $treck->private == true)
                         <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
                             @csrf 
                             @method('DELETE') 
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete</button> 
                         </form>
+                    @elseif (Auth::user()->admin == true && $treck->idUser == Auth::user()->id)
+                        <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
+                            @csrf 
+                            @method('DELETE') 
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete</button> 
+                        </form>
+                        <a class="btn btn-info" href="{{ route('treck.edit', $treck->id) }}">Modify</a>
                     @endif
-                </td> --}}
+                </td>
             </tr>
             @endforeach
-        </table> -->
+        </table>
     </div>
 @endsection

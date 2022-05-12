@@ -326,5 +326,23 @@ class userController extends Controller
         return redirect()->back()
             ->with('success', 'Welcome Back');
     }
+    
+    public function listUserTrecksView()
+    {
+        $title = 'Your own Treck Saved';
+        $listTrecks = Trecks::query()
+            ->where('idUser', '=', Auth::user()->id)
+            ->where('private', '=', true)
+            // ->orderBy('created_at', 'ASC')->paginate(100)
+            ->get();
+
+        $nbTrecks = count($listTrecks);
+        if ($nbTrecks == 0) {
+            $error = "You dont have personel Trecks yet.";
+            return view('pages.listTrecks', ['title' => $title, 'trecks' => $listTrecks, 'error' => $error]);
+        }
+        $error = "";
+        return view('pages.listTrecks', ['title' => $title, 'trecks' => $listTrecks, 'error' => $error]);
+    }
 }
 

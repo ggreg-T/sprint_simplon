@@ -2,6 +2,8 @@ mapboxgl.accessToken =
     "pk.eyJ1IjoiY29sb3NzdXMxOTg1IiwiYSI6ImNsMm9penoxcjFoNGIzZG5xdm95eGhicDQifQ.0F6F6Mgivxm8qkGavUsXOw";
 coords = document.getElementById("coords").value;
 profile = document.getElementById("profile").value;
+
+let distance = 0;
 const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/streets-v11",
@@ -187,25 +189,29 @@ function removeRoute() {
 
 //####---direction fields---####################################################
 
-// const nav = new mapboxgl.NavigationControl();
-// map.addControl(nav);
+// // Add geolocate control to the map.
+// map.addControl(
+//     new mapboxgl.GeolocateControl({
+//         positionOptions: {
+//             enableHighAccuracy: true,
+//         },
+//         // When active the map will receive updates to the device's location as it changes.
+//         trackUserLocation: true,
+//         // Draw an arrow next to the location dot to indicate which direction the device is heading.
+//         showUserHeading: true,
+//     })
+// );
 
-// let direction = new MapboxDirection({
-//     accessToken: mapboxgl.accessToken,
-// });
-
-// map.addControl(directions, "top-left");
-
-const distance = document.getElementById("floatingDistance").value;
-const timeTreck = document.getElementById("floatingTime").value;
-
-function distanceX2() {
-    distance2Way = distance * 2;
-    time2Way = timeTreck * 2;
-    document.getElementById("floatingDistance").value = distance2Way;
-    document.getElementById("floatingTime").value = time2Way;
-}
-function distanceX1() {
-    document.getElementById("floatingDistance").value = distance;
-    document.getElementById("floatingTime").value = timeTreck;
-}
+const geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true,
+    },
+    trackUserLocation: true,
+});
+map.addControl(geolocate);
+geolocate.on("geolocate", (e) => {
+    var lon = e.coords.longitude;
+    var lat = e.coords.latitude;
+    var position = [lon, lat];
+    console.log(position);
+});
