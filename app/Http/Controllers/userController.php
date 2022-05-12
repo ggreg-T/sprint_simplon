@@ -18,11 +18,6 @@ class userController extends Controller
         return view('users.users', $data);
     }
 
-    public function register() 
-    {
-        return redirect()->back();
-    }
-
     public function register_action(Request $request) 
     {
         // dd($request);
@@ -56,16 +51,10 @@ class userController extends Controller
         $user->password = Hash::make($request->inputPassword);
         
         $user->save();
-        return redirect() 
-            -> route('logReg')
+
+        return redirect()->back()
             -> with('success', 'inscription successed, please login');
     }
-
-    // public function login() 
-    // {
-    //     $data['title'] = 'Login';
-    //     return view('users/logReg', $data);
-    // }
 
     public function login_action(Request $request)
     {
@@ -76,10 +65,12 @@ class userController extends Controller
         
         if (Auth::attempt(['pseudo' => $request->inputRegister, 'password' => $request->password])) {
             $request->session()->regenerate();
-            // return redirect()->intended('/');
+            return redirect()->back()
+                ->with('success', 'Welcome '.Auth::user()->pseudo);
         } elseif (Auth::attempt(['email' => $request->inputRegister, 'password' => $request->password])) {
             $request->session()->regenerate();
-            // return redirect()->intended('/');
+            return redirect()->back()
+                ->with('success', 'Welcome '.Auth::user()->pseudo);
         }
         // dd($request);
         // return back();

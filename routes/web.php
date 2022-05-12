@@ -27,9 +27,8 @@ Route::get('userPosi/{treckId}', [HomeController::class, 'userPosi'])->name('use
 
 Route::get('listUserTrecksView', [userController::class, 'listUserTrecksView'])->name('listUserTrecksView');
 Route::post('updateStatus/{id}', [userController::class, 'updateStatus'])->name('updateStatus');
-Route::get('logReg', [userController::class, 'register'])->name('logReg');
 Route::post('register', [userController::class, 'register_action'])->name('register.action');
-Route::post('logReg', [userController::class, 'login_action'])->name('login.action');
+Route::post('login', [userController::class, 'login_action'])->name('login.action');
 Route::get('changePersoInfos', [userController::class, 'changeUserInfos'])->name('changeUserInfos');
 Route::post('changePersoInfos', [userController::class, 'changeUserInfos_action'])->name('changeUserInfos.action');
 Route::get('logout', [userController::class, 'logout'])->name('logout');

@@ -70,7 +70,7 @@
                         <input type="password" class="form-control" name="inputPassword_confirmation" id="floatingConfirmPassword" placeholder="Confirm Password">
                         <label for="floatingConfirmPassword">Confirm Password</label>
                     </div>
-                    <button class="btn btn-primary" type="submit">GoGo</button>
+                    <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modalLogin">GoGo</button>
                 </form>
             </div>
             <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
