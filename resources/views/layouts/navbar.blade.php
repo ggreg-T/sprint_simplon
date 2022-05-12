@@ -32,11 +32,6 @@
                                         <li class="list-inline-item"><a class="dropdown-item" href="{{ route('getlistTrecks', 'west') }}">West Réunion</a></li>
                                     </ul>
                                 </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="{{ route('userTreckView')}}">Your Trek</a>
-                                </li>
-                                
                                 @auth
                                     @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
                                         <li class="nav-item">
@@ -74,9 +69,11 @@
                                 @endif
                                 {{ Auth::user()->pseudo }}</b>
                             </a>
-                                <ul class="dropdown-menu ms-5 px-4 bg-info" aria-labelledby="userPages">
-                                    <li class="list-inline-item"><a class="dropdown-item" href="{{ route('userTrecksView') }}">Trecks</a></li>
+                                <ul class="dropdown-menu ms-5 px-4 bg-info" aria-labelledby="userPages"><li class="nav-item">
+                                    <li class="list-inline-item"><a class="dropdown-item" href="{{ route('listUserTrecksView') }}">Your Trecks</a></li>
+                                    <li class="list-inline-item"><a class="dropdown-item" href="{{ route('userTrecksView') }}">Dashbord</a></li>
                                     <li class="list-inline-item"><a class="dropdown-item" href="{{ route('user.edit', Auth::user()->id) }}">Personal informations</a></li>
+                                    <li class="list-inline-item"><a class="dropdown-item" href="{{ route('addTrecks') }}">TreckCreator</a></li>
                                 </ul>
                         </div>
                         <a class="btn btn-danger me-3" href="{{ route('logout') }}">Logout</a>

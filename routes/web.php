@@ -21,10 +21,11 @@ Route::resource('home', HomeController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::get('userTreckView', [HomeController::class, 'userTreckView'])->name('userTreckView');
 Route::get('watchTreckers', [HomeController::class, 'watchTreckers'])->name('watchTreckers');
 Route::post('planificationTreck', [HomeController::class, 'planificationTreck'])->name('planificationTreck');
+Route::get('userPosi/{treckId}', [HomeController::class, 'userPosi'])->name('userPosi');
 
+Route::get('listUserTrecksView', [userController::class, 'listUserTrecksView'])->name('listUserTrecksView');
 Route::post('updateStatus/{id}', [userController::class, 'updateStatus'])->name('updateStatus');
 Route::get('logReg', [userController::class, 'register'])->name('logReg');
 Route::post('register', [userController::class, 'register_action'])->name('register.action');
@@ -42,3 +43,4 @@ Route::post('destroyResa/{treckId}', [userController::class, 'destroyResa'])->na
 Route::get('listTrecks/{location}', [treckController::class, 'getlistTrecks'])->name('getlistTrecks');
 Route::get('addTrecks', [treckController::class, 'addTrecks'])->name('addTrecks');
 Route::get('detailTrek/{treckId}', [treckController::class, 'detailTrek'])->name('detailTrek');
+Route::post('treckUpdate/{treckId}', [treckController::class, 'treckUpdate'])->name('treckUpdate');

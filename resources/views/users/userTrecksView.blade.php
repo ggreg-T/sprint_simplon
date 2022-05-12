@@ -105,8 +105,7 @@
                         </form>
                         <form class="flex-fill" action="{{ route('destroyResa', $treck->id) }}" method="POST"> 
                             @csrf 
-                            {{-- @method('DELETE') --}}
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Cancel Trip</button> 
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('You wanna cancel your trip {{ $treck->treckName }} ?');">Cancel Trip</button> 
                         </form>
                         {{-- <a href="{{ route('destroyResa', $treck->id) }}" type="submit" class="btn btn-danger" onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Cancel Trip link</a>  --}}
                     </td>

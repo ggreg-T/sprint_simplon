@@ -17,26 +17,24 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Welcome on TreckingSecu.re';
+        
         return view('pages.acceuil', ['title' => $title]);
         
     }
 
-    public function userTreckView() 
-    {
-        $title = 'Welcome on TreckingSecu.re';
-        return view('pages.userTreck', ['title' => $title]);
-    }
-
     public function watchTreckers()
     {
-        $title = 'Trecking Tours engaged and in stand by. Updated : '.date("d/m/Y H:i");
-        
+        $titleMain = 'Trecking Tours engaged and in stand by.';
+        $titleTime = 'Updated : '.date("d/m/Y H:i");
+
         $treckers = Treckers::query()
             ->where('endConfirmed', '=', false)
             ->orderBy('dateTreck', 'asc')
             ->get();
         // dd($treckers);
-        return view('pages.watchTrecker', ['treckers' => $treckers, 'title' => $title]);
+        return view('pages.watchTrecker', ['treckers' => $treckers,
+                            'titleMain' => $titleMain,
+                            'titleTime' => $titleTime]);
     }
 
     public function planificationTreck(Request $request) 
@@ -50,6 +48,7 @@ class HomeController extends Controller
             'inputTreckTime' => 'required',
             'inputTreckId' => 'required',
             'inputProfil' => 'required',
+            'inputPrivate' => 'required'
         ]);
 
         $treckStart = $request->inputTimeStart;
@@ -81,10 +80,21 @@ class HomeController extends Controller
         $trecker->treckEnd = $treckEnd;
         $trecker->treckEndLimit = $treckEndLimit;
         $trecker->profil = $request->inputProfil;
+        $trecker->private = $request->inputPrivate;
         $trecker->save();
 
         return redirect()->back()
-        ->with('success', 'Your trip is reserved and checkable in your personnel pages');
+        ->with('success', 'Your trip is reserved and checkable in your Dashbord');
     }
     
+    public function userPosi($id)
+    {
+        $treck = Trecks::query()
+            ->where('id', '=', $id)
+            ->get();
+
+        $title = "Position of ".$treck[0]->location.' '.$treck[0]->treckName;
+        
+        return view('users.userPosi', ['trecks' => $treck, 'title' => $title]);
+    }
 }

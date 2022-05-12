@@ -17,11 +17,14 @@ class treckController extends Controller
         $title = "Treck Réunion ".$location;
 
         if ($location == "all") {
-            $listTrecks = Trecks::orderBy('created_at', 'ASC')->paginate(100);
+            $listTrecks = Trecks::query()
+                ->where('private', '=', false)
+                ->orderBy('created_at', 'ASC')->paginate(25);
         } else {
             $listTrecks = Trecks::query()
             ->where('location', '=', $location)
-            // ->orderBy('created_at', 'ASC')->paginate(100)
+            ->where('private', '=', false)
+            ->orderBy('created_at', 'ASC')->paginate(25)
             ->get();
         }
 
@@ -57,9 +60,8 @@ class treckController extends Controller
         $request->validate([
             'inputPseudo' => 'required',
             'inputPseudoId' => 'required',
+            'inputPrivate' => 'required',
             'inputCircuitName' => 'required',
-            'inputHardness' => 'required',
-            'inputTime' => 'required',
             'inputLocation' => 'required',
             'inputDescription' => 'required',
             'inputCoords' => 'required',
@@ -67,19 +69,12 @@ class treckController extends Controller
             'inputType' => 'required',
             // 'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-
-        // dd($request);
-
-        if (!$request->hasFile('img')){
-            return redirect()->back()
-                ->with('error', 'no img');
-        } 
-        // else {
-        //    dd($request); 
-        // }
-
-        $path = $request->file('img')->store('public/images');
-        
+        if ($request->file('img') != null) {
+           $path = $request->file('img')->store('public/images'); 
+        } else {
+            $path = "no image avaiable";
+        }
+        //  dd($request);
         $treck = new Trecks;
         $treck->treckName = $request->inputCircuitName;
         $treck->idUser = $request->inputPseudoId;
@@ -93,6 +88,7 @@ class treckController extends Controller
         $treck->distance = $request->inputDistance;
         $treck->type = $request->inputType;
         $treck->img = $path;
+        $treck->private = $request->inputPrivate;
         $treck->save();
 
         return redirect()->back()
@@ -105,10 +101,10 @@ class treckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detailTrek($id)
+    public function detailTrek($idTreck)
     {
         $treck = Trecks::query()
-            ->where('id', '=', $id)
+            ->where('id', '=', $idTreck)
             ->get();
 
         $title = "Treck Réunion ".$treck[0]->location.' '.$treck[0]->treckName;
@@ -122,9 +118,20 @@ class treckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idTreck)
     {
-        //
+        $treck = Trecks::query()
+            ->where('id', '=', $idTreck)
+            ->get();
+        // dd($treck);
+        $title = "Modify ".$treck[0]->treckName;
+      
+        return view('pages.modifyTreck', ['title' => $title, 'treck' => $treck]);
+    }
+
+    public function modifyTreck($id)
+    {
+        
     }
 
     /**
@@ -134,9 +141,24 @@ class treckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function treckUpdate(Request $request, $treckId)
     {
-        //
+        if ($request->file('img') != null) {
+            $path = $request->file('img')->store('public/images'); 
+         } else {
+             $path = "no image avaiable";
+         }
+    
+        $treck = Trecks::find($treckId);
+        $treck->treckName = $request->inputCircuitName;
+        $treck->hardness = $request->inputHardness;
+        $treck->location = $request->inputLocation;
+        $treck->description = $request->inputDescription;
+        $treck->img = $path;
+        $treck->private = $request->inputPrivate;
+        $treck->save();
+        return redirect()->back()
+            ->with('success', 'The treckinformations are up to date.');
     }
 
     /**
@@ -145,8 +167,11 @@ class treckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Trecks $treck)
     {
-        //
+        $treck->delete();
+
+        return redirect() ->back()
+            -> with('success', 'Your treck has been deleted successfully');
     }
 }

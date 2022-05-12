@@ -18,8 +18,8 @@ class Trecks extends Migration
             $table->string('treckName')->unique();
             $table->bigInteger('idUser');
             $table->string('pseudo');
-            $table->string('hardness');
-            $table->string('time');
+            $table->string('hardness')->nullable();
+            $table->string('time')->nullable();
             $table->string('type');
             $table->string('distance');
             $table->string('location');
@@ -27,9 +27,10 @@ class Trecks extends Migration
             $table->string('description');
             $table->string('profil');
             $table->string('img');
+            $table->boolean('private')->default(false);
             $table->timestamps();
         });
-    }
+    }   
 
     /**
      * Reverse the migrations.

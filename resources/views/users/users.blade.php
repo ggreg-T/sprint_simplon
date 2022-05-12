@@ -29,25 +29,18 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Age</th>
                 <th>Pseudo</th>
                 <th>E-mail</th>
                 <th>Phone</th>
-                <th>Contact 1 Name</th>
-                <th>Contact 1 Tel</th>
-                <th>Contact 2 Name</th>
-                <th>Contact 2 Tel</th>
-                <th>Created at</th>
+                {{-- <th>Created at</th> --}}
                 <th>🎧</th>
                 <th>👑</th>
-                <th>Id</th>
                 <th width="280px">Action</th> 
             </tr>
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user ->firstName }}</td>
                 <td>{{ $user ->lastName }}</td>
-                <td>{{ $user ->age }}</td>
                 <td>
                     <form action="{{ route('user.edit', $user->id) }}" method="get">
                         <input type="text" class="visually-hidden" 
@@ -60,14 +53,17 @@
                 </td>
                 <td>{{ $user ->email }}</td>
                 <td>{{ $user ->phone }}</td>
-                <td>{{ $user ->contact1 }}</td>
-                <td>{{ $user ->phone1 }}</td>
-                <td>{{ $user ->contact2 }}</td>
-                <td>{{ $user ->phone2 }}</td>
-                <td>{{ \Carbon\Carbon::parse($user->created_at)->locale('nl')->format('d/m/Y H:i:s') }}</td> 
-                <td>{{ $user ->operator }}</td>
-                <td>{{ $user ->admin }}</td>
-                <td>{{ $user ->id }}</td>
+                {{-- <td>{{ \Carbon\Carbon::parse($user->created_at)->locale('nl')->format('d/m/Y H:i:s') }}</td>  --}}
+                <td> 
+                    @if ($user ->operator == true) 🎧
+                    @elseif ($user ->operator == false)
+                    @endif
+                </td>
+                <td> 
+                    @if ($user ->admin == true) 👑
+                    @elseif ($user ->admin == false)
+                    @endif
+                </td>
                 <td class="">
                     @if (Auth::user()->admin == 1)
                         <form action="{{ route('user.destroy', $user->id) }}" method="Post"> 
