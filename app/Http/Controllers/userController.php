@@ -281,27 +281,29 @@ class userController extends Controller
             ->with('error', 'You can\'t do more then one trip at the same time.');
         }
 
-        $wrongDay = Treckers::query()
-            ->where('idUser', '=', Auth::user()->id)
-            ->where('Id', '=', $id)
-            ->where('dateTreck', '=', date("Y-m-d"))
-            ->get();
-        if (count($wrongDay) == 0) {
-            return redirect()->back()
-            ->with('error', 'Wrong day, please make à new reservation for today.');
-        }
+        // $wrongDay = Treckers::query()
+        //     ->where('idUser', '=', Auth::user()->id)
+        //     ->where('Id', '=', $id)
+        //     ->where('dateTreck', '=', date("Y-m-d"))
+        //     ->get();
+        // if (count($wrongDay) == 0) {
+        //     return redirect()->back()
+        //     ->with('error', 'Wrong day, please make à new reservation for today.');
+        // }
 
         //###---update time informations for treck start and end---##############################
         $timeTreck = $request->inputTimeTreck;
         $timeTampon = $request->inputTimeTampon;
+        $treckDate = date("Y:m:d");
         $treckStart = date("H:i");
         $treckEnd = date("H:i", strtotime($treckStart.' + '.$timeTreck.' minute'));  
         $treckEndLimit = date('H:i', strtotime($treckEnd.' + '.$timeTampon.' minute'));
         //----------------------------------------------------------------------------------------
         $trecker = Treckers::find($id);
         $trecker->treckStart = $treckStart;
-        $trecker->treckEnd = ($treckEnd);
-        $trecker->treckEndLimit = ($treckEndLimit);
+        $trecker->dateTreck = $treckDate;
+        $trecker->treckEnd = $treckEnd;
+        $trecker->treckEndLimit = $treckEndLimit;
         $trecker->treckStandBy = false;
         $trecker->save();
         
