@@ -24,7 +24,7 @@ class treckController extends Controller
             $listTrecks = Trecks::query()
             ->where('location', '=', $location)
             ->where('private', '=', false)
-            ->orderBy('created_at', 'ASC')->paginate(25)
+            // ->orderBy('created_at', 'ASC')->paginate(25)
             ->get();
         }
 
