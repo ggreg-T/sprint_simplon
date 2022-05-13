@@ -69,7 +69,7 @@
                 <form method="POST" action="{{ route('planificationTreck') }}">
                     @csrf
                     <input type="text" class="visually-hidden" name="inputTreckName" value="{{ $treck->treckName }}" readonly>
-                    <input type="text" class="visually-hidden" name="inputTreckTime" value="{{ $treck->time }}" readonly>
+                    {{-- <input type="text" class="visually-hidden" name="inputTreckTime" value="{{ $treck->time }}" readonly> --}}
                     <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}" readonly>
                     <input type="text" class="visually-hidden" name="inputProfil" value="{{ $treck->profil }}" readonly>
                     <input type="text" class="visually-hidden" name="inputPrivate" value="{{ $treck->private }}" readonly>
@@ -79,19 +79,20 @@
                             <label for="floatingDate">Date</label>
                         </div>
                         <div class="form-group form-floating d-flex flex-fill me-3">
-                            <input type="number" class="form-control flex-fill" step="15" min="0" name="inputTimeTampon" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">
-                            <label for="floatingDate">Temps Tampon in Min</label>
+                            <input type="time" class="form-control flex-fill" name="inputTimeStart" id="floatingTimeStart" value="{{ old('inputTimeStart') }}" placeholder="Time Start">
+                            <label for="floatingTimeStart">Time Start</label>
                         </div>
                     </div>
                     <div class="mb-3 d-flex flex-row">
                         <div class="form-group form-floating d-flex flex-fill me-3">
-                            <input type="time" class="form-control flex-fill" name="inputTimeStart" id="floatingTimeStart" value="{{ old('inputTimeStart') }}" placeholder="Time Start">
-                            <label for="floatingTimeStart">Time Start</label>
+                            <input type="number" class="form-control flex-fill" step="15" min="{{ $treck->time }}" name="inputTimeTreck" id="floatingTimeTreck" value="{{ $treck->time }}" placeholder="Time Arrival">
+                            <label for="floatingTimeTreck">Time Treck in Min</label>
                         </div>
                         <div class="form-group form-floating d-flex flex-fill me-3">
-                            <input type="time" class="form-control flex-fill" name="inputTimeArrival" id="floatingTimeArrival" value="{{ old('inputTimeArrival') }}" placeholder="Time Arrival">
-                            <label for="floatingTimeArrival">Time Arrival</label>
+                            <input type="number" class="form-control flex-fill" step="15" min="0" name="inputTimeTampon" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">
+                            <label for="floatingDate">Temps Tampon in Min</label>
                         </div>
+                        
                     </div>
                     
                     <button class="btn btn-primary" type="submit">Reserve</button>
