@@ -9,18 +9,13 @@
                 <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
             </div>
         </div>
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
+        @if (session('success'))
+            <p class="alert alert-danger">{{ session('success') }}</p>
         @endif
-        @if ($error)
-            <div class="alert alert-danger">
-                <p>{{ $error }}</p>
-            </div>
+        @if(session('error'))
+            <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
 
-        
         <div class="d-flex flex-wrap">
         {{-- @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">

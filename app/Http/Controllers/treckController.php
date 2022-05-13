@@ -318,8 +318,15 @@ class treckController extends Controller
     {
         $treck->delete();
 
-        return redirect() ->back()
-            -> with('success', 'Your treck has been deleted successfully');
+        $title = "Treck Réunion ";
+        $trecks = Trecks::query()
+                ->where('private', '=', false)
+                ->orderBy('created_at', 'ASC')
+                ->get();
+        // dd($trecks);   
+
+        return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks])
+            ->with('success', 'Your treck has been deleted successfully');
     }
 
     public function searchTreck(Request $request)
