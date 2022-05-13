@@ -9,7 +9,7 @@
         <p class="alert alert-success">{{ session('success') }}</p>
     @endif
     @if(session('error'))
-        <p class="alert alert-warning">{{ session('error') }}</p>
+        <p class="alert alert-danger">{{ session('error') }}</p>
     @endif
     <div class="d-flex flex mb-3">
         <div id='map' style='width: 50rem; height: 50rem;'>
