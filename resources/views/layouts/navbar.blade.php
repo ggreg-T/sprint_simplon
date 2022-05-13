@@ -1,4 +1,3 @@
-
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark   px-md-5 "style="background-color:#a8eb44"> 
             <div class="container-fluid ps-md-0">

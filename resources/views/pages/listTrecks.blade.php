@@ -15,7 +15,7 @@
             </div>
         @endif
         @if ($error)
-            <div class="alert alert-warning">
+            <div class="alert alert-danger">
                 <p>{{ $error }}</p>
             </div>
         @endif

@@ -5,7 +5,7 @@
         <p class="alert alert-success mt-3">{{ session('success') }}</p>
     @endif
     @if(session('error'))
-        <p class="alert alert-warning mt-3">{{ session('error') }}</p>
+        <p class="alert alert-danger mt-3">{{ session('error') }}</p>
 @endif
  <img style="width:100%; height:500px;" class="mb-5"src="{{URL::asset('img/trekk.jpg')}}" alt="img">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quo, veniam ut quis in temporibus adipisci nobis odio rem error. Nobis natus fuga enim necessitatibus atque vitae alias, voluptates facere!</p>

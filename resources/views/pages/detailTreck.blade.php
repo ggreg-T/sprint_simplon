@@ -10,7 +10,7 @@
         <p class="alert alert-success">{{ session('success') }}</p>
     @endif
     @if(session('error'))
-        <p class="alert alert-warning">{{ session('error') }}</p>
+        <p class="alert alert-danger">{{ session('error') }}</p>
     @endif
     @foreach ($trecks as $treck)
         <input class="visually-hidden" readonly id="profile" value="{{ $treck->profil }}">

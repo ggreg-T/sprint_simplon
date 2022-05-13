@@ -26,7 +26,7 @@
             </div>
         @endif
         @if ($error = Session::get('error'))
-            <div class="alert alert-warning">
+            <div class="alert alert-danger">
                 <p>{{ $error }}</p>
             </div>
         @endif
