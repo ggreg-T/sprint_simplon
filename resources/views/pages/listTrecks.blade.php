@@ -73,21 +73,21 @@
                 <td>{{ $treck ->profil }}</td>
                 @auth
                     <td class="">
-                        @if (Auth::user()->admin == false && Auth::user()->id == $treck->idUser && $treck->private == true)
-                            <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
-                                @csrf 
-                                @method('DELETE') 
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete</button> 
-                            </form>
-                        @elseif (Auth::user()->admin == true && $treck->idUser == Auth::user()->id)
-                            <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
-                                @csrf 
-                                @method('DELETE') 
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete</button> 
-                            </form>
-                            <a class="btn btn-info" href="{{ route('treck.edit', $treck->id) }}">Modify</a>
-                        @endif
-                    </td>
+                    @if (Auth::user()->admin == false && Auth::user()->id == $treck->idUser && $treck->private == true)
+                        <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
+                            @csrf 
+                            @method('DELETE') 
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete</button> 
+                        </form>
+                    @elseif (Auth::user()->admin == true && $treck->idUser == Auth::user()->id)
+                        <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
+                            @csrf 
+                            @method('DELETE') 
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete</button> 
+                        </form>
+                        <a class="btn btn-info" href="{{ route('treck.edit', $treck->id) }}">Modify</a>
+                    @endif
+                </td>
                 @endauth
             </tr>
             @endforeach
