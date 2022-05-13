@@ -198,10 +198,23 @@ class userController extends Controller
                 "You're the last admin. This site needs at last one administrator");
         }
 
+        // dd($request);
+        if ($request->inputUserStatus == "selectUser") {
+            $admin = 0;
+            $operator = 0;
+        } elseif ($request->inputUserStatus == "selectOpera") {
+            $admin = 0;
+            $operator = 1;
+        } elseif ($request->inputUserStatus == "selectAdmin") {
+            $admin = 1;
+            $operator = 0;
+        }
+        
+        // dd($admin);
         $user = User::find($id);
-        $user -> admin = $request -> inputAdmin;
-        $user -> operator = $request -> inputOperator;
-        $user -> save();
+        $user ->admin = $admin;
+        $user ->operator = $operator;
+        $user ->save();
 
         if ($user -> admin == true) {
             return redirect() -> route('users')
@@ -280,16 +293,6 @@ class userController extends Controller
             return redirect()->back()
             ->with('error', 'You can\'t do more then one trip at the same time.');
         }
-
-        // $wrongDay = Treckers::query()
-        //     ->where('idUser', '=', Auth::user()->id)
-        //     ->where('Id', '=', $id)
-        //     ->where('dateTreck', '=', date("Y-m-d"))
-        //     ->get();
-        // if (count($wrongDay) == 0) {
-        //     return redirect()->back()
-        //     ->with('error', 'Wrong day, please make à new reservation for today.');
-        // }
 
         //###---update time informations for treck start and end---##############################
         $timeTreck = $request->inputTimeTreck;

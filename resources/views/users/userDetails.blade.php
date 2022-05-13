@@ -113,18 +113,26 @@
         </form>
         @if (Auth::user()->admin == 1)
             <form method="POST" action="{{ route('updateStatus', $user[0]->id) }}">
-                @csrf
-                <div class="d-flex flex-row">
-                    <div class="form-group form-floating mb-3 me-2 flex-fill">
-                        <input id="floatingOperateur" type="text" class="form-control" name="inputOperator" value="{{ $user[0]->operator }}">
-                        <label class="text-nowrap" for="floatingOperateur">Status Operator</label>
+                <div class="d-flex flex-row mb-3">
+                    @csrf
+                    <div class="form-group form-floating flex-fill d-flex">
+                        @if ($user[0]->admin == 0 && $user[0]->operator == 0)
+                            <input id="floatingStatusUser" type="text" class="form-control me-3" value="User" readonly>
+                        @elseif ($user[0]->operator == 1) 
+                            <input id="floatingStatusUser" type="text" class="form-control me-3" value="Operateur" readonly>
+                        @elseif ($user[0]->admin == 1) 
+                            <input id="floatingStatusUser" type="text" class="form-control me-3" value="Administrator" readonly>
+                        @endif
+                    <label for="floatingStatusUser" class="text-nowrap">Status User</label>
+
                     </div>
-                    <div class="form-group form-floating mb-3 me-2 flex-fill">
-                        <input id="floatingAdmin" type="text" class="form-control" name="inputAdmin" value="{{ $user[0]->admin }}">
-                        <label class="text-nowrap" for="floatingAdmin">Status Admin</label>
-                    </div>
-                    <div class="form-group form-floating mb-3 flex-fill d-flex">
-                        <input type="submit" class="btn btn-success form-control" value="Change Status">
+                    <select name="inputUserStatus" class="form-select me-3">
+                        <option value="selectUser">User</option>
+                        <option value="selectOpera">Operator</option>
+                        <option value="selectAdmin">Administrator</option>
+                    </select>
+                    <div class="form-group form-floating flex-fill d-flex">
+                        <button type="submit" class="btn btn-success text-nowrap flex-fill">Change Status</button>
                     </div>
                 </div>
             </form>
