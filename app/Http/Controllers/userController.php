@@ -291,12 +291,14 @@ class userController extends Controller
             ->get();
         if (count($controlDouble) > 0) {
             return redirect()->back()
-            ->with('error', 'You can\'t do more then one trip at the same time.');
+            ->with('error', "You can\'t do more then one trip at the same time.");
         }
 
         //###---update time informations for treck start and end---##############################
         $timeTreck = $request->inputTimeTreck;
+        // dd($timeTreck);
         $timeTampon = $request->inputTimeTampon;
+        // dd($timeTampon);
         $treckDate = date("Y:m:d");
         $treckStart = date("H:i");
         $treckEnd = date("H:i", strtotime($treckStart.' + '.$timeTreck.' minute'));  

@@ -42,17 +42,17 @@ class HomeController extends Controller
         $request->validate([
             'inputDate' => 'required',
             'inputTimeStart' => 'required',
-            'inputTimeArrival' => 'required',
+            'inputTimeTreck' => 'required',
             'inputTimeTampon' => 'required',
             'inputTreckName' => 'required',
-            'inputTreckTime' => 'required',
             'inputTreckId' => 'required',
             'inputProfil' => 'required',
             'inputPrivate' => 'required'
         ]);
 
         $treckStart = $request->inputTimeStart;
-        $treckEnd = $request->inputTimeArrival;
+        $timeTreck = $request->inputTimeTreck;
+        $treckEnd = date('H:i', strtotime($treckStart.' + '.$timeTreck.' minute'));
         $timeTampon = (int)$request->inputTimeTampon;
         $treckEndLimit = date('H:i', strtotime($treckEnd.' + '.$timeTampon.' minute'));
 
@@ -75,7 +75,7 @@ class HomeController extends Controller
         $trecker->pseudo = Auth::user()->pseudo;
         $trecker->timeTampon = $timeTampon;
         $trecker->dateTreck = $request->inputDate;
-        $trecker->timeTreck = $request->inputTreckTime;
+        $trecker->timeTreck = $timeTreck;
         $trecker->treckStart = $treckStart;
         $trecker->treckEnd = $treckEnd;
         $trecker->treckEndLimit = $treckEndLimit;
