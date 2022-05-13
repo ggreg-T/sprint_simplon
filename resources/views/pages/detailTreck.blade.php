@@ -102,5 +102,5 @@
         </div>
           
     @endforeach  
-    <script type="text/javascript" src='{{ url('js/detailTreck.js') }}'></script>  
+    <script type="text/javascript" src='{{ url('js/detailTreck.js') }}'></script>
 @endsection

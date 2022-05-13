@@ -39,7 +39,7 @@ Route::post('goTreck/{treckId}', [userController::class, 'goTreck'])->name('goTr
 Route::post('endTreck/{treckId}', [userController::class, 'endTreck'])->name('endTreck');
 Route::post('destroyResa/{treckId}', [userController::class, 'destroyResa'])->name('destroyResa');
 
-Route::get('listTrecks/{location}', [treckController::class, 'getlistTrecks'])->name('getlistTrecks');
+Route::get('listTrecks/{location}/{filter}', [treckController::class, 'getlistTrecks'])->name('getlistTrecks');
 Route::get('addTrecks', [treckController::class, 'addTrecks'])->name('addTrecks');
 Route::get('detailTrek/{treckId}', [treckController::class, 'detailTrek'])->name('detailTrek');
 Route::get('searchTreck', [treckController::class, 'searchTreck'])->name('searchTreck');

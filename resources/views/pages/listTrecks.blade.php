@@ -1,12 +1,12 @@
 @extends('layouts.home')
 @section('content')
     <div class="mt-4">
-        <div class="mb-4">
-            <div class="pull-left mb-4">
+        <div class="my-4 d-flex flex-column">
+            <div class="d-flex mb-4">
                 <h2>{{ $title }}</h2>
             </div>
-            <div class="d-flex flex-row">
-                    <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
+            <div class="d-flex flex-row" >
+                <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
             </div>
         </div>
         @if ($message = Session::get('success'))
@@ -20,6 +20,7 @@
             </div>
         @endif
 
+        
         <div class="d-flex flex-wrap">
         {{-- @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">

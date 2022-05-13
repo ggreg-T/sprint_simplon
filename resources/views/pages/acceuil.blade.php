@@ -11,13 +11,13 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quo, veniam ut quis in temporibus adipisci nobis odio rem error. Nobis natus fuga enim necessitatibus atque vitae alias, voluptates facere!</p>
 
 <div class="text-center">
-<a href="{{route('getlistTrecks', 'north')}}"><img  src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_NORD.jpg')}}" alt="Logo"></a>
+{{-- <a href="{{route('getlistTrecks', 'north')}}"><img  src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_NORD.jpg')}}" alt="Logo"></a> --}}
 <div class="d-flexflex-row">
 
-<a href="{{route('getlistTrecks', 'west')}}"><img  style="  "src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_OUEST.jpg')}}" alt="Logo"></a>
-<a href="{{route('getlistTrecks', 'east')}}"><img  style=" margin:10px "src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_EST.jpg')}}" alt="Logo"></a>
+{{-- <a href="{{route('getlistTrecks', 'west')}}"><img  style="  "src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_OUEST.jpg')}}" alt="Logo"></a>
+<a href="{{route('getlistTrecks', 'east')}}"><img  style=" margin:10px "src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_EST.jpg')}}" alt="Logo"></a> --}}
 </div>
-<a href="{{route('getlistTrecks', 'south')}}"><img  src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_SUD.jpg')}}" alt="Logo"></a>
+{{-- <a href="{{route('getlistTrecks', 'south')}}"><img  src="{{URL::asset('img/La_Reunion_department_relief_location_map_-_SUD.jpg')}}" alt="Logo"></a> --}}
 </div>
 
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore similique quasi officiis maxime perspiciatis obcaecati, tenetur, deleniti tempore necessitatibus earum eius libero esse nulla ducimus. Odio repellat sapiente dolorem quam!</p>
