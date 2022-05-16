@@ -1,18 +1,56 @@
-<footer>
-    <table>
-        <tbody>
-            <tr>
-                <td class="contact"> <i class="fa-brands fa-github"></i>  <a class="foot" target="blank" href="https://github.com/ggreg-T">greg techer </a> </td>
-                <td class="contact"> <i class="fa-brands fa-github"></i>  <a class="foot" target="blank" href="https://github.com/FeliciteRomain"> Romain Felicite</a> </td>
-                <td class="contact"> <i class="fa-brands fa-github"></i>  <a class="foot" target="blank" href="https://github.com/Colossus1985/">steve greiner</a> </td>
-                <td class="contact"> <i class="fa-brands fa-github"></i> <a class="foot" target="blank" href="https://github.com/eror2106/%22%3E">stephane Bocace</a> </td>
-            </tr>
-            <tr>
-                <td class="contact"> <i class="fa-brands fa-linkedin"></i>  <a class="foot" target="blank" href="https://www.linkedin.com/in/gregory-techer-681b80224/">Linkedin Greg Techer </a> </td>
-                <td class="contact"> <i class="fa-brands fa-linkedin"></i>  <a class="foot" target="blank" href="https://www.linkedin.com/in/romain-felicite-04635721a/">Linkedin Romain Felicite  </a> </td>
-                <td class="contact"> <i class="fa-brands fa-linkedin"></i>  <a class="foot" target="blank" href="https://www.linkedin.com/in/steve-greiner-040341235/">Linkedin Steve Greiner</a> </td>
-                <td class="contact"> <i class="fa-brands fa-linkedin"></i>  <a class="foot" target="blank" href="https://www.linkedin.com/in/st%C3%A9phane-bocace-034055217/ " >Linkedin stephane Bocace </a></td>
-            </tr>
-        </tbody><script src="https://kit.fontawesome.com/ead714620c.js" crossorigin="anonymous"></script>
-    </table>
-</footer>
+    <footer>
+        <!-- ######## NAME ######### -->
+        <div class="contenufooter">
+
+            <div class="bloc footer-name"> 
+                <h3>Teamwork</h3>
+                <ul class="name">
+                    <li> 
+                        <a class="foot" target="blank" href="https://github.com/ggreg-T">Félicité romain </a>
+                    </li>
+                    <li> 
+                        <a class="foot" target="blank" href="https://github.com/ggreg-T">Greiner steve</a>
+                    </li>
+                    <li> 
+                        <a class="foot" target="blank" href="https://github.com/ggreg-T">Techer gregory</a>
+                    </li>  
+                    <li> 
+                        <a class="foot" target="blank" href="https://github.com/ggreg-T">Bocace stéphane</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ######## CONTACT US ########### -->
+            <div class="bloc footer-contact"> 
+                <h3>Contact us</h3>
+                <ul class="contact">
+                    <li><i class="fa-brands fa-github" style="padding-bottom: 15px; font-size: 50px;"></i></li>
+
+                    <li> <a class="foot" target="blank" href="https://github.com/ggreg-T"> <i class="fa-brands fa-linkedin img" style="padding-bottom: 15px; font-size: 50px;"></i></a></li>
+                </ul> 
+            </div>
+            <!-- ######## HELPER SITE ########### -->
+            <div class="bloc footer-reso"> 
+                <h3>Helper site</h3>
+                <ul class="reso">
+                    <li>
+                        <a href="https://www.figma.com/"><i class="fa-brands fa-figma"></i> Figma</a>  
+                    </li>
+                    <li> 
+                        <a href="https://getbootstrap.com/"><i class="fa-brands fa-bootstrap"> </i> Bootstrap</a>
+                     </li>
+                     <li> 
+                        <a href="https://dribbble.com/"><i class="fa-brands fa-dribbble"></i> Dribbble</a>
+                    </li> 
+                    <li> 
+                        <i class="fa-brands fa-dribbble"></i> Wamp
+                    </li>  
+                    <li> 
+                        <a href="https://laravel.com/docs/8.x"><i class="fa-brands fa-laravel"></i> Laravel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/ea446dd6ab.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/ead714620c.js" crossorigin="anonymous"></script>
+    </footer>
