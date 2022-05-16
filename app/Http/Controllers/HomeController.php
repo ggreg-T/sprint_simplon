@@ -17,8 +17,20 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Welcome on TreckingSecu.re';
+
+        $trecks = Trecks::query()
+            ->where('private', '=', false)
+            ->orderby('created_at','desc')
+            ->limit(3)
+            ->get();
+
+        if(count($trecks) == 0) {
+            $error = "There aren\'t no trecks avaiable yet, sorry";
+        } else {
+            $error = "";
+        }
         
-        return view('pages.acceuil', ['title' => $title]);
+        return view('pages.acceuil', ['title' => $title, 'trecks' => $trecks, 'error' => $error]);
         
     }
 
