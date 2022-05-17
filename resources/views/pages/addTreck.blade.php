@@ -48,27 +48,27 @@
                 </div>
                 @if (Auth::user()->admin == true)
                     <div class="d-flex text-center flex-fill me-2">
-                        <input id="floatingSubmit" type="button" class="btn btn-success flex-fill" name="" value="Hardness :" disabled>
+                        <input id="floatingSubmit" type="button" class="btn btn-success flex-fill" name="inputName" value="Hardness :" disabled>
                         <label for="floatingSubmit"></label>
                     </div>
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputHardness" value="⭐" class="btn-check" id="btn-check-outlined-1" autocomplete="off" required>
+                        <input type="radio" name = "inputHardness" value="⭐" class="btn-check" id="btn-check-outlined-1"  required>
                         <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-1">⭐</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputHardness" value="⭐⭐" class="btn-check" id="btn-check-outlined-2" autocomplete="off">
+                        <input type="radio" name = "inputHardness" value="⭐⭐" class="btn-check" id="btn-check-outlined-2" >
                         <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-2">⭐⭐</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputHardness" value="⭐⭐⭐" class="btn-check" id="btn-check-outlined-3" autocomplete="off">
+                        <input type="radio" name = "inputHardness" value="⭐⭐⭐" class="btn-check" id="btn-check-outlined-3" >
                         <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-3">⭐⭐⭐</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputHardness" value="⭐⭐⭐⭐" class="btn-check" id="btn-check-outlined-4" autocomplete="off">
+                        <input type="radio" name = "inputHardness" value="⭐⭐⭐⭐" class="btn-check" id="btn-check-outlined-4" >
                         <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-4">⭐⭐⭐⭐</label><br>
                     </div> 
                     <div class = "d-flex flex-fill">
-                        <input type="radio" name = "inputHardness" value="⭐⭐⭐⭐⭐" class="btn-check" id="btn-check-outlined-5" autocomplete="off">
+                        <input type="radio" name = "inputHardness" value="⭐⭐⭐⭐⭐" class="btn-check" id="btn-check-outlined-5" >
                         <label class="btn btn-outline-primary flex-fill d-flex align-items-center justify-content-center" for="btn-check-outlined-5">⭐⭐⭐⭐⭐</label><br>
                     </div> 
                 @endif
@@ -77,33 +77,33 @@
             <div class="d-flex flex-row flex-wrap mb-3">
                 <div class="d-flex flex-fill me-5">
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputType" value="round" class="btn-check" id="btn-check-outlined-round" autocomplete="off" required onclick="distanceX1()">
+                        <input type="radio" name = "inputType" value="round" class="btn-check" id="btn-check-outlined-round"  required onclick="distanceX1()">
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-round">Round</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputType" value="go&back" class="btn-check" id="btn-check-outlined-go&back" autocomplete="off" onclick="distanceX2()">
+                        <input type="radio" name = "inputType" value="go&back" class="btn-check" id="btn-check-outlined-go&back"  onclick="distanceX2()">
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-go&back">Go & Back</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputType" value="oneway" class="btn-check" id="btn-check-outlined-oneway" autocomplete="off" onclick="distanceX1()">
+                        <input type="radio" name = "inputType" value="oneway" class="btn-check" id="btn-check-outlined-oneway"  onclick="distanceX1()">
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-oneway">One Way</label><br>
                     </div> 
                 </div>
                 <div class="d-flex flex-fill">
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputLocation" value="north" class="btn-check" id="btn-check-outlined-north" autocomplete="off" required>
+                        <input type="radio" name = "inputLocation" value="north" class="btn-check" id="btn-check-outlined-north"  required>
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-north">North</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputLocation" value="east" class="btn-check" id="btn-check-outlined-east" autocomplete="off">
+                        <input type="radio" name = "inputLocation" value="east" class="btn-check" id="btn-check-outlined-east" >
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-east">East</label><br>
                     </div> 
                     <div class = "d-flex flex-fill me-3">
-                        <input type="radio" name = "inputLocation" value="south" class="btn-check" id="btn-check-outlined-south" autocomplete="off">
+                        <input type="radio" name = "inputLocation" value="south" class="btn-check" id="btn-check-outlined-south" >
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-south">South</label><br>
                     </div> 
                     <div class = "d-flex flex-fill">
-                        <input type="radio" name = "inputLocation" value="west" class="btn-check" id="btn-check-outlined-west" autocomplete="off">
+                        <input type="radio" name = "inputLocation" value="west" class="btn-check" id="btn-check-outlined-west" >
                         <label class="btn btn-outline-primary flex-fill" for="btn-check-outlined-west">West</label><br>
                     </div> 
                 </div>
@@ -128,11 +128,11 @@
                 </div>
                 @if (Auth::user()->admin == true)
                     <div class = "d-flex flex-fill me-3 mb-3">
-                        <input type="radio" name = "inputPrivate" value="0" class="btn-check" id="privateFalse" autocomplete="off" required>
+                        <input type="radio" name = "inputPrivate" value="0" class="btn-check" id="privateFalse"  required>
                         <label class="btn btn-outline-primary flex-fill pt-2 fw-bold fs-4" for="privateFalse"><span>Public</span></label>
                     </div> 
                     <div class = "d-flex flex-fill me-3 mb-3">
-                        <input type="radio" name = "inputPrivate" value="1" class="btn-check" id="privateTrue" autocomplete="off">
+                        <input type="radio" name = "inputPrivate" value="1" class="btn-check" id="privateTrue" >
                         <label class="btn btn-outline-primary flex-fill pt-2 fw-bold fs-4" for="privateTrue"><span>Private</span></label>
                     </div> 
                 @endif
