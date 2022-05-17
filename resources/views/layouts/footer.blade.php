@@ -33,23 +33,23 @@
                 <!-- <ul class="reso"> -->
                   <div class="reso">
                     
-                <a class="foot" href="https://www.figma.com/"><i class="fa-brands fa-figma"></i>
+                <a class="foot" href="https://www.figma.com/"><i class="fa-brands fa-figma"></i>    
                 Figma</a>
                 <br>
                     
-                <a class="foot" href="https://getbootstrap.com/"><i class="fa-brands fa-bootstrap"></i>Bootstrap
+                <a class="foot" href="https://getbootstrap.com/"><i class="fa-brands fa-bootstrap"></i>  Bootstrap
                 </a>
                 <br>
 
-                <a class="foot" href="https://dribbble.com/"><i class="fa-brands fa-dribbble"></i>dribbble
+                <a class="foot" href="https://dribbble.com/"><i class="fa-brands fa-dribbble"></i>  Dribbble
                 </a>
                 <br>
                   
-                <a class="foot" href="https://www.wampserver.com/"><i class="fa-solid fa-w"></i>wampserver
+                <a class="foot" href="https://www.wampserver.com/"><i class="fa-solid fa-w"></i>  Wampserver
                 </a>
                 <br>
 
-                <a class="foot" href="https://laravel.com/docs/8.x"><i class="fa-brands fa-laravel"></i>
+                <a class="foot" href="https://laravel.com/docs/8.x"><i class="fa-brands fa-laravel">  Laravel</i>
                 </a>
                 </div>
             </div>
