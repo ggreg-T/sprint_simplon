@@ -25,11 +25,12 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css' type='text/css' />
 
     <link href="{{ url('css/userTreck.css') }}" rel="stylesheet" type="text/css">
+    
     {{-- ###---for map start & endpoint---########################################################################## --}}
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 {{-- ############################################################################################################### --}}
-   
+<link href="{{ url('css/footer.css') }}" rel="stylesheet" type="text/css">
     
 </head>
     <body class="">
