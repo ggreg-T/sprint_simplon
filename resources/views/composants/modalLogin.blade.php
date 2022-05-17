@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="d-flex flex-column">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <h5 class="modal-title" id="exampleModalLabel-login">Login</h5>
                 </div>
                 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
