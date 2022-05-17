@@ -6,7 +6,8 @@
                 <h2>{{ $title }}</h2>
             </div>
             <div class="d-flex flex-row" >
-                <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
+                <a class="btn btn-primary me-3" href="{{ route('home') }}">Back</a>
+                <!-- enctype="multipart/form-data" -->
             </div>
         </div>
         @if (session('success'))
