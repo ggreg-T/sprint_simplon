@@ -6,7 +6,9 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton222">
             <div class="dropdown dropend">
                 <a class="dropdown-item dropdown-toggle" href="#" id="dropdown-layouts-all" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Réunion</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown-layouts">
+                <!-- <div class="dropdown-menu" aria-label="dropdown-layouts"> -->
+                <div class="dropdown-menu" aria-labelledby="dropdown-layouts-all">
+
                     <a class="dropdown-item" href="{{ route('getlistTrecks', ['location' => "Reunion", 'filter' => 'all']) }}">aall ++</a>
                     <a class="dropdown-item" href="{{ route('getlistTrecks', ['location' => "Reunion", 'filter' => 'hardDESC']) }}">aHard ++</a>
                     <a class="dropdown-item" href="{{ route('getlistTrecks', ['location' => "Reunion", 'filter' => 'hardASC']) }}">aEasy --</a>
