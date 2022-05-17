@@ -6,7 +6,8 @@
                 <h2>{{ $title }}</h2>
             </div>
             <div class="d-flex flex-row" >
-                <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
+                <a class="btn btn-primary me-3" href="{{ route('home') }}">Back</a>
+                <!-- enctype="multipart/form-data" -->
             </div>
         </div>
         @if (session('success'))
@@ -17,24 +18,33 @@
         @endif
 
         <div class="d-flex flex-wrap">
-        {{-- @foreach ($trecks as $treck)
+        @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
                 <!-- <img src="logo.png" class="card-img-top" alt="image non chargé"> -->
                 <div class="card-body">
-
                     
-                    <p class="card-text"><form action="{{ route('detailTrek', $treck->id) }}" method="get">
-                        <input type="text" class="visually-hidden" 
-                                name="inputTreckId"
-                                value = "{{ $treck->id }}" readonly>
-                        <input type="submit" class="form-control me-2 btn bg-info"  
-                                name="inputDetailUser" 
-                                value = "{{ $treck->treckName }}" readonly>
-                    </form></p>
+                    <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                        <p class="card-text">
+                            <input type="text" class="visually-hidden" 
+                                    name="inputTreckId"
+                                    value = "{{ $treck->id }}" 
+                                    readonly />
+                
+                            <input type="text" class="visually-hidden"  
+                                    name="inputDetailUser" 
+                                    value = "{{ $treck->treckName }}"
+                                    readonly />
+
+                            <button type="submit" class="form-control me-2 btn bg-info"  
+                                    value = "{{ $treck->treckName }}">
+                                {{ $treck->treckName }} 
+                            </button>
+                        </p>
+                    </form>
                    
                 </div>
             </div>
-        @endforeach --}}
+        @endforeach
         </div>
         <table class="table table-bordered">
             <tr>
@@ -53,10 +63,18 @@
                     <form action="{{ route('detailTrek', $treck->id) }}" method="get">
                         <input type="text" class="visually-hidden" 
                                 name="inputTreckId"
-                                value = "{{ $treck->id }}" readonly>
-                        <input type="submit" class="form-control me-2 btn bg-info"  
-                                name="inputDetailUser" 
-                                value = "{{ $treck->treckName }}" readonly>
+                                value = "{{ $treck->id }}"
+                                readonly >
+
+                            <input type="text" class="visually-hidden" 
+                                name="inputDetailUser"
+                                value = "{{ $treck->treckName }}"
+                                readonly >
+
+                        <button type="submit" class="form-control me-2 btn bg-info"  
+                                value = "{{ $treck->treckName }}" 
+                                >{{ $treck->treckName }} </button>
+
                     </form>
                 </td>
                 <td><img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"></td>
