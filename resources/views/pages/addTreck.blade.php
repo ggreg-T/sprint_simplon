@@ -138,13 +138,13 @@
                 @endif
                 
                 <div class="d-flex text-center flex-fill pb-3">
-                    <input id="floatingSubmit" type="submit" class="btn btn-primary flex-fill" name="" value="Add New Treck">
-                    <label for="floatingSubmit"></label>
+                    <input id="floatSubmit" type="submit" class="btn btn-primary flex-fill" name="addNewTrekk" value="Add New Treck">
+                    <label for="floatSubmit"></label>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<script type="text/javascript" src='{{ url('js/userTreck.js') }}'></script>
+<script src='{{ url('js/userTreck.js') }}'></script>
 
 @endsection
