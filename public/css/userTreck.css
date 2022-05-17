@@ -42,7 +42,6 @@ footer{
     border-top: 1px solid #FFBF00;
     width: 100%;
     background-color: #1A1F16;
-    color: #FFBF00;
 
 
 }
@@ -65,20 +64,32 @@ footer{
  .footer-contact h3,
  .footer-reso h3,
  .footer-name h3{
-     font-size: 25px;
+     color: #FFBF00;
      padding-bottom: 20px;
+     font-size: 30px;
      font-family: 'Roboto';
+
  }
 
  .name,
  .reso,
  .contact{
      list-style-type: none;
-
- }
- .footer-contact,
- .footer-reso,
- .footer-name{
-     justify-content: flex-start;
-     margin-left: 0;
- }
+     
+    }
+    .reso{
+        font-size: 30px;
+        
+    }
+    .footer-contact,
+    .footer-reso,
+    .footer-name{
+        text-decoration: none;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+    .foot{
+        color: #1B998B;
+    text-decoration: none;
+    font-size: 30px;
+}

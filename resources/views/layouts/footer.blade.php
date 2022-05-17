@@ -23,32 +23,30 @@
             <!-- ######## CONTACT US ########### -->
             <div class="bloc footer-contact"> 
                 <h3>Contact us</h3>
-                <ul class="contact">
-                    <li><i class="fa-brands fa-github" style="padding-bottom: 15px; font-size: 50px;"></i></li>
-
-                    <li> <a class="foot" target="blank" href="https://github.com/ggreg-T"> <i class="fa-brands fa-linkedin img" style="padding-bottom: 15px; font-size: 50px;"></i></a></li>
-                </ul> 
+                <p class="contact">
+                        <a class="foot" href="https://github.com/"><i class="fa-brands fa-github" style="padding-bottom: 15px; font-size: 50px;"></i></a>         <a class="foot" target="blank" href="https://fr.linkedin.com/"> <i class="fa-brands fa-linkedin img" style="padding-bottom: 15px; font-size: 50px;"></i></a>           
+                    </p> 
             </div>
             <!-- ######## HELPER SITE ########### -->
             <div class="bloc footer-reso"> 
                 <h3>Helper site</h3>
-                <ul class="reso">
-                    <li>
-                        <a href="https://www.figma.com/"><i class="fa-brands fa-figma"></i> Figma</a>  
-                    </li>
-                    <li> 
-                        <a href="https://getbootstrap.com/"><i class="fa-brands fa-bootstrap"> </i> Bootstrap</a>
-                     </li>
-                     <li> 
-                        <a href="https://dribbble.com/"><i class="fa-brands fa-dribbble"></i> Dribbble</a>
-                    </li> 
-                    <li> 
-                        <i class="fa-brands fa-dribbble"></i> Wamp
-                    </li>  
-                    <li> 
-                        <a href="https://laravel.com/docs/8.x"><i class="fa-brands fa-laravel"></i> Laravel</a>
-                    </li>
-                </ul>
+                <!-- <ul class="reso"> -->
+                  <div class="reso">
+                      
+                        <a class="foot" href="https://www.figma.com/"><i class="fa-brands fa-figma"></i>
+                    </a>  
+                    
+                        <a class="foot" href="https://getbootstrap.com/"><i class="fa-brands fa-bootstrap"> </i>
+                         
+                    </a>
+
+                    <a class="foot" href="https://dribbble.com/"><i class="fa-brands fa-dribbble"></i>
+                    </a>
+                  
+                        <a class="foot" href="https://www.wampserver.com/"><i class="fa-solid fa-w"></i></a>
+
+                        <a class="foot" href="https://laravel.com/docs/8.x"><i class="fa-brands fa-laravel"></i></a>
+                    </div>
             </div>
         </div>
         <script src="https://kit.fontawesome.com/ea446dd6ab.js" crossorigin="anonymous"></script>
