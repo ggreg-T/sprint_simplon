@@ -13,13 +13,13 @@
                     @csrf
                     <div class="form-group form-floating mb-3">
                         <input type="text" class="form-control" name="inputRegister" value="{{ old('inputRegister') }}" 
-                        placeholder="Pseudo or E-mail">
-                        <label for="floatingName">Pseudo or E-mail</label>
+                        placeholder="Pseudo or E-mail" id="loginFloatingName">
+                        <label for="loginFloatingName">Pseudo or E-mail</label>
                     </div>
                     
                     <div class="form-group form-floating mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
-                        <label for="floatingPassword">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Password"  id="loginFloatingPassword">
+                        <label for="loginFloatingPassword">Password</label>
                     </div>
             
                     <button class="btn btn-primary" type="submit">GoGo</button>
