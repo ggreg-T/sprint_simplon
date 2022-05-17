@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* contenu au dessus du du footer doit prendre tte la place donc il doit avoir un grow 1 */
+
+/* .div dessus footer{
+    1:grow 0:shrink auto: 
+    flex: 1 0 auto;
+} */
+.contenu {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+    border-top: 1px solid #FFBF00;
+    width: 100%;
+    background-color: #1A1F16;
+}
+
+.contenufooter {
+    width: auto;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    font-size: 20px;
+    padding: 10px;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.bloc {
+    width: auto;
+    margin: 30px;
+
+}
+
+.footer-contact h3,
+.footer-reso h3,
+.footer-name h3 {
+    color: #FFBF00;
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-family: 'Roboto';
+
+}
+
+.name {
+    list-style-type: none;
+
+}
+
+.reso {
+    font-size: 20px;
+
+}
+
+.footer-contact,
+.footer-reso,
+.footer-name {
+    text-decoration: none;
+    justify-content: flex-start;
+    margin-left: 0;
+}
+
+.foot {
+    color: #1B998B;
+    text-decoration: none;
+}
+ .footer-reso{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
