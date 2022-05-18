@@ -72,9 +72,9 @@
                 @endauth
                 @guest
 
-                    <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                    <button type="button" class="btn btn-Dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
                         Login</button>
-                    <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                    <button type="button" class="btn btn-Dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
                         Register</button>
                 @endguest
             </div>
