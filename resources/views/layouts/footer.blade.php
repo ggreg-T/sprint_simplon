@@ -24,7 +24,7 @@
             <div class="bloc footer-contact"> 
                 <h3>Contact us</h3>
                 <p class="contact">
-                        <a class="foot me-5" href="https://github.com/"><i class="fa-brands fa-github " id ="logogit" style="padding-bottom: 15px; font-size: 50px;"></i></a>        
+                        <a class="foot" href="https://github.com/"><i class="fa-brands fa-github me-4" id ="logogit" style="padding-bottom: 15px; font-size: 50px;"></i></a>        
                         <a class="foot" href="https://simplon.co/">Simplonline</a>         
                     </p> 
             </div>
