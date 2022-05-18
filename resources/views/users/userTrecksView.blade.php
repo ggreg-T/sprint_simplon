@@ -6,7 +6,7 @@
                 <h2>{{ $title }}</h2>
             </div>
             <div class="d-flex flex-row">
-                <div >
+                <div>
                     <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
                 </div>
                 <div>
@@ -32,7 +32,7 @@
         @endif
         <div>
             <div>
-                <h2>Your Trip</h2>
+                <h2 class="text-center">Your Trip</h2>
             </div>
             <table class="table table-bordered">
                 @if (count($treckRoad) == 0)
@@ -42,35 +42,36 @@
                 @endif
 
                 @foreach ($treckRoad as $treck)
-                <tr class="bg-success">
-                    <td>
-                        <form action="{{ route('detailTrek', $treck->id) }}" method="get">
-                            <input type="text" class="visually-hidden" 
-                                    name="inputTreckId"
-                                    value = "{{ $treck->id }}" readonly>
-                            <input type="submit" class="form-control me-2 btn bg-info"  
-                                    name="inputDetailUser" 
-                                    value = "{{ $treck->treckName }}" readonly>
-                        </form>
-                    </td>
-                    <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"  alt="{{ $treck->name }}"></td>
-                    <td>{{ $treck ->dateTreck }}</td>
-                    <td>{{ $treck ->treckStart }}</td>
-                    <td>{{ $treck ->treckEnd }}</td>
-                    <td>{{ $treck ->treckEndLimit }}</td>
-                    <td class="">
-                        <form action="{{ route('endTreck', $treck->id) }}" method="Post"> 
-                            @csrf 
-                             <button type="submit" class="btn btn-danger" onclick="return confirm('You closed the trip {{ $treck->treckName }} ?');">Confirm End</button> 
-                        </form>
-                    </td>
-                </tr>
+                    <tr class="bg-success">
+                        <td>
+                            <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                                <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"
+                                    readonly>
+                                <input type="submit" class="form-control me-2 btn bg-info" name="inputDetailUser"
+                                    value="{{ $treck->treckName }}" readonly>
+                            </form>
+                        </td>
+                        <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"
+                                alt="{{ $treck->name }}"></td>
+                        <td>{{ $treck->dateTreck }}</td>
+                        <td>{{ $treck->treckStart }}</td>
+                        <td>{{ $treck->treckEnd }}</td>
+                        <td>{{ $treck->treckEndLimit }}</td>
+                        <td class="">
+                            <form action="{{ route('endTreck', $treck->id) }}" method="Post">
+                                @csrf
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('You closed the trip {{ $treck->treckName }} ?');">Confirm
+                                    End</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </div>
         <div>
             <div>
-                <h2>Your reservations</h2>
+                <h2 class="text-center">Your reservations</h2>
             </div>
             <table class="table table-bordered">
                 @if (count($treckResa) == 0)
@@ -80,43 +81,48 @@
                 @endif
 
                 @foreach ($treckResa as $treck)
-                <tr class="">
-                    <td>
-                        <form action="{{ route('detailTrek', $treck->id) }}" method="get">
-                            <input type="text" class="visually-hidden" 
-                                    name="inputTreckId"
-                                    value = "{{ $treck->id }}" readonly>
-                            <input type="submit" class="form-control me-2 btn bg-info"  
-                                    name="inputDetailUser" 
-                                    value = "{{ $treck->treckName }}" readonly>
-                        </form>
-                    </td>
-                    <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"  alt="{{ $treck->name }}"></td>
-                    <td>{{ $treck ->dateTreck }}</td>
-                    <td>{{ $treck ->treckStart }}</td>
-                    <td>{{ $treck ->treckEnd }}</td>
-                    <td>{{ $treck ->treckEndLimit }}</td>
-                    <td class="d-flex flex-row flex-fill">
-                        <form class="flex-fill" action="{{ route('goTreck', $treck->id) }}" method="POST"> 
-                            @csrf 
-                            <input name="inputTimeTreck" class="visually-hidden" value="{{ $treck->timeTreck }}" readonly>
-                            <input name="inputTimeTampon" class="visually-hidden" value="{{ $treck->timeTampon }}" readonly>
-                            <button type="submit" class="btn btn-success" onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Start Trip</button> 
-                        </form>
-                        <form class="flex-fill" action="{{ route('destroyResa', $treck->id) }}" method="POST"> 
-                            @csrf 
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('You wanna cancel your trip {{ $treck->treckName }} ?');">Cancel Trip</button> 
-                        </form>
-                        {{-- <a href="{{ route('destroyResa', $treck->id) }}" type="submit" class="btn btn-danger" onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Cancel Trip link</a>  --}}
-                    </td>
-                </tr>
+                    <tr class="">
+                        <td>
+                            <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                                <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"
+                                    readonly>
+                                <input type="submit" class="form-control me-2 btn bg-info" name="inputDetailUser"
+                                    value="{{ $treck->treckName }}" readonly>
+                            </form>
+                        </td>
+                        <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"
+                                alt="{{ $treck->name }}"></td>
+                        <td>{{ $treck->dateTreck }}</td>
+                        <td>{{ $treck->treckStart }}</td>
+                        <td>{{ $treck->treckEnd }}</td>
+                        <td>{{ $treck->treckEndLimit }}</td>
+                        <td class="d-flex flex-row flex-fill">
+                            <form class="flex-fill" action="{{ route('goTreck', $treck->id) }}" method="POST">
+                                @csrf
+                                <input name="inputTimeTreck" class="visually-hidden" value="{{ $treck->timeTreck }}"
+                                    readonly>
+                                <input name="inputTimeTampon" class="visually-hidden" value="{{ $treck->timeTampon }}"
+                                    readonly>
+                                <button type="submit" class="btn btn-success"
+                                    onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Start
+                                    Trip</button>
+                            </form>
+                            <form class="flex-fill" action="{{ route('destroyResa', $treck->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('You wanna cancel your trip {{ $treck->treckName }} ?');">Cancel
+                                    Trip</button>
+                            </form>
+                            {{-- <a href="{{ route('destroyResa', $treck->id) }}" type="submit" class="btn btn-danger" onclick="return confirm('You wanna start your trip {{ $treck->treckName }} ?');">Cancel Trip link</a> --}}
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </div>
-        
+
         <div>
             <div>
-                <h2>Your Trecks done</h2>
+                <h2 class="text-center">Your Trecks done</h2>
             </div>
             <table class="table table-bordered">
                 @if (count($treckDone) == 0)
@@ -126,24 +132,23 @@
                 @endif
 
                 @foreach ($treckDone as $treck)
-                <tr class="bg-secondary">
-                    <td>
-                        <form action="{{ route('detailTrek', $treck->id) }}" method="get">
-                            <input type="text" class="visually-hidden" 
-                                    name="inputTreckId"
-                                    value = "{{ $treck->id }}" readonly>
-                            <input type="submit" class="form-control me-2 btn bg-info"  
-                                    name="inputDetailUser" 
-                                    value = "{{ $treck->treckName }}" readonly>
-                        </form>
-                    </td>
-                    <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"  alt="{{ $treck->name }}"></td>
-                    <td>{{ $treck ->location }}</td>
-                    <td>{{ $treck ->dateTreck }}</td>
-                    <td>{{ $treck ->treckStart }}</td>
-                    <td>{{ $treck ->treckEnd }}</td>
-                    <td>{{ $treck ->treckEndLimit }}</td>
-                </tr>
+                    <tr class="bg-secondary">
+                        <td>
+                            <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                                <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"
+                                    readonly>
+                                <input type="submit" class="form-control me-2 btn bg-info" name="inputDetailUser"
+                                    value="{{ $treck->treckName }}" readonly>
+                            </form>
+                        </td>
+                        <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"
+                                alt="{{ $treck->name }}"></td>
+                        <td>{{ $treck->location }}</td>
+                        <td>{{ $treck->dateTreck }}</td>
+                        <td>{{ $treck->treckStart }}</td>
+                        <td>{{ $treck->treckEnd }}</td>
+                        <td>{{ $treck->treckEndLimit }}</td>
+                    </tr>
                 @endforeach
             </table>
         </div>

@@ -1,7 +1,15 @@
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark   px-md-5 " style="background-color:#1A1F16">
         <div class=" d-flex justify-content-around">
+
+            <div class="d-flex flex-row ">
+
+                <a class="me-3" href="{{ route('home') }}" enctype="multipart/form-data"><img
+                        style="width:100%; height:50px;" src="{{ URL::asset('img/treckingsecurLogo.png') }}"
+                        alt="not found"> </a>
+            </div>
             <div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -71,7 +79,7 @@
                     <a class="btn btn-danger me-3" href="{{ route('logout') }}">Logout</a>
                 @endauth
                 @guest
-
+                
                     <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
                         Login</button>
                     <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
