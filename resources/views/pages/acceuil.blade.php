@@ -18,9 +18,9 @@
                         alt="not "></a>
 
                 <div class=" text-center ms-2 ">
-                    <p class="mb-5">{{ $treck->treckName }}</p> {{-- nom de sentier --}}
+                    <p class="mb-5">{{ $treck->treckName }}</p>
                     <div class="d-flex flex-row">
-                        <div class="ms-2 ">{{-- info droite --}}
+                        <div class="ms-2 ">
                             <div class="mb-4"> <strong>Distance</strong>
                                 <hr
                                     style="padding-left:1%;height:2.5px;margin-top:5px;margin-left:-5px;width:120%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
@@ -33,7 +33,7 @@
                                 {{ $treck->type }}
                             </div>
                         </div>
-                        <div class="ps-3">{{-- info gauche --}}
+                        <div class="ps-3">
                             <div class="mb-4"><strong>Difficulty</strong>
                                 <hr
                                     style="height:2.5px;margin-top:5px;width:100%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
@@ -52,5 +52,4 @@
             </div>
         @endforeach
     </div>
-    
 @endsection
