@@ -1,7 +1,15 @@
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark   px-md-5 " style="background-color:#1A1F16">
         <div class=" d-flex justify-content-around">
+
+            <div class="d-flex flex-row ">
+
+                <a class="me-3" href="{{ route('home') }}" enctype="multipart/form-data"><img
+                        style="width:100%; height:50px;" src="{{ Storage::url('public/images/treckingsecurLogo.png') }}"
+                        alt="not found"> </a>
+            </div>
             <div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,7 +52,7 @@
             <div class="d-flex flex-row position-absolute top-0 end-0 me-5  mt-2">
 
                 @auth
-                    <div class="btn-group">
+                    <div class="btn-group ">
                         <a class="nav-link dropdown-toggle text-white ms-3" href="#" id="userPages" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <b>
@@ -72,9 +80,10 @@
                 @endauth
                 @guest
 
-                    <button type="button" class="btn btn-Dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                    <button type="button" class="btn text-white me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
                         Login</button>
-                    <button type="button" class="btn btn-Dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                    <button type="button" class="btn text-white me-3" data-bs-toggle="modal"
+                        data-bs-target="#modalRegister">
                         Register</button>
                 @endguest
             </div>

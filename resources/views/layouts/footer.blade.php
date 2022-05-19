@@ -1,3 +1,4 @@
+    <div class="contenu"></div>
     <footer>
         <!-- ######## NAME ######### -->
         <div class="contenufooter">

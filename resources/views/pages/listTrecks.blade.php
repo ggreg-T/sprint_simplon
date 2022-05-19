@@ -7,7 +7,6 @@
             </div>
             <div class="d-flex flex-row" >
                 <a class="btn btn-primary me-3" href="{{ route('home') }}">Back</a>
-                <!-- enctype="multipart/form-data" -->
             </div>
         </div>
         @if (session('success'))
@@ -22,7 +21,7 @@
         <div class="d-flex flex-wrap">
         @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
-                <!-- <img src="logo.png" class="card-img-top" alt="image non chargé"> -->
+                <img src="{{Storage::url($treck->img)}}" class="card-img-top" alt="image non chargé">
                 <div class="card-body">
                     
                     <form action="{{ route('detailTrek', $treck->id) }}" method="get">
@@ -47,7 +46,7 @@
                 </div>
             </div>
         @endforeach
-        </div>
+        <!-- </div>
         <table class="table table-bordered">
             <tr>
                 <th>Circuit Name</th>
@@ -79,7 +78,10 @@
 
                     </form>
                 </td>
-                <td><img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"></td>
+                <td>
+                    <img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"> 
+                   
+                </td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>
                 <td>{{ $treck ->time }}m</td>
@@ -89,5 +91,5 @@
             </tr>
             @endforeach
         </table>
-    </div>
+    </div> -->
 @endsection
