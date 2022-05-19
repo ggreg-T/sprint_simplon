@@ -45,8 +45,8 @@
                    
                 </div>
             </div>
-        @endforeach -->
-        </div>
+        @endforeach
+        </div> -->
         <table class="table table-bordered">
             <tr>
                 <th>Circuit Name</th>
@@ -78,7 +78,10 @@
 
                     </form>
                 </td>
-                <td><img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"></td>
+                <td>
+                    <img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"> 
+                    <!-- <img style="width: 13rem; height: 10rem" src="{{  asset('storage/($treck->img)') }}"  alt="no Image avaiable">  -->
+                </td>
                 <td>{{ $treck ->location }}</td>
                 <td>{{ $treck ->hardness }}</td>
                 <td>{{ $treck ->time }}m</td>
