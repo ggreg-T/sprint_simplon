@@ -25,160 +25,162 @@ class treckController extends Controller
                 ->orderBy('created_at', 'ASC')
                 ->get();
         } 
+    
+        // ####---used with filterMenu.blade.php---########################
+
+        // elseif ($location == "Reunion" && $filter == "hardASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('private', '=', false)
+        //         ->where('location', '=', $location)
+        //         ->orderBy('hardness', 'ASC')
+        //         ->get();
+        // } elseif ($location == "Reunion" && $filter == "hardDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'DESC')
+        //         ->get();
+        // } elseif ($location == "Reunion" && $filter == "distASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('private', '=', false)
+        //         ->where('location', '=', $location)
+        //         ->orderBy('distance', 'ASC')
+        //         ->get();
+        // } elseif ($location == "Reunion" && $filter == "distDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'DESC')
+        //         ->get();
+        // }
+
+        // elseif ($location == "north" && $filter == "all" ) {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('created_at', 'ASC')
+        //         ->get();
+        // } elseif ($location == "north" && $filter == "hardASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'ASC')
+        //         ->get();
+        // } elseif ($location == "north" && $filter == "hardDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'DESC')
+        //         ->get();
+        // } elseif ($location == "north" && $filter == "distASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'ASC')
+        //         ->get();
+        // } elseif ($location == "north" && $filter == "distDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'DESC')
+        //         ->get();
+        // }
+
+        // elseif ($location == "south" && $filter == "all" ) {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('created_at', 'ASC')
+        //         ->get();
+        // } elseif ($location == "south" && $filter == "hardASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'ASC')
+        //         ->get();
+        // } elseif ($location == "south" && $filter == "hardDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'DESC')
+        //         ->get();
+        // } elseif ($location == "south" && $filter == "distASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'ASC')
+        //         ->get();
+        // } elseif ($location == "south" && $filter == "distDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'DESC')
+        //         ->get();
+        // }
         
-        elseif ($location == "Reunion" && $filter == "hardASC") {
-            $listTrecks = Trecks::query()
-                ->where('private', '=', false)
-                ->where('location', '=', $location)
-                ->orderBy('hardness', 'ASC')
-                ->get();
-        } elseif ($location == "Reunion" && $filter == "hardDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'DESC')
-                ->get();
-        } elseif ($location == "Reunion" && $filter == "distASC") {
-            $listTrecks = Trecks::query()
-                ->where('private', '=', false)
-                ->where('location', '=', $location)
-                ->orderBy('distance', 'ASC')
-                ->get();
-        } elseif ($location == "Reunion" && $filter == "distDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'DESC')
-                ->get();
-        }
+        // elseif ($location == "west" && $filter == "all" ) {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('created_at', 'ASC')
+        //         ->get();
+        // }elseif ($location == "west" && $filter == "hardASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'ASC')
+        //         ->get();
+        // } elseif ($location == "west" && $filter == "hardDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'DESC')
+        //         ->get();
+        // } elseif ($location == "west" && $filter == "distASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'ASC')
+        //         ->get();
+        // } elseif ($location == "west" && $filter == "distDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'DESC')
+        //         ->get();
+        // }
 
-        elseif ($location == "north" && $filter == "all" ) {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('created_at', 'ASC')
-                ->get();
-        } elseif ($location == "north" && $filter == "hardASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'ASC')
-                ->get();
-        } elseif ($location == "north" && $filter == "hardDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'DESC')
-                ->get();
-        } elseif ($location == "north" && $filter == "distASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'ASC')
-                ->get();
-        } elseif ($location == "north" && $filter == "distDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'DESC')
-                ->get();
-        }
-
-        elseif ($location == "south" && $filter == "all" ) {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('created_at', 'ASC')
-                ->get();
-        } elseif ($location == "south" && $filter == "hardASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'ASC')
-                ->get();
-        } elseif ($location == "south" && $filter == "hardDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'DESC')
-                ->get();
-        } elseif ($location == "south" && $filter == "distASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'ASC')
-                ->get();
-        } elseif ($location == "south" && $filter == "distDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'DESC')
-                ->get();
-        }
-        
-        elseif ($location == "west" && $filter == "all" ) {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('created_at', 'ASC')
-                ->get();
-        }elseif ($location == "west" && $filter == "hardASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'ASC')
-                ->get();
-        } elseif ($location == "west" && $filter == "hardDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'DESC')
-                ->get();
-        } elseif ($location == "west" && $filter == "distASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'ASC')
-                ->get();
-        } elseif ($location == "west" && $filter == "distDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'DESC')
-                ->get();
-        }
-
-        elseif ($location == "east" && $filter == "all" ) {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('created_at', 'ASC')
-                ->get();
-        } elseif ($location == "east" && $filter == "hardASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'ASC')
-                ->get();
-        } elseif ($location == "east" && $filter == "hardDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('hardness', 'DESC')
-                ->get();
-        } elseif ($location == "east" && $filter == "distASC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'ASC')
-                ->get();
-        } elseif ($location == "east" && $filter == "distDESC") {
-            $listTrecks = Trecks::query()
-                ->where('location', '=', $location)
-                ->where('private', '=', false)
-                ->orderBy('distance', 'DESC')
-                ->get();
-        }
+        // elseif ($location == "east" && $filter == "all" ) {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('created_at', 'ASC')
+        //         ->get();
+        // } elseif ($location == "east" && $filter == "hardASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'ASC')
+        //         ->get();
+        // } elseif ($location == "east" && $filter == "hardDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('hardness', 'DESC')
+        //         ->get();
+        // } elseif ($location == "east" && $filter == "distASC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'ASC')
+        //         ->get();
+        // } elseif ($location == "east" && $filter == "distDESC") {
+        //     $listTrecks = Trecks::query()
+        //         ->where('location', '=', $location)
+        //         ->where('private', '=', false)
+        //         ->orderBy('distance', 'DESC')
+        //         ->get();
+        // }
 
         $nbTreck = count($listTrecks);
         if ($nbTreck == 0) {

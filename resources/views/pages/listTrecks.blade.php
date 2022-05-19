@@ -17,7 +17,9 @@
             <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
 
-        <!-- <div class="d-flex flex-wrap">
+        @include('composants.filterSorte')
+        
+        <div class="d-flex flex-wrap">
         @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
                 <img src="{{Storage::url($treck->img)}}" class="card-img-top" alt="image non chargé">

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\filterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\treckController;
@@ -44,3 +45,5 @@ Route::get('addTrecks', [treckController::class, 'addTrecks'])->name('addTrecks'
 Route::get('detailTrek/{treckId}', [treckController::class, 'detailTrek'])->name('detailTrek');
 Route::get('searchTreck', [treckController::class, 'searchTreck'])->name('searchTreck');
 Route::post('treckUpdate/{treckId}', [treckController::class, 'treckUpdate'])->name('treckUpdate');
+
+Route::get('filterSorte', [filterController::class, 'filterSorte'])->name('filterSorte');
