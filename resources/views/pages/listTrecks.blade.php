@@ -17,6 +17,8 @@
             <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
 
+        @include('composants.filterSorte')
+        
         <div class="d-flex flex-wrap">
         @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
