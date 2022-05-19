@@ -3,41 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Trecks;
 
 class filterController extends Controller
 {
     public function filterSorte(Request $request)
     {
         // dd($request);
-        $filter = $request->filter;
-        $sorte = $request->sorte;
+        $distanceMin = $request->inputDistMin;
+        $distanceMax = $request->inputDistMax;
+        $timeMin = $request->inputTimeMin;
+        $timeMax = $request->inputTimeMax;
+        $difficulty = $request->inputDifficulty;
+        $error = "There are no treck aviable on your conditions, sorry";
+        dd($difficulty);
+        if ($distanceMin == null) { $distanceMin = 0; }
+        if ($distanceMax == null) { $distanceMax = 100000; }
+        if ($timeMin == null) { $timeMin = 0; }
+        if ($timeMax == null) { $timeMax = 100000; }
         
-        if ($filter == "⭐" ||
-            $filter == "⭐⭐" ||
-            $filter == "⭐⭐⭐" ||
-            $filter == "⭐⭐⭐⭐" ||
-            $filter == "⭐⭐⭐⭐⭐"){
-            $filterTitle = "Difficulty until ".$filter;
-        } elseif ($request->filter <= 50){
-            $filterTitle = 'Distance until '.$filter.' km';
-        } elseif ($request->filter == 51) {
-            $filterTitle = 'Distance over 50 km';
-        } elseif ($request->filter >= 60 && $request->filter <= 360) {
-            $filterTitle = 'Time until '.$filter.' min';
-        } elseif ($request->filter >360) {
-            $filterTitle = 'Time over 360 min';
-        }
-        if ($sorte == "asc"){
-            $sorteTitle = "👆";
+        $title = "";
+        if ($difficulty == null) {
+            $trecks = Trecks::query()
+            ->where('distance', '>=', $distanceMin)
+            ->where('distance', '<=', $distanceMax)
+            ->where('time', '>=', $timeMin)
+            ->where('time', '<=', $timeMax)
+            ->orderby('created_at', 'desc')
+            ->get();
         } else {
-            $sorteTitle = "👇";
+            $trecks = Trecks::query()
+            ->where('distance', '>=', $distanceMin)
+            ->where('distance', '<=', $distanceMax)
+            ->where('time', '>=', $timeMin)
+            ->where('time', '<=', $timeMax)
+            ->where('hardness', '=', $difficulty)
+            ->orderby('created_at', 'desc')
+            ->get();
         }
-
-        $title = $filterTitle." ".$sorteTitle;
-
-        $trecks = [];
         
-        return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks])
-            ->with('error', 'there is nothing for now');
+        
+        if (count($trecks) >= 1) { $error = ""; }
+        return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks, 'error' => $error]);
     }
 }

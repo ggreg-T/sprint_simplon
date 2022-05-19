@@ -16,8 +16,25 @@
         @if(session('error'))
             <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
+        @if ($error)
+            <p class="alert alert-danger">{{ $error }}</p>
+        @endif
 
-        @include('composants.filterSorte')
+        <div class="d-flex flex-row justify-content-between">
+            <div>
+                <button type="button" class="btn btn-dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalChoice">
+                Filter</button>
+            </div>
+            <div class="d-flex flex-row mb-4">
+                <button type="button" class="btn btn-dark text-white me-3">
+                    Distance </button>
+                <button type="button" class="btn btn-dark text-white me-3">
+                    Time </button>
+                <button type="button" class="btn btn-dark text-white me-3">
+                    Difficulty </button>
+            </div>
+        </div>
+        
         
         <div class="d-flex flex-wrap">
         @foreach ($trecks as $treck)
@@ -43,7 +60,6 @@
                             </button>
                         </p>
                     </form>
-                   
                 </div>
             </div>
         @endforeach

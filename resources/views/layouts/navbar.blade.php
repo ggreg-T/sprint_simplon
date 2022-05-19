@@ -12,6 +12,9 @@
                         <li class="nav-item">
                             {{-- @include('composants.filterMenu') --}}
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
+                        </li>
                         @auth
                             @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
                                 <li class="nav-item">
@@ -71,7 +74,6 @@
                     <a class="btn btn-danger me-3" href="{{ route('logout') }}">Logout</a>
                 @endauth
                 @guest
-
                     <button type="button" class="btn btn-Dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
                         Login</button>
                     <button type="button" class="btn btn-Dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
@@ -83,3 +85,4 @@
 </div>
 @include('composants.modalLogin')
 @include('composants.modalRegister')
+@include('composants.modalChoice')
