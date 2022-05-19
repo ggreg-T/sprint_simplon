@@ -10,7 +10,7 @@
                     <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
                         {{-- <li class="nav-item dropdown"> --}}
                         <li class="nav-item">
-                            @include('composants.filterMenu')
+                            {{-- @include('composants.filterMenu') --}}
                         </li>
                         @auth
                             @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
