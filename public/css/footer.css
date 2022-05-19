@@ -20,9 +20,9 @@ body {
 
 footer {
     flex-shrink: 0;
-    border-top: 1px solid #FFBF00;
+    border-top: 1px solid #ffbf00;
     width: 100%;
-    background-color: #1A1F16;
+    background-color: #1a1f16;
 }
 
 .contenufooter {
@@ -30,7 +30,7 @@ footer {
     margin: 0;
     display: flex;
     align-items: flex-start;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
     flex-wrap: nowrap;
     justify-content: space-around;
@@ -39,28 +39,23 @@ footer {
 .bloc {
     width: auto;
     margin: 30px;
-
 }
 
 .footer-contact h3,
 .footer-reso h3,
 .footer-name h3 {
-    color: #FFBF00;
+    color: #ffbf00;
     padding-bottom: 20px;
     font-size: 30px;
-    font-family: 'Roboto';
-
+    font-family: "Roboto";
 }
 
 .name {
     list-style-type: none;
-
 }
 
-
 .reso {
-    font-size: 20px;
-
+    font-size: 16px;
 }
 
 .footer-contact,
@@ -72,11 +67,11 @@ footer {
 }
 
 .foot {
-    color: #1B998B;
+    color: #1b998b;
     text-decoration: none;
 }
- .footer-reso{
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
- }
+.footer-reso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

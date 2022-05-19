@@ -1,11 +1,11 @@
 @extends('layouts.home')
 @section('content')
-<meta http-equiv="refresh" content="10" /> 
+<meta http-equiv="refresh" content="10" > 
 	<div>
 		<h2 class="mt-5">{{ $titleMain }}</h2>
 		<div class="d-flex flex-row">
 			<h2 class="">{{ $titleTime }}</h2>
-			<a class="btn bg-info ms-3" href="">Reload</a>
+			<a type="button" class="btn bg-info ms-3" href="">Reload</a>
 		</div>
 		
 	</div>
