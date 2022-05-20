@@ -84,7 +84,7 @@ footer {
 }
 
 /* ########### Partie modal ######## */
-
+/* ############## Login ############## */
 
 .modal-content,
 .modal-footer,
@@ -101,6 +101,26 @@ footer {
     border-width: 2px;
 }
 
+/* ############## Register ############## */
 
+#floatingConfirmPassword,
+#floatingPassword,
+#floatingPhoneContact2,
+#floatingContact2,
+#floatingPhoneContact1,
+#floatingContact1,
+#floatingTel,
+#floatingAge,
+#floatingEmail,
+#floatingPseudo,
+#floatingLastName,
+#floatingFirstName{
+    border-color: #1B998B;
+    border-width: 2px;
 
-
+}
+.btn_G_L{
+    width: 45%;
+    padding: 5px;
+    flex-direction: row;
+}
