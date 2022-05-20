@@ -2,7 +2,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <h5 class="modal-title" id="exampleModalLabel"
+                style="color:white;">Login</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -70,14 +71,17 @@
                         <input type="password" class="form-control" name="inputPassword_confirmation" id="floatingConfirmPassword" placeholder="Confirm Password">
                         <label for="floatingConfirmPassword">Confirm Password</label>
                     </div>
-                    <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modalLogin">GoGo</button>
+                    <div class="d-flex btn-G-L">
+                    <button class="btn btn-primary me-4" type="submit" data-bs-toggle="modal" data-bs-target="#modalLogin" style="width: 45%;">GoGo</button>
+                    <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin" style="width: 45%;">
+                        Login</button>
                 </form>
             </div>
-            <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
-                Login</button>
+                </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </div>
+        
         </div>
     </div>
 </div>
