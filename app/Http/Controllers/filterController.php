@@ -10,20 +10,24 @@ class filterController extends Controller
     public function filterSorte(Request $request)
     {
         // dd($request);
-        $distanceMin = $request->inputDistMin;
-        $distanceMax = $request->inputDistMax;
-        $timeMin = $request->inputTimeMin;
-        $timeMax = $request->inputTimeMax;
+        $distanceMin = intval($request->inputDistMin);
+        $distanceMax = intval($request->inputDistMax);
+        $timeMin = intval($request->inputTimeMin);
+        $timeMax = intval($request->inputTimeMax);
         $difficulty = $request->inputDifficulty;
         $error = "There are no treck aviable on your conditions, sorry";
-        dd($difficulty);
+        
         if ($distanceMin == null) { $distanceMin = 0; }
         if ($distanceMax == null) { $distanceMax = 100000; }
         if ($timeMin == null) { $timeMin = 0; }
         if ($timeMax == null) { $timeMax = 100000; }
-        
+
+        $infoFilters = ['distMin' => $distanceMin, 'distMax' => $distanceMax, 'timeMin' => $timeMin, 'timeMax' => $timeMax, 'difficulty' => $difficulty];
+        // dd($infoFilters);
+
         $title = "";
         if ($difficulty == null) {
+            //  dd($infoFilters);
             $trecks = Trecks::query()
             ->where('distance', '>=', $distanceMin)
             ->where('distance', '<=', $distanceMax)

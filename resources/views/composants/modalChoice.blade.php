@@ -1,9 +1,9 @@
-<div class="modal fade" id="modalChoice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="modalChoice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="d-flex flex-column">
-                <h5 class="modal-title" id="exampleModalLabel-login">Login</h5>
+                <h5 class="modal-title" id="exampleModalLabel-login">Filter</h5>
                 </div>
                 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -32,26 +32,26 @@
                         </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-around">
-                        <div class="d-flex flex-fill form-group form-floating mb-3 me-3">
-                            <input type="radio" class="form-control" name="inputDifficulty" id="floatingDiffi1" value="1">
-                            <label for="floatingDiffiMax">1⭐</label>
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-fill form-group mb-3 me-3">
+                            <input type="radio" class="btn-check" name="inputDifficulty" id="success-outlined1" value=⭐>
+                            <label class="btn btn-outline-success flex-fill" for="success-outlined1">⭐</label>
                         </div>
-                        <div class="d-flex flex-fill form-group form-floating mb-3 me-3">
-                            <input type="radio" class="form-control" name="inputDifficulty" id="floatingDiffi1" value="2">
-                            <label for="floatingDiffiMax">2⭐</label>
+                        <div class="d-flex flex-fill form-group mb-3 me-3">
+                            <input type="radio" class="btn-check" name="inputDifficulty" id="success-outlined2" value=⭐⭐>
+                            <label class="btn btn-outline-success flex-fill" for="success-outlined2">⭐⭐</label>
                         </div>
-                        <div class="d-flex flex-fill form-group form-floating mb-3 me-3">
-                            <input type="radio" class="form-control" name="inputDifficulty" id="floatingDiffi1" value="3">
-                            <label for="floatingDiffiMax">3⭐</label>
+                        <div class="d-flex flex-fill form-group mb-3 me-3">
+                            <input type="radio" class="btn-check" name="inputDifficulty" id="success-outlined3" value=⭐⭐⭐>
+                            <label class="btn btn-outline-success flex-fill" for="success-outlined3">⭐⭐⭐</label>
                         </div>
-                        <div class="d-flex flex-fill form-group form-floating mb-3 me-3">
-                            <input type="radio" class="form-control" name="inputDifficulty" id="floatingDiffi1" value="4">
-                            <label for="floatingDiffiMax">4⭐</label>
+                        <div class="d-flex flex-fill form-group mb-3 me-3">
+                            <input type="radio" class="btn-check" name="inputDifficulty" id="success-outlined4" value=⭐⭐⭐⭐>
+                            <label class="btn btn-outline-success flex-fill" for="success-outlined4">⭐⭐⭐⭐</label>
                         </div>
-                        <div class="d-flex flex-fill form-group form-floating mb-3 me-1">
-                            <input type="radio" class="form-control" name="inputDifficulty" id="floatingDiffi1" value="5">
-                            <label for="floatingDiffiMax">5⭐</label>
+                        <div class="d-flex flex-fill form-group mb-3">
+                            <input type="radio" class="btn-check" name="inputDifficulty" id="success-outlined5" value=⭐⭐⭐⭐⭐>
+                            <label class="btn btn-outline-success flex-fill" for="success-outlined5">⭐⭐⭐⭐⭐</label>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
