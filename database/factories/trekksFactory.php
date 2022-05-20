@@ -14,7 +14,17 @@ class trekksFactory extends Factory
     public function definition()
     {
         return [
-            "nom"=>$this->faker->words(2)
+            "treckName"=>$this->faker->words(2),
+            "pseudo"=>$this->faker->name(),
+            "hardness"=>$this->faker->words(),"time"=>$this->faker->words(2),
+            "type"=>$this->faker->words(2),
+            "distance"=>$this->faker->words(2),
+            "location"=>$this->faker->words(2),
+            "coords"=>$this->faker->words(2),
+            "description"=>$this->faker->words(2),
+            "profil"=>$this->faker->words(2),
+            "private"=>$this->faker->words(2),
+
         ];
     }
 }
