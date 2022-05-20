@@ -62,6 +62,7 @@
                 </div>
             </div>
         @endforeach
+        @endsection
         <!-- </div>
         <table class="table table-bordered">
             <tr>
@@ -108,4 +109,3 @@
             @endforeach
         </table>
     </div> -->
-@endsection
