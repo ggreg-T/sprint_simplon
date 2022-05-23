@@ -1,14 +1,14 @@
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark   px-md-5 " style="background-color:#1A1F16">
+    <nav class="navbar navbar-expand-lg navbar-dark px-md-5 vert_foncé">
         <div class=" d-flex justify-content-around">
 
-            <div class="d-flex flex-row ">
+            <div class="d-flex flex-row">
 
                 <a class="me-3" href="{{ route('home') }}" enctype="multipart/form-data"><img
                         style="width:100%; height:50px;" src="{{ URL::asset('img/treckingsecurLogo.png') }}"
                         alt="not found"> </a>
             </div>
-            <div>
+            <div class="d-flex flex-row">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,20 +39,20 @@
                 </div>
 
             </div>
-            <div class="">
+            <div>
                 <form class="ms-5 me-5" action="{{ route('searchTreck') }}" method="GET">
                     @csrf
                     <div class="input-group ">
-                        <input class="form-control me-1" name="inputSearchTreck" placeholder="Search Treck..."
+                        <input class="form-control me-1 mt-2" name="inputSearchTreck" placeholder="Search Treck..."
                             aria-label="Search Treck...">
-                        <button class="btn btn-outline-success ms-1" type="submit">🔎</button>
+                        <button class="btn btn-outline-success ms-1 mt-2" type="submit">🔎</button>
                     </div>
                 </form>
             </div>
             <div class="d-flex flex-row position-absolute top-0 end-0 me-5  mt-2">
 
                 @auth
-                    <div class="btn-group ">
+                    <div class="mt-2">
                         <a class="nav-link dropdown-toggle text-white ms-3" href="#" id="userPages" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <b>
@@ -76,13 +76,15 @@
                                     href="{{ route('addTrecks') }}">TreckCreator</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-danger me-3" href="{{ route('logout') }}">Logout</a>
+                    <a class="btn btn-danger me-5 mt-2" href="{{ route('logout') }}">Logout</a>
                 @endauth
                 @guest
 
-                    <button type="button" class="btn text-white me-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                    <button type="button" class="btn text-white me-3 mt-2" data-bs-toggle="modal"
+                        data-bs-target="#modalLogin">
                         Login</button>
-                    <button type="button" class="btn textwhite me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                    <button type="button" class="btn text-white me-3 mt-2" data-bs-toggle="modal"
+                        data-bs-target="#modalRegister">
                         Register</button>
                 @endguest
             </div>

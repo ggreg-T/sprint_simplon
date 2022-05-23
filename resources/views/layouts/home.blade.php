@@ -40,7 +40,7 @@
 
 <body class="">
     @include('layouts.navbar')
-    <main class="px-5">
+    <main>
         {{-- <h2>{{ $title }}</h2> --}}
 
 

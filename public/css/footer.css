@@ -22,7 +22,6 @@ footer {
     flex-shrink: 0;
     border-top: 1px solid #ffbf00;
     width: 100%;
-    background-color: #1a1f16;
 }
 
 .contenufooter {
@@ -31,14 +30,12 @@ footer {
     display: flex;
     align-items: flex-start;
     font-size: 16px;
-    padding: 10px;
     flex-wrap: nowrap;
     justify-content: space-around;
 }
 
 .bloc {
     width: auto;
-    margin: 30px;
 }
 
 .footer-contact h3,
@@ -74,4 +71,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.vert_foncé {
+    background-color: #264722 !important;
 }

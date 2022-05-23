@@ -21,16 +21,35 @@
                 <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
                     <img src="{{ Storage::url($treck->img) }}" class=" card-img-top" alt="image non chargé">
                     <div class="card-body">
-
-                        <p class="card-text text-center">Distance {{ $treck->distance }} Km</p>
-                        <p class="card-text text-center">Type {{ $treck->type }}</p>
-                        <p class="card-text text-center">Difficulty {{ $treck->hardness }}</p>
-                        <p class="card-text text-center">Durer {{ $treck->time }} min</p>
+                        <div class="d-flex flex-row">
+                            <p class="card-text text-center">Distance</p>
+                            <hr style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
+                            <p>{{ $treck->distance }} Km
+                            </p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <p class="card-text text-center">Type</p>
+                            <hr style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
+                            <p>{{ $treck->type }}
+                            </p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <p class="card-text text-center">Difficulty</p>
+                            <hr style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
+                            <p>{{ $treck->hardness }}
+                            </p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <p class="card-text text-center">During</p>
+                            <hr style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
+                            <p>{{ $treck->time }} min
+                            </p>
+                        </div>
                         <p class="card-text">
                         <form action="{{ route('detailTrek', $treck->id) }}" method="get">
                             <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"
                                 readonly>
-                            <input type="submit" class="form-control me-2 btn bg-info" name="inputDetailUser"
+                            <input type="submit" class="form-control me-2 text-white btn bouton" name="inputDetailUser"
                                 value="{{ $treck->treckName }}" readonly>
                         </form>
                         </p>

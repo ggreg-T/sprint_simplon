@@ -1,5 +1,5 @@
-<div class="contenu"></div>
-<footer>
+<div class="contenu "></div>
+<footer class="vert_foncé">
     <!-- ######## NAME ######### -->
     <div class="contenufooter">
 

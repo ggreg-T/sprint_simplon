@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-    <div class="d-flex flex-row">
+    <div class="px-5 d-flex flex-row">
         <div class="mt-5 ">
             <h2 class="mb-5">{{ $title }}</h2>
             <form method="POST" action="{{ route('treckUpdate', $treck[0]->id) }}" enctype="multipart/form-data">
