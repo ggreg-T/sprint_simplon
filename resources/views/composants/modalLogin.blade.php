@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="d-flex flex-column">
-                <h5 class="modal-title" id="exampleModalLabel-login">Login</h5>
+                <h5 class="modal-title" id="exampleModalLabel-login" style="color:white;">Login</h5>
                 </div>
                 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -21,11 +21,11 @@
                         <input type="password" class="form-control" name="password" placeholder="Password"  id="loginFloatingPassword">
                         <label for="loginFloatingPassword">Password</label>
                     </div>
-            
-                    <button class="btn btn-primary" type="submit">GoGo</button>
+            <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" type="submit" style="width:45%;">GoGo</button></div>
                 </form>
             </div>
-                <button type="button" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                <button type="button" class="btn btn-light modal" data-bs-toggle="modal" data-bs-target="#modalRegister">
                     Register</button>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

@@ -5,8 +5,8 @@
             <div class="d-flex mb-4">
                 <h2>{{ $title }}</h2>
             </div>
-            <div class="d-flex flex-row">
-                <a class="btn btn-primary me-3" href="{{ route('home') }}" enctype="multipart/form-data">Back</a>
+            <div class="d-flex flex-row" >
+                <a class="btn btn-primary me-3" href="{{ route('home') }}">Back</a>
             </div>
         </div>
         @if (session('success'))
@@ -15,7 +15,24 @@
         @if (session('error'))
             <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
+        @if ($error)
+            <p class="alert alert-danger">{{ $error }}</p>
+        @endif
 
+        <div class="d-flex flex-row justify-content-between">
+            <div>
+                <button type="button" class="btn btn-dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalChoice">
+                Filter</button>
+            </div>
+            <div class="d-flex flex-row mb-4">
+                <button type="button" class="btn btn-dark text-white me-3">
+                    Distance </button>
+                <button type="button" class="btn btn-dark text-white me-3">
+                    Time </button>
+                <button type="button" class="btn btn-dark text-white me-3">
+                    Difficulty </button>
+            </div>
+        </div>
         <div class="d-flex flex-wrap">
             @foreach ($trecks as $treck)
                 <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
@@ -53,7 +70,6 @@
                                 value="{{ $treck->treckName }}" readonly>
                         </form>
                         </p>
-
                     </div>
                 </div>
             @endforeach

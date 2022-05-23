@@ -18,7 +18,11 @@
                     <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
                         {{-- <li class="nav-item dropdown"> --}}
                         <li class="nav-item">
-                            @include('composants.filterMenu')
+                            {{-- @include('composants.filterMenu') --}}
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
                         </li>
                         @auth
                             @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
@@ -93,3 +97,4 @@
 </div>
 @include('composants.modalLogin')
 @include('composants.modalRegister')
+@include('composants.modalChoice')

@@ -4,12 +4,11 @@
 }
 
 body {
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
-
 /* contenu au dessus du du footer doit prendre tte la place donc il doit avoir un grow 1 */
-
 /* .div dessus footer{
     1:grow 0:shrink auto: 
     flex: 1 0 auto;
@@ -17,13 +16,13 @@ body {
 .contenu {
     flex: 1 0 auto;
 }
-
 footer {
     flex-shrink: 0;
     border-top: 1px solid #ffbf00;
     width: 100%;
+    /* height: 150px; */
+    background-color: #1a1f16;
 }
-
 .contenufooter {
     width: auto;
     margin: 0;
@@ -33,24 +32,21 @@ footer {
     flex-wrap: nowrap;
     justify-content: space-around;
 }
-
 .bloc {
     width: auto;
 }
-
 .footer-contact h3,
 .footer-reso h3,
 .footer-name h3 {
     color: #ffbf00;
     padding-bottom: 20px;
     font-size: 30px;
+
     font-family: "Roboto";
 }
-
 .name {
     list-style-type: none;
 }
-
 .reso {
     font-size: 16px;
 }
@@ -72,7 +68,52 @@ footer {
     flex-direction: column;
     justify-content: center;
 }
+/* ############## Partie navbar ########## */
 
-.vert_foncé {
-    background-color: #264722 !important;
+#nav {
+    background-color: #1b998b;
+    height: 200px;
+    /* style="background-color:black;" */
+    /* a mettre dans ligne 2 */
+    /* style="background-color:#1A1F16" */
+}
+
+/* ########### Partie modal ######## */
+/* ############## Login ############## */
+
+.modal-content,
+.modal-footer,
+.modal-header,
+.modal-body {
+    background-color: #a4969b;
+    border-color: #1b998b;
+    border-width: 2px;
+}
+#loginFloatingPassword,
+#loginFloatingName {
+    border-color: #1b998b;
+    border-width: 2px;
+}
+
+/* ############## Register ############## */
+
+#floatingConfirmPassword,
+#floatingPassword,
+#floatingPhoneContact2,
+#floatingContact2,
+#floatingPhoneContact1,
+#floatingContact1,
+#floatingTel,
+#floatingAge,
+#floatingEmail,
+#floatingPseudo,
+#floatingLastName,
+#floatingFirstName {
+    border-color: #1b998b;
+    border-width: 2px;
+}
+.btn_G_L {
+    width: 45%;
+    padding: 5px;
+    flex-direction: row;
 }
