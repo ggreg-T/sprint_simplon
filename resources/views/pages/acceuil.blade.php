@@ -13,12 +13,12 @@
             ipsa
             sed cupiditate eaque
             maiores labore libero eius commodi harum iure debitis. Ipsa at qui nisi possimus quam?</p>
-        <div class="d-flex flex-row  justify-content-between ">
+        <div class="d-flex flex-wrap{{-- justify-content-between --}}   ">
             @foreach ($trecks as $treck)
                 <div class="d-flex flex-row border_vert_clair border-2 my-3 me-3 rounded-3"
-                    style="width:30rem; height:18.8rem;">
-                    <a style="width:57%; height:300px;" href="{{ route('detailTrek', $treck->id) }}"><img
-                            style="width:100%; height:299px;" class="rounded-3" src=" {{ Storage::url($treck->img) }}"
+                    style="width:28rem; height:18.8rem;">
+                    <a style="{{-- width:57%; height:300px; --}}" href="{{ route('detailTrek', $treck->id) }}"><img
+                            style=" height:299px;" class="   rounded-3 ratio_img" src=" {{ Storage::url($treck->img) }}"
                             alt="not "></a>
 
                     <div class=" text-center ms-2 ">
@@ -44,7 +44,7 @@
                                     {{ $treck->hardness }}
                                 </div>
                                 <div class="">
-                                    <strong>Durer
+                                    <strong>Time
                                     </strong>
                                     <hr
                                         style="height:2.5px;margin-top:5px;width:100%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />

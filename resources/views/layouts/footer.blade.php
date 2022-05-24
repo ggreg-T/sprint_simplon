@@ -9,22 +9,22 @@
                 <li>
                     <a class="foot" target="blank"
                         href="https://www.linkedin.com/in/romain-felicite-04635721a"><i
-                            class="fa-brands fa-linkedin img me-2"></i>Félicité romain </a>
+                            class="fa-brands fa-linkedin img me-2"></i>Félicité Romain </a>
                 </li>
                 <li>
                     <a class="foot" target="blank"
                         href="https://www.linkedin.com/in/steve-greiner-040341235/"><i
-                            class="fa-brands fa-linkedin img me-2"></i>Greiner steve</a>
+                            class="fa-brands fa-linkedin img me-2"></i>Greiner Steve</a>
                 </li>
                 <li>
                     <a class="foot" target="blank"
                         href="https://www.linkedin.com/in/gregory-techer-681b80224/"><i
-                            class="fa-brands fa-linkedin img me-2"></i>Techer gregory</a>
+                            class="fa-brands fa-linkedin img me-2"></i>Techer Gregory</a>
                 </li>
                 <li>
                     <a class="foot" target="blank"
                         href="https://www.linkedin.com/in/st%C3%A9phane-bocace-034055217/ "><i
-                            class="fa-brands fa-linkedin img me-2"></i>Bocace stéphane</a>
+                            class="fa-brands fa-linkedin img me-2"></i>Bocace Stéphane</a>
                 </li>
             </ul>
         </div>

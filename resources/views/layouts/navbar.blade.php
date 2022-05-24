@@ -1,25 +1,19 @@
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark px-md-5 vert_foncé">
-        <div class=" d-flex justify-content-around">
-
+        <div class="d-flex justify-content-around">
             <div class="d-flex flex-row">
-
                 <a class="me-3" href="{{ route('home') }}" enctype="multipart/form-data"><img
                         style="width:100%; height:50px;" src="{{ URL::asset('img/treckingsecurLogo.png') }}"
                         alt="not found"> </a>
             </div>
-            <div class="d-flex flex-row">
 
+            <div class="d-flex flex- ">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
-                        {{-- <li class="nav-item dropdown"> --}}
-                        <li class="nav-item">
-                            {{-- @include('composants.filterMenu') --}}
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
@@ -80,7 +74,7 @@
                                     href="{{ route('addTrecks') }}">TreckCreator</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-danger me-5 mt-2" href="{{ route('logout') }}">Logout</a>
+                    <a class="btn text-white me-5 mt-2" href="{{ route('logout') }}">Logout</a>
                 @endauth
                 @guest
 

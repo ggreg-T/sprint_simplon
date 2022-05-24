@@ -69,3 +69,7 @@
     border: none !important;
     opacity: 1 !important;
 }
+.ratio_img {
+    aspect-ratio: 16/9 !important;
+    width: 100%;
+}
