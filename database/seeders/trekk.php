@@ -19,58 +19,23 @@ class trekk extends Seeder
     public function run()
     {
         $faker = Faker::create('fr_FR');
-        for ($i = 0; $i < 3; $i++){
+        for ($i = 0; $i < 5; $i++){
             DB::table('trecks')->insert([
             'idUser' => '0',
             'treckName' => $faker->name,
-            'pseudo'=> $faker->name,
+            'pseudo'=> $faker->word,
             'hardness'=> $faker->randomElement(["⭐","⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]),
             'time'=> $faker->numberBetween(30, 500),
             'type'=> $faker->randomElement(["one way","round", "go & back"]),
             'distance'=> $faker->numberBetween(1, 10),
-            'location'=> $faker->name,
+            'location'=> $faker->randomElement(["North","East", "South", "West"]),
             'coords'=> $faker->name,
-            'description'=> $faker->name,
-            'profil'=> $faker->name,
+            'description'=> $faker->realText($maxNbChars = 150, $indexSize = 2),
+            'profil'=> 'walking',
+            // 'profil'=> $faker->name,
             // 'img'=> $faker->image(storage_path('images/treckingsecurLogo.png'),200,200, null, false),
             'private'=>$faker->randomElement(["0","1"]),
             ]);
             }
      }
 }
-// Schema::create('trecks', function (Blueprint $table) {
-//     $table->id();
-//     $table->string('treckName')->unique();
-//     $table->bigInteger('idUser');
-//     $table->string('pseudo');
-//     $table->string('hardness')->nullable();
-//     $table->string('time')->nullable();
-//     $table->string('type');
-//     $table->string('distance');
-//     $table->string('location');
-//     $table->text('coords');
-//     $table->string('description');
-//     $table->string('profil');
-//     $table->string('img');
-//     $table->boolean('private')->default(false);
-//     $table->timestamps();
-
-// exemple 1 et 2
- // $faker = Faker::create('fr_FR');
-        // for ($i = 0; $i < 3; $i++){
-        // foreach (range(1,3) as $value){
-            // DB::table('trecks')->insert([
-         
-            // 'treckName' => $faker->words,
-            // 'pseudo'=>$faker->name,
-            // 'hardness'=>$this->$faker->words,
-            // 'time'=>$faker->numberBetween(2, 200),
-            // 'type'=>$this->$faker->words(2),
-            // 'distance'=>$this->$faker->numberBetween(2, 20),
-            // 'location'=>$this->$faker->words(2),
-            // 'coords'=>$this->$faker->words(2),
-            // 'description'=>$this->$faker->words(1),
-            // 'profil'=>$this->$faker->words(1),
-            // 'private'=>$this->$faker->number(0,1),
-            // ]);
-            // }

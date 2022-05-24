@@ -44,8 +44,7 @@
                                     {{ $treck->hardness }}
                                 </div>
                                 <div class="">
-                                    <strong>Time
-                                    </strong>
+                                    <strong>Time</strong>
                                     <hr
                                         style="height:2.5px;margin-top:5px;width:100%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
                                     {{ $treck->time }} min
