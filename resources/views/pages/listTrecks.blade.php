@@ -2,27 +2,25 @@
 @section('content')
     <div class="mt-4">
         <div class="my-4 d-flex flex-column">
-            <div class="d-flex mb-4">
+            <div class="d-flex mb-4 ms-5">
                 <h2>{{ $title }}</h2>
-            </div>
-            <div class="d-flex flex-row" >
-                <a class="btn btn-primary me-3" href="{{ route('home') }}">Back</a>
             </div>
         </div>
         @if (session('success'))
             <p class="alert alert-danger">{{ session('success') }}</p>
         @endif
-        @if(session('error'))
+        @if (session('error'))
             <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
         @if ($error)
             <p class="alert alert-danger">{{ $error }}</p>
         @endif
 
-        <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-row justify-content-between me-5">
             <div>
-                <button type="button" class="btn btn-dark text-white me-3" data-bs-toggle="modal" data-bs-target="#modalChoice">
-                Filter</button>
+                <button type="button" class="btn btn-dark text-white ms-5 px-5" data-bs-toggle="modal"
+                    data-bs-target="#modalChoice">
+                    Filters</button>
             </div>
             <div class="d-flex flex-row mb-4">
                 <button type="button" class="btn btn-dark text-white me-3" id="btnDistance" onclick="sorteChoice('Distance')">Distance</button>
@@ -85,25 +83,16 @@
                     
                     <form action="{{ route('detailTrek', $treck->id) }}" method="get">
                         <p class="card-text">
-                            <input type="text" class="visually-hidden" 
-                                    name="inputTreckId"
-                                    value = "{{ $treck->id }}" 
-                                    readonly />
-                
-                            <input type="text" class="visually-hidden"  
-                                    name="inputDetailUser" 
-                                    value = "{{ $treck->treckName }}"
-                                    readonly />
-
-                            <button type="submit" class="form-control me-2 btn bg-info"  
-                                    value = "{{ $treck->treckName }}">
-                                {{ $treck->treckName }} 
-                            </button>
+                        <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                            <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"
+                                readonly>
+                            <input type="submit" class="form-control me-2 text-white btn bouton" name="inputDetailUser"
+                                value="{{ $treck->treckName }}" readonly>
+                        </form>
                         </p>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        @endforeach --}}
-    </div>
-@endsection
-        
+            @endforeach
+
+        </div>
+    @endsection
