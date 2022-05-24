@@ -26,7 +26,7 @@ class Trecks extends Migration
             $table->text('coords');
             $table->string('description');
             $table->string('profil');
-            $table->string('img');
+            $table->string('img')->default('public/images/treckingsecurLogo.png');
             $table->boolean('private')->default(false);
             $table->timestamps();
         });

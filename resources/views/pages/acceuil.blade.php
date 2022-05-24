@@ -6,7 +6,9 @@
     @if (session('error'))
         <p class="alert alert-danger mt-3">{{ session('error') }}</p>
     @endif
-    <img src="{{ URL::asset('img/test.png') }}" style="width: 100%" alt="not found">
+    <!-- <img src="{{ URL::asset('img/test.png') }}" style="width: 100%" alt="not found"> -->
+        <img src="storage/images/test.png" style="width: 100%; height: 35%;"  alt="not found">
+
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At blanditiis, aliquam sapiente ipsa sed cupiditate eaque
         maiores labore libero eius commodi harum iure debitis. Ipsa at qui nisi possimus quam?</p>
     <div class="d-flex flex-row  justify-content-between ">
