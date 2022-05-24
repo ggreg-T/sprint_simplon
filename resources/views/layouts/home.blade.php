@@ -39,18 +39,6 @@
     <main>
 
 
-        @yield('content')
-    </main>
-    @include('layouts.footer')
-
-
-    <script src='{{ url('js/filterSorte.js') }}'></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-
-
-</body>
 
             @yield('content')
         </main>

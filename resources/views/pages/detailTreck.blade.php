@@ -149,7 +149,7 @@
                                 <label for="floatingDate">Temps Tampon in Min</label>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Reserve</button>
+                        <button class="btn mt-3 btnhover" type="submit">Reserve</button>
                     </form>
                 </div>
                 @auth
