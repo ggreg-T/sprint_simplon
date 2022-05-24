@@ -20,25 +20,19 @@ class trekk extends Seeder
     {
         $faker = Faker::create('fr_FR');
 
-        $coordxStart= $faker->numberBetween(55, -20);
-        $coordyStart= $faker->numberBetween(55, -20);
+        $coordyStart= $faker->latitude($min = -21.3791, $max = -20.8765);
+        $coordxStart= $faker->longitude($min=55.2280, $max=55.8207);
 
-        $coordxEnd= $faker->numberBetween(55, -20);
-        $coordyEnd= $faker->numberBetween(55, -20);
+        $coordyEnd= $faker->latitude($min=-21.3791, $max=-20.8765);
+        $coordxEnd= $faker->longitude($min=55.2280, $max=55.8207);
 
-        // $pointStart=array();
-        // $pointEnd=array();
-        // array_push($pointStart, strval($coordxStart), ",", strval($coordyStart));
-        // array_push($pointEnd, strval($coordxEnd), ",", strval($coordyEnd));
- 
-        $coordCircuit= ($coordxStart.",".$coordxEnd.";".$coordyStart.",".$coordyEnd);
-        // $coord= array();
-        // array_push($coord, $pointStart, ";", $pointEnd);
-        // dd($coord);
+        // $coordyEnd= $faker->numberBetween(-20.8765, -21.3791);
+        // $coordxEnd= $faker->numberBetween(55.2280, 55.8207);
 
-        // 'Latitude' => $faker->Address->latitude,
-        // 'Longitude' => $faker->Address->longitude,
-        for ($i = 0; $i < 2; $i++){
+      
+        $coordCircuit= ($coordxStart.",".$coordyStart.";".$coordxEnd.",".$coordyEnd);
+  
+        for ($i = 0; $i < 5; $i++){
             DB::table('trecks')->insert([
             'idUser' => '0',
             'treckName' => $faker->name,
