@@ -16,10 +16,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
-                        {{-- <li class="nav-item dropdown"> --}}
-                        <li class="nav-item">
-                            {{-- @include('composants.filterMenu') --}}
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
                         </li>
@@ -68,7 +64,6 @@
                             </b>
                         </a>
                         <ul class="dropdown-menu ms-5 px-4 " style="background-color:black;" aria-labelledby="userPages">
-                            <li class="nav-item">
                             <li class="list-inline-item"><a class="dropdown-item " style="color:#a2a2a2"
                                     href="{{ route('listUserTrecksView') }}">Your Trecks</a></li>
                             <li class="list-inline-item"><a class="dropdown-item " style="color:#a2a2a2"
@@ -94,3 +89,16 @@
 @include('composants.modalLogin')
 @include('composants.modalRegister')
 @include('composants.modalChoice')
+
+{{-- <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+</nav> --}}
