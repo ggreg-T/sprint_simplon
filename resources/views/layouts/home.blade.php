@@ -15,23 +15,25 @@
 
 
 {{-- ###---for map---############################################################################################### --}}
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js%27%3E'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
     {{-- for the line draw to make own route --}}
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css' type='text/css' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js%27%3E'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css'
+        type='text/css' />
 
-    <link href="{{ url('css/userTreck.css') }}" rel="stylesheet" type="text/css">
-    
-    {{-- ###---for map start & endpoint---########################################################################## --}}
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+{{-- ###---for map start & endpoint---########################################################################## --}}
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js%22%3E"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        type="text/css">
 {{-- ############################################################################################################### --}}
-<link href="{{ url('css/layout.css') }}" rel="stylesheet" type="text/css">
+<link href='{{ url("css/layout.css") }}' rel="stylesheet" type="text/css">
     
 </head>
     <body class="">
-        @include('layouts.navbar')
+        @include("layouts.navbar")
         <main class="px-5">
             {{-- <h2>{{ $title }}</h2> --}}
             

@@ -19,15 +19,14 @@ class trekk extends Seeder
     public function run()
     {
         $faker = Faker::create('fr_FR');
-        // for ($i = 0; $i < 3; $i++){
-        // foreach (range(1,3) as $value){
+        for ($i = 0; $i < 3; $i++){
             DB::table('trecks')->insert([
             'idUser' => '0',
             'treckName' => $faker->name,
             'pseudo'=> $faker->name,
-            'hardness'=> $faker->name,
+            'hardness'=> $faker->randomElement(["⭐","⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"]),
             'time'=> $faker->numberBetween(30, 500),
-            'type'=> $faker->name,
+            'type'=> $faker->randomElement(["one way","round", "go & back"]),
             'distance'=> $faker->numberBetween(1, 10),
             'location'=> $faker->name,
             'coords'=> $faker->name,
@@ -35,21 +34,8 @@ class trekk extends Seeder
             'profil'=> $faker->name,
             // 'img'=> $faker->image(storage_path('images/treckingsecurLogo.png'),200,200, null, false),
             'private'=>$faker->randomElement(["0","1"]),
-
-            // #############################
-            // 'treckName' => $faker->words,
-            // 'pseudo'=>$faker->name,
-            // 'hardness'=>$faker->name,
-            // 'time'=>$faker->name,
-            // 'type'=>$faker->name,
-            // 'distance'=>$faker->name,
-            // 'location'=>$faker->name,
-            // 'coords'=>$faker->name,
-            // 'description'=>$faker->name,
-            // 'profil'=>$faker->name,
-            // 'private'=>$faker->name,
             ]);
-            // }
+            }
      }
 }
 // Schema::create('trecks', function (Blueprint $table) {
