@@ -17,7 +17,7 @@ class treckController extends Controller
         // dd($location, $filter);
         // dd();
         
-        $title = "Treck Réunion ".$location;
+        $title = "Treck ".$location;
 
         if ($location == "Reunion" && $filter == "all" ) {
             $listTrecks = Trecks::query()
