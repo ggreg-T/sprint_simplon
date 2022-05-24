@@ -22,48 +22,66 @@
                     data-bs-target="#modalChoice">
                     Filters</button>
             </div>
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-dark text-white ms-2 px-5">
-                    Distance </button>
-                <button type="button" class="btn btn-dark text-white ms-2 px-5">
-                    Time </button>
-                <button type="button" class="btn btn-dark text-white ms-2 px-5">
-                    Difficulty </button>
+            <div class="d-flex flex-row mb-4">
+                <button type="button" class="btn btn-dark text-white me-3" id="btnDistance" onclick="sorteChoice('Distance')">Distance</button>
+                <button type="button" class="btn btn-dark text-white me-3" id="btnTime" onclick="sorteChoice('Time')">Time</button>
+                <button type="button" class="btn btn-dark text-white me-3" id="btnDifficulty" onclick="sorteChoice('Difficulty')">Difficulty</button>
             </div>
         </div>
-        <div class="d-flex flex-justify me-5">
-            @foreach ($trecks as $treck)
-                <div class="card ms-5 mt-5 mb-1 " style="width: 18rem; ">
-                    <img src="{{ Storage::url($treck->img) }}" class=" card-img-top ratio_img" alt="image non chargé">
-                    <div class="card-body">
-                        <div class="d-flex flex-row">
-                            <p class="card-text text-center">Distance</p>
-                            <hr
-                                style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                            <p>{{ $treck->distance }} Km
-                            </p>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <p class="card-text text-center">Type</p>
-                            <hr
-                                style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                            <p>{{ $treck->type }}
-                            </p>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <p class="card-text text-center">Difficulty</p>
-                            <hr
-                                style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                            <p>{{ $treck->hardness }}
-                            </p>
-                        </div>
-                        <div class="d-flex flex-row">
-                            <p class="card-text text-center">Time</p>
-                            <hr
-                                style="padding-left:1%;height:2.5px;margin-top:15px;margin-left:5px;width:50%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                            <p>{{ $treck->time }} min
-                            </p>
-                        </div>
+        <div id="listTrecks" class="visually-hidden">
+            {{ $tableTrecks = json_encode($trecks) }}
+        </div>
+        <div class="d-flex flex-wrap">
+            <table class="table table-bordered" id="tableTrecks">
+                <tr>
+                    <th>Circuit Name</th>
+                    <th>Image</th>
+                    <th>Localisation</th>
+                    <th>Hardness</th>
+                    <th>Time</th>
+                    <th>Type</th>
+                    <th>Distance</th>
+                    <th>Profile</th>
+                </tr>
+                @foreach ($trecks as $treck)
+                <tr>
+                    <td>
+                        <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                            <input type="text" class="visually-hidden" 
+                                    name="inputTreckId"
+                                    value = "{{ $treck->id }}"
+                                    readonly >
+    
+                                <input type="text" class="visually-hidden" 
+                                    name="inputDetailUser"
+                                    value = "{{ $treck->treckName }}"
+                                    readonly >
+    
+                            <button type="submit" class="form-control me-2 btn bg-info"  
+                                    value = "{{ $treck->treckName }}" 
+                                    >{{ $treck->treckName }} </button>
+    
+                        </form>
+                    </td>
+                    <td>
+                        <img style="width: 13rem; height: 10rem" src="{{ Storage::url($treck->img) }}"  alt="no Image avaiable"> 
+                       
+                    </td>
+                    <td>{{ $treck ->location }}</td>
+                    <td>{{ $treck ->hardness }}</td>
+                    <td>{{ $treck ->time }} min</td>
+                    <td>{{ $treck ->type }}</td>
+                    <td>{{ $treck ->distance }} km</td>
+                    <td>{{ $treck ->profil }}</td>
+                </tr>
+                @endforeach
+            </table>
+        {{-- @foreach ($trecks as $treck)
+            <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
+                <img src="{{Storage::url($treck->img)}}" class="card-img-top" alt="image non chargé">
+                <div class="card-body">
+                    
+                    <form action="{{ route('detailTrek', $treck->id) }}" method="get">
                         <p class="card-text">
                         <form action="{{ route('detailTrek', $treck->id) }}" method="get">
                             <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"

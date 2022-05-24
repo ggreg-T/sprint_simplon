@@ -120,28 +120,63 @@
     </div>
     <div class="d-flex flex-column align-items-end mb-5 me-5">
         @auth
-            @if (Auth::user()->admin == false && Auth::user()->id == $treck->idUser && $treck->private == true)
-                <form action="{{ route('treck.destroy', $treck->id) }}" method="Post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete
-                        Treck</button>
-                </form>
-            @elseif (Auth::user()->admin == true && $treck->idUser == Auth::user()->id)
-                <form action="{{ route('treck.destroy', $treck->id) }}" method="Post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete
-                        Treck</button>
-                    <a class="btn btn-info" href="{{ route('treck.edit', $treck->id) }}">Modify
-                        Treck</a>
-                </form>
-            @endif
-        @endauth
-    </div>
-    @endforeach
+            <div class="d-flex flex-row">
+                <div class="d-flex">
+                    <form method="POST" action="{{ route('planificationTreck') }}">
+                        @csrf
+                        <input type="text" class="visually-hidden" name="inputTreckName" value="{{ $treck->treckName }}" readonly>
+                        {{-- <input type="text" class="visually-hidden" name="inputTreckTime" value="{{ $treck->time }}" readonly> --}}
+                        <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}" readonly>
+                        <input type="text" class="visually-hidden" name="inputProfil" value="{{ $treck->profil }}" readonly>
+                        <input type="text" class="visually-hidden" name="inputPrivate" value="{{ $treck->private }}" readonly>
+                        <div class="d-flex flex-row mb-3">
+                            <div class="form-group form-floating d-flex flex-fill me-3">
+                                <input type="date" class="form-control flex-fill" name="inputDate" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">
+                                <label for="floatingDate">Date</label>
+                            </div>
+                            <div class="form-group form-floating d-flex flex-fill me-3">
+                                <input type="time" class="form-control flex-fill" name="inputTimeStart" id="floatingTimeStart" value="{{ old('inputTimeStart') }}" placeholder="Time Start">
+                                <label for="floatingTimeStart">Time Start</label>
+                            </div>
+                        </div>
+                        <div class="mb-3 d-flex flex-row">
+                            <div class="form-group form-floating d-flex flex-fill me-3">
+                                <input type="number" class="form-control flex-fill" step="15" min="{{ $treck->time }}" name="inputTimeTreck" id="floatingTimeTreck" value="{{ $treck->time }}" placeholder="Time Arrival">
+                                <label for="floatingTimeTreck">Time Treck in Min</label>
+                            </div>
+                            <div class="form-group form-floating d-flex flex-fill me-3">
+                                <input type="number" class="form-control flex-fill" step="15" min="0" name="inputTimeTampon" id="floatingDate" value="{{ old('inputDate') }}" placeholder="Date">
+                                <label for="floatingDate">Temps Tampon in Min</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Reserve</button>
+                    </form>
+                </div>
+                @auth
+                    <div class="d-flex flex-column">
+                        @auth
+                            @if (Auth::user()->admin == false && Auth::user()->id == $treck->idUser && $treck->private == true)
+                                <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
+                                    @csrf 
+                                    @method('DELETE') 
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete Treck</button> 
+                                </form>
+                            @elseif (Auth::user()->admin == true && $treck->idUser == Auth::user()->id)
+                                <form action="{{ route('treck.destroy', $treck->id) }}" method="Post"> 
+                                    @csrf 
+                                    @method('DELETE') 
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sur to delete {{ $treck->treckName }} ?');">Delete Treck</button> 
+                                </form>
+                                <a class="btn btn-info mt-3" href="{{ route('treck.edit', $treck->id) }}">Modify Treck</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endauth
+            </div>
+        @endauth      
+        </div>
+        
+    @endforeach  
     <script type="text/javascript" src='{{ url('js/detailTreck.js') }}'></script>
     </div>
 @endsection
