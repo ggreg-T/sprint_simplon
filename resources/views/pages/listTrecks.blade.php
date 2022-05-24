@@ -1,10 +1,16 @@
 @extends('layouts.home')
 @section('content')
-    <div class="mt-4">
-        <div class="my-4 d-flex flex-column">
-            <div class="d-flex mb-4 ms-5">
+    <div class="mt-4 px-5">
+        <div class="mt-4 d-flex flex-column">
+            <div class="d-flex mb-4">
                 <h2>{{ $title }}</h2>
             </div>
+            <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
+            dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus,
+            ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac
+            rhoncus nisl, eu tempor urna.</p>
         </div>
         @if (session('success'))
             <p class="alert alert-danger">{{ session('success') }}</p>
@@ -12,25 +18,7 @@
         @if (session('error'))
             <p class="alert alert-danger">{{ session('error') }}</p>
         @endif
-        @if ($error)
-            <p class="alert alert-danger">{{ $error }}</p>
-        @endif
-
-        <div class="d-flex flex-row justify-content-between me-5">
-            <div>
-                <button type="button" class="btn btn-dark text-white ms-5 px-5" data-bs-toggle="modal"
-                    data-bs-target="#modalChoice">
-                    Filters</button>
-            </div>
-            <div class="d-flex flex-row mb-4">
-                <button type="button" class="btn btn-dark text-white me-3" id="btnDistance" onclick="sorteChoice('Distance')">Distance</button>
-                <button type="button" class="btn btn-dark text-white me-3" id="btnTime" onclick="sorteChoice('Time')">Time</button>
-                <button type="button" class="btn btn-dark text-white me-3" id="btnDifficulty" onclick="sorteChoice('Difficulty')">Difficulty</button>
-            </div>
-        </div>
-        <div id="listTrecks" class="visually-hidden">
-            {{ $tableTrecks = json_encode($trecks) }}
-        </div>
+        
         <div class="d-flex flex-wrap">
             <table class="table table-bordered" id="tableTrecks">
                 <tr>
@@ -90,6 +78,7 @@
                                 value="{{ $treck->treckName }}" readonly>
                         </form>
                         </p>
+
                     </div>
                 </div>
             @endforeach
