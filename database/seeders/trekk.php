@@ -19,7 +19,26 @@ class trekk extends Seeder
     public function run()
     {
         $faker = Faker::create('fr_FR');
-        for ($i = 0; $i < 5; $i++){
+
+        $coordxStart= $faker->numberBetween(55, -20);
+        $coordyStart= $faker->numberBetween(55, -20);
+
+        $coordxEnd= $faker->numberBetween(55, -20);
+        $coordyEnd= $faker->numberBetween(55, -20);
+
+        // $pointStart=array();
+        // $pointEnd=array();
+        // array_push($pointStart, strval($coordxStart), ",", strval($coordyStart));
+        // array_push($pointEnd, strval($coordxEnd), ",", strval($coordyEnd));
+ 
+        $coordCircuit= ($coordxStart.",".$coordxEnd.";".$coordyStart.",".$coordyEnd);
+        // $coord= array();
+        // array_push($coord, $pointStart, ";", $pointEnd);
+        // dd($coord);
+
+        // 'Latitude' => $faker->Address->latitude,
+        // 'Longitude' => $faker->Address->longitude,
+        for ($i = 0; $i < 2; $i++){
             DB::table('trecks')->insert([
             'idUser' => '0',
             'treckName' => $faker->name,
@@ -29,10 +48,10 @@ class trekk extends Seeder
             'type'=> $faker->randomElement(["one way","round", "go & back"]),
             'distance'=> $faker->numberBetween(1, 10),
             'location'=> $faker->randomElement(["North","East", "South", "West"]),
-            'coords'=> $faker->name,
-            'description'=> $faker->realText($maxNbChars = 150, $indexSize = 2),
+
+            'coords'=> $coordCircuit,
+            'description'=> $faker->realText($maxNbChars = 100, $indexSize = 2),
             'profil'=> 'walking',
-            // 'profil'=> $faker->name,
             // 'img'=> $faker->image(storage_path('images/treckingsecurLogo.png'),200,200, null, false),
             'private'=>$faker->randomElement(["0","1"]),
             ]);

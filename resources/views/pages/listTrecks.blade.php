@@ -76,7 +76,7 @@
                 </tr>
                 @endforeach
             </table>
-        {{-- @foreach ($trecks as $treck)
+        <!-- @foreach ($trecks as $treck)
             <div class="card ms-5 mt-5 mb-1" style="width: 18rem;">
                 <img src="{{Storage::url($treck->img)}}" class="card-img-top" alt="image non chargé">
                 <div class="card-body">
@@ -94,5 +94,5 @@
                 </div>
             @endforeach
 
-        </div>
+        </div> -->
     @endsection

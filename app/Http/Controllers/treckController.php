@@ -257,6 +257,25 @@ class treckController extends Controller
      */
     public function detailTrek($idTreck)
     {
+        // $coordxStart= 22;
+        // $coordyStart= 221;
+
+        // $coordxEnd= 11;
+        // $coordyEnd= 44;
+
+        // $pointStart=array();
+        // $pointEnd=array();
+        // array_push($pointStart, strval($coordxStart), ",", strval($coordyStart));
+        // array_push($pointEnd, strval($coordxEnd), ",", strval($coordyEnd));
+        // implode(" ",$pointStart); 
+        // implode(" ",$pointEnd);
+ 
+        // $coord= array();
+        // array_push($coord, $pointStart, ";", $pointEnd);
+        // implode(" ",$coord);
+        // dd($coord);
+
+
         $treck = Trecks::query()
             ->where('id', '=', $idTreck)
             ->get();
