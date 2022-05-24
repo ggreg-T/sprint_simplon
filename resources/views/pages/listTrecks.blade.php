@@ -25,16 +25,16 @@
                 Filter</button>
             </div>
             <div class="d-flex flex-row mb-4">
-                <button type="button" class="btn btn-dark text-white me-3">
-                    Distance </button>
-                <button type="button" class="btn btn-dark text-white me-3">
-                    Time </button>
-                <button type="button" class="btn btn-dark text-white me-3">
-                    Difficulty </button>
+                <button type="button" class="btn btn-dark text-white me-3" id="btnDistance" onclick="sorteChoice('Distance')">Distance</button>
+                <button type="button" class="btn btn-dark text-white me-3" id="btnTime" onclick="sorteChoice('Time')">Time</button>
+                <button type="button" class="btn btn-dark text-white me-3" id="btnDifficulty" onclick="sorteChoice('Difficulty')">Difficulty</button>
             </div>
         </div>
+        <div id="listTrecks" class="visually-hidden">
+            {{ $tableTrecks = json_encode($trecks) }}
+        </div>
         <div class="d-flex flex-wrap">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tableTrecks">
                 <tr>
                     <th>Circuit Name</th>
                     <th>Image</th>
