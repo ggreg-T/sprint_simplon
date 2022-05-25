@@ -39,7 +39,7 @@
     <main>
 
 
-        @yield('content')
+        {{-- @yield('content')
     </main>
     @include('layouts.footer')
 
@@ -50,7 +50,7 @@
     </script>
 
 
-</body>
+</body> --}}
 
             @yield('content')
         </main>
