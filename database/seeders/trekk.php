@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-// use Faker\Generator as Faker; 
 use Faker\Factory as Faker;
 
 
@@ -25,10 +24,6 @@ class trekk extends Seeder
 
         $coordyEnd= $faker->latitude($min=-21.3791, $max=-20.8765);
         $coordxEnd= $faker->longitude($min=55.2280, $max=55.8207);
-
-        // $coordyEnd= $faker->numberBetween(-20.8765, -21.3791);
-        // $coordxEnd= $faker->numberBetween(55.2280, 55.8207);
-
       
         $coordCircuit= ($coordxStart.",".$coordyStart.";".$coordxEnd.",".$coordyEnd);
   
@@ -46,7 +41,6 @@ class trekk extends Seeder
             'coords'=> $coordCircuit,
             'description'=> $faker->realText($maxNbChars = 100, $indexSize = 2),
             'profil'=> 'walking',
-            // 'img'=> $faker->image(storage_path('images/treckingsecurLogo.png'),200,200, null, false),
             'private'=>$faker->randomElement(["0","1"]),
             ]);
             }
