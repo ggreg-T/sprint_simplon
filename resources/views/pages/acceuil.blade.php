@@ -13,18 +13,18 @@
             ipsa
             sed cupiditate eaque
             maiores labore libero eius commodi harum iure debitis. Ipsa at qui nisi possimus quam?</p>
-        <div class="d-flex flex-wrap{{-- justify-content-between --}}   ">
+        <div class="d-flex flex-wrap ms-4{{-- justify-content-between --}}   ">
             @foreach ($trecks as $treck)
                 <div class="d-flex flex-row border_vert_clair border-2 my-3 me-3 rounded-3"
                     style="width:28rem; height:18.8rem;">
                     <a style="{{-- width:57%; height:300px; --}}" href="{{ route('detailTrek', $treck->id) }}"><img
-                            style=" height:299px;" class="   rounded-3 ratio_img" src=" {{ Storage::url($treck->img) }}"
+                            style="height:299px;" class="rounded-3 ratio_img" src=" {{ Storage::url($treck->img) }}"
                             alt="not "></a>
 
-                    <div class=" text-center ms-2 ">
-                        <p class="mb-5">{{ $treck->treckName }}</p>
-                        <div class="d-flex flex-row">
-                            <div class="ms-2 ">
+                    <div class=" text-center ms-2  ">
+                        <p class=" mb-5">{{ $treck->treckName }}</p>
+                        <div class="d-flex flex-row m-2">
+                            <div class="ms-2 " style="width: 70px;">
                                 <div class="mb-4"> <strong>Distance</strong>
                                     <hr
                                         style="padding-left:1%;height:2.5px;margin-top:5px;margin-left:-5px;width:120%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
@@ -44,8 +44,7 @@
                                     {{ $treck->hardness }}
                                 </div>
                                 <div class="">
-                                    <strong>Time
-                                    </strong>
+                                    <strong>Time</strong>
                                     <hr
                                         style="height:2.5px;margin-top:5px;width:100%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
                                     {{ $treck->time }} min
@@ -56,5 +55,16 @@
                 </div>
             @endforeach
         </div>
+        <hr style="padding-left:1%;height:2.5px;margin-top:5px;margin-left:-5px;width:100%;border:none;background-color:rgb(0,
+                    0, 0); opacity:1;" />
+        <h3>WHO WE ARE ?</h3>
+        <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
+            dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus,
+            ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac
+            rhoncus nisl, eu tempor urna.
+            Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.</p>
+
     </div>
 @endsection
