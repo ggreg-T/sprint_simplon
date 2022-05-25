@@ -257,6 +257,7 @@ class treckController extends Controller
      */
     public function detailTrek($idTreck)
     {
+
         $treck = Trecks::query()
             ->where('id', '=', $idTreck)
             ->get();

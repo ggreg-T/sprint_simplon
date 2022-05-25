@@ -34,7 +34,7 @@
                         <div class="d-flex flex-row mt-3">
                             @if (Auth::user()->admin == true)
                                 <div class="d-flex text-center flex-fill me-2">
-                                    <input id="floatingSubmit" type="button" class="btn btn-success flex-fill" name=""
+                                    <input id="floatingSubmit" type="button" class="btn btn-success flex-fill" 
                                         value="Hardness :" disabled>
                                     <label for="floatingSubmit"></label>
                                 </div>
