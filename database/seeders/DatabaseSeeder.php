@@ -13,11 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        // \App\Models\trekks::factory(3)->create();
-        // $this->call([
-        //     falseTrekk::class,
-        // ]);
         $this->call('trekk');
     }
 }
