@@ -2,9 +2,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark px-md-5 vert_foncé">
         <div class="d-flex justify-content-around">
             <div class="d-flex flex-row">
-                <a class="me-3  " href="{{ route('home') }}" enctype="multipart/form-data"><img
-                        class="logo" src="{{ URL::asset('img/treckingsecurLogo.png') }}" alt="not found">
-                </a>
+                <a class="me-3" href="{{ route('home') }}"><img
+                        style="width:100%; height:50px;" src="{{ URL::asset('img/treckingsecurLogo.png') }}"
+                        alt="not found"> </a>
             </div>
 
             <div class="d-flex flex- ">
@@ -91,16 +91,3 @@
 @include('composants.modalLogin')
 @include('composants.modalRegister')
 @include('composants.modalChoice')
-
-{{-- <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-</nav> --}}

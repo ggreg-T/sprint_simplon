@@ -16,16 +16,16 @@
             <p class="alert alert-danger">{{ $error }}</p>
         @endif
 
-        <div class="d-flex flex-row justify-content-between me-5">
-            <div>
+        <div class="d-flex flex-column flex-sm-row justify-content-between me-5">
+            <div class="me-4 ">
                 <button type="button" class="btn btn-dark text-white ms-5 px-5" data-bs-toggle="modal"
                     data-bs-target="#modalChoice">
                     Filters</button>
             </div>
-            <div class="d-flex flex-row mb-4">
-                <button type="button" class="btn btn-dark text-white me-3" id="btnDistance" onclick="sorteChoice('Distance')">Distance</button>
-                <button type="button" class="btn btn-dark text-white me-3" id="btnTime" onclick="sorteChoice('Time')">Time</button>
-                <button type="button" class="btn btn-dark text-white me-3" id="btnDifficulty" onclick="sorteChoice('Difficulty')">Difficulty</button>
+            <div class="d-flex flex-row mb-sm-4 mt-sm-0 mt-3 ms-5">
+                <button type="button" class="btn btn-dark text-white me-3 text-nowrap" id="btnDistance" onclick="sorteChoice('Distance')">Distance</button>
+                <button type="button" class="btn btn-dark text-white me-3 text-nowrap" id="btnTime" onclick="sorteChoice('Time')">Time</button>
+                <button type="button" class="btn btn-dark text-white me-3 text-nowrap" id="btnDifficulty" onclick="sorteChoice('Difficulty')">Difficulty</button>
             </div>
         </div>
         <div id="listTrecks" class="visually-hidden">
