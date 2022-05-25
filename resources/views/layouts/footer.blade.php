@@ -41,7 +41,6 @@
         <!-- ######## HELPER SITE ########### -->
         <div class="bloc footer-reso">
             <h3>Helper site</h3>
-            <!-- <ul class="reso"> -->
             <div class="reso">
 
                 <a class="foot" href="https://www.figma.com/"><i class="fa-brands fa-figma me-2"></i>
