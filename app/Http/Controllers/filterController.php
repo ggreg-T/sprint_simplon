@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Trecks;
+use Illuminate\Support\Facades\Auth;
 
 class filterController extends Controller
 {
@@ -33,6 +34,8 @@ class filterController extends Controller
             ->where('distance', '<=', $distanceMax)
             ->where('time', '>=', $timeMin)
             ->where('time', '<=', $timeMax)
+            ->where('idUser', '=', Auth::user()->id)
+            ->where('private', '=', false)
             ->orderby('created_at', 'desc')
             ->get();
         } else {
@@ -42,6 +45,8 @@ class filterController extends Controller
             ->where('time', '>=', $timeMin)
             ->where('time', '<=', $timeMax)
             ->where('hardness', '=', $difficulty)
+            ->where('idUser', '=', Auth::user()->id)
+            ->where('private', '=', false)
             ->orderby('created_at', 'desc')
             ->get();
         }
