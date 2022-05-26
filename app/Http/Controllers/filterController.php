@@ -27,28 +27,53 @@ class filterController extends Controller
         // dd($infoFilters);
 
         $title = "";
-        if ($difficulty == null) {
-            //  dd($infoFilters);
-            $trecks = Trecks::query()
-            ->where('distance', '>=', $distanceMin)
-            ->where('distance', '<=', $distanceMax)
-            ->where('time', '>=', $timeMin)
-            ->where('time', '<=', $timeMax)
-            ->where('idUser', '=', Auth::user()->id)
-            ->where('private', '=', false)
-            ->orderby('created_at', 'desc')
-            ->get();
+        
+        if (Auth::user()) {
+            if ($difficulty == null) {
+                //  dd($infoFilters);
+                $trecks = Trecks::query()
+                ->where('distance', '>=', $distanceMin)
+                ->where('distance', '<=', $distanceMax)
+                ->where('time', '>=', $timeMin)
+                ->where('time', '<=', $timeMax)
+                ->where('idUser', '=', Auth::user()->id)
+                ->orwhere('private', '=', false)
+                ->orderby('created_at', 'desc')
+                ->get();
+            } else {
+                $trecks = Trecks::query()
+                ->where('distance', '>=', $distanceMin)
+                ->where('distance', '<=', $distanceMax)
+                ->where('time', '>=', $timeMin)
+                ->where('time', '<=', $timeMax)
+                ->where('hardness', '=', $difficulty)
+                ->where('idUser', '=', Auth::user()->id)
+                ->orwhere('private', '=', false)
+                ->orderby('created_at', 'desc')
+                ->get();
+            }
         } else {
-            $trecks = Trecks::query()
-            ->where('distance', '>=', $distanceMin)
-            ->where('distance', '<=', $distanceMax)
-            ->where('time', '>=', $timeMin)
-            ->where('time', '<=', $timeMax)
-            ->where('hardness', '=', $difficulty)
-            ->where('idUser', '=', Auth::user()->id)
-            ->where('private', '=', false)
-            ->orderby('created_at', 'desc')
-            ->get();
+            if ($difficulty == null) {
+                //  dd($infoFilters);
+                $trecks = Trecks::query()
+                ->where('distance', '>=', $distanceMin)
+                ->where('distance', '<=', $distanceMax)
+                ->where('time', '>=', $timeMin)
+                ->where('time', '<=', $timeMax)
+                ->where('private', '=', false)
+                ->orderby('created_at', 'desc')
+                ->get();
+            } else {
+                $trecks = Trecks::query()
+                ->where('distance', '>=', $distanceMin)
+                ->where('distance', '<=', $distanceMax)
+                ->where('time', '>=', $timeMin)
+                ->where('time', '<=', $timeMax)
+                ->where('hardness', '=', $difficulty)
+                ->where('private', '=', false)
+                ->orderby('created_at', 'desc')
+                ->get();
+            }
         }
         
         
