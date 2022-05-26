@@ -8,32 +8,9 @@
             </div>
 
             <div class="d-flex flex- ">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                    aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
-                        </li>
-                        @auth
-                            @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('users') }}">Users</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('watchTreckers') }}">watch Treckers</a>
-                                </li>
-                            @endif
-                            @if (Auth::user()->admin == 1)
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('addTrecks') }}">add Trecks</a>
-                                </li>
-                            @endif
-                        @endauth
-                    </ul>
+                    <a class="dropdown-item"
+                        href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
                 </div>
 
             </div>
@@ -71,6 +48,16 @@
                                     href="{{ route('user.edit', Auth::user()->id) }}">Personal informations</a></li>
                             <li class="list-inline-item"><a class="dropdown-item " style="color:#a2a2a2"
                                     href="{{ route('addTrecks') }}">TreckCreator</a></li>
+                            @auth
+                                @if (Auth::user()->operator == 1 || Auth::user()->admin == 1)
+                                    <li class="list-inline-item">
+                                        <a class="dropdown-item" style="color:#a2a2a2" href="{{ route('users') }}">Users</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="dropdown-item" style="color:#a2a2a2" href="{{ route('watchTreckers') }}">watch Treckers</a>
+                                    </li>
+                                @endif
+                            @endauth
                         </ul>
                     </div>
                     <a class="btn text-white me-5 mt-2" href="{{ route('logout') }}">Logout</a>

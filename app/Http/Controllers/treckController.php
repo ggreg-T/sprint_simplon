@@ -327,8 +327,8 @@ class treckController extends Controller
                 ->orderBy('created_at', 'ASC')
                 ->get();
         // dd($trecks);   
-
-        return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks])
+        $error = "";
+        return view('pages.listTrecks', ['title' => $title, 'trecks' => $trecks, 'error' => $error])
             ->with('success', 'Your treck has been deleted successfully');
     }
 

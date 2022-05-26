@@ -196,17 +196,20 @@ function reconstructDOM(arrayTrecks) {
         divTreckInfosContainerLeft.className = "mx-2";
         // divTreckInfosContainerLeftUp.className = "mb-4";
 
-        // aDetailTreck.setAttribute(
-        //     "href",
-        //     "{{ route('detailTrek'," + arrayTrecks[i].id + ") }}"
-        // );
-        //    <img src="public/images/0WnxeZpomCt1y4uJy4EnEJTC3eULWWlg6MXCqf1E.png" class="rounded-3 ratio_img"></img>
-        // <a href="http://127.0.0.1:8000/detailTrek/26">
-        // <img src=" /storage/images/1fIB90KjwafOWhOiWauQWuKwFG1BeJ0534Jld0Zi.png"></a>
+        //####---production---#########################################################
+        // <a href="http://treckinsecur-sprint-08.dwwm-12-2021.simplon.re/detailTrek/7">
         aDetailTreck.setAttribute(
             "href",
-            "http://127.0.0.1:8000/detailTrek/" + arrayTrecks[i].id
+            "http://treckinsecur-sprint-08.dwwm-12-2021.simplon.re/" +
+                arrayTrecks[i].id
         );
+
+        //####---local---#########################################################
+        // <a href="http://127.0.0.1:8000/detailTrek/21">
+        // aDetailTreck.setAttribute(
+        //     "href",
+        //     "http://127.0.0.1:8000/detailTrek/" + arrayTrecks[i].id
+        // );
 
         aDetailTreck.appendChild(imgTreck);
 
