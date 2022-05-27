@@ -79,12 +79,15 @@
         <div class="d-flex flex-wrap mb-5">
             @foreach ($trecks as $treck)
                 <div class="card ms-5 mt-3 mb-1">
-                    <img src="{{ Storage::url($treck->img) }}" class=" card-img-top  rounded-3 ratio_img"
-                            alt="image non chargé">
+                    {{-- <img src="{{ Storage::url($treck->img) }}" class=" card-img-top  rounded-3 ratio_img"
+                            alt="image non chargé"> --}}
+                    <a style="{{-- width:57%; height:300px; --}}" href="{{ route('detailTrek', $treck->id) }}">
+                        <img class="rounded-3 ratio_img" style="height:11rem;" src=" {{ Storage::url($treck->img) }}"
+                        alt="not "></a>
                     <div class="card-body ">
                         <div class="   px-3 text-nowrap   d-flex justify-content-between">
                             <div>
-                                <p class="  mb-0 ">Distance</p>
+                                <p class=" mb-0 ">Distance</p>
                                 <p class=" mb-0 ">Type</p>
                                 <p class=" mb-0 ">Difficulty</p>
                                 <p class=" mb-0 ">During</p>

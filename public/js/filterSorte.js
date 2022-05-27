@@ -166,21 +166,87 @@ function reconstructDOM(arrayTrecks) {
     for (let i = 0; i < arrayTrecks.length; i++) {
         const aDetailTreck = document.createElement("a");
         const imgTreck = document.createElement("img");
-        const divTreckInfos = document.createElement("div");
-        const treckTitle = document.createElement("p");
         const divTreckInfosContainer = document.createElement("div");
+        const btnTreck = document.createElement("button");
 
-        const divTreckInfosContainerLeft = document.createElement("div");
-        const divTreckInfosContainerLeftUp = document.createElement("div");
+        const divTreckInfos = document.createElement("div");
+        divTreckInfos.className =
+            "px-5 text-nowrap d-flex flex-row justify-content-between";
+
+        const divPTitles = document.createElement("p");
+        divPTitles.className = "d-flex flex-column";
+        const divHr = document.createElement("hr");
+        divHr.className = "clas_ligne_listtreck";
+        const divPInfos = document.createElement("p");
+        divPInfos.className = "text-end";
+
         const strongDistance = document.createElement("strong");
-        const hrDistance = document.createElement("hr");
-        const hrType = document.createElement("hr");
-        const hrDifficulty = document.createElement("hr");
-        const hrTime = document.createElement("hr");
-        const pDistance = document.createElement("p");
-        const divTreckInfosContainerLeftDown = document.createElement("div");
+        strongDistance.innerHTML = "Distance";
+        const pTitleDistance = document.createElement("p");
+        pTitleDistance.className = "mb-0";
+        pTitleDistance.appendChild(strongDistance);
+
         const strongType = document.createElement("strong");
+        strongType.innerHTML = "Type";
+        const pTitleType = document.createElement("p");
+        pTitleType.className = "mb-0";
+        pTitleType.appendChild(strongType);
+
+        const strongDifficulty = document.createElement("strong");
+        strongDifficulty.innerHTML = "Difficulty";
+        const pTitleDifficulty = document.createElement("p");
+        pTitleDifficulty.className = "mb-0";
+        pTitleDifficulty.appendChild(strongDifficulty);
+
+        const strongTime = document.createElement("strong");
+        strongTime.innerHTML = "Time";
+        const pTitleTime = document.createElement("p");
+        pTitleTime.className = "mb-0";
+        pTitleTime.appendChild(strongTime);
+
+        divPTitles.appendChild(strongDistance);
+        divPTitles.appendChild(strongType);
+        divPTitles.appendChild(strongDifficulty);
+        divPTitles.appendChild(strongTime);
+
+        const hrDistance = document.createElement("hr");
+        hrDistance.className = "list_treck";
+        const hrType = document.createElement("hr");
+        hrType.className = "list_treck";
+        const hrDifficulty = document.createElement("hr");
+        hrDifficulty.className = "list_treck";
+        const hrTime = document.createElement("hr");
+        hrTime.className = "list_treck_fin";
+
+        divHr.appendChild(hrDistance);
+        divHr.appendChild(hrType);
+        divHr.appendChild(hrDifficulty);
+        divHr.appendChild(hrTime);
+
+        const pDifficulty = document.createElement("p");
+        pDifficulty.innerHTML = arrayTrecks[i].hardness;
+        pDifficulty.className = "mb-0";
+        const pTime = document.createElement("p");
+        pTime.innerHTML = arrayTrecks[i].time;
+        pTime.className = "mb-0";
+        const pDistance = document.createElement("p");
+        pDistance.innerHTML = arrayTrecks[i].distance;
+        pDistance.className = "mb-0";
         const pType = document.createElement("p");
+        pType.innerHTML = arrayTrecks[i].type;
+        pType.className = "mb-0";
+
+        divPInfos.appendChild(pDistance);
+        divPInfos.appendChild(pType);
+        divPInfos.appendChild(pDifficulty);
+        divPInfos.appendChild(pTime);
+
+        divTreckInfos.appendChild(divPTitles);
+        divTreckInfos.appendChild(divHr);
+        divTreckInfos.appendChild(divPInfos);
+
+        btnTreck.textContent = arrayTrecks[i].treckName;
+        btnTreck.className = "mx-5 text-white btn bouton";
 
         console.log(arrayTrecks[i].img);
         // imgTreck.src = "storage/app/" + arrayTrecks[i].img;
@@ -188,11 +254,7 @@ function reconstructDOM(arrayTrecks) {
         imgTreck.src = img;
 
         imgTreck.className = "rounded-3 ratio_img";
-        divTreckInfos.className = "text-center ms-2";
-        treckTitle.className = "mb-5";
-        divTreckInfosContainer.className =
-            "d-flex flex-row border rounded-3 m-3 card";
-        divTreckInfosContainerLeft.className = "mx-2";
+        divTreckInfosContainer.className = "card ms-5 mt-3 mb-1";
 
         //####---production---#########################################################
         // <a href="http://treckinsecur-sprint-08.dwwm-12-2021.simplon.re/detailTrek/7">
@@ -215,57 +277,9 @@ function reconstructDOM(arrayTrecks) {
 
         aDetailTreck.appendChild(imgTreck);
 
-        treckTitle.innerHTML = arrayTrecks[i].treckName;
-
-        strongDistance.innerHTML = "Distance";
-        pDistance.innerHTML = arrayTrecks[i].distance;
-
-        strongType.innerHTML = "Type";
-        pType.innerHTML = arrayTrecks[i].type;
-
-        divTreckInfosContainerLeftUp.appendChild(strongDistance);
-        divTreckInfosContainerLeftUp.appendChild(hrDistance);
-        divTreckInfosContainerLeftUp.appendChild(pDistance);
-
-        divTreckInfosContainerLeftDown.appendChild(strongType);
-        divTreckInfosContainerLeftDown.appendChild(hrType);
-        divTreckInfosContainerLeftDown.appendChild(pType);
-
-        divTreckInfosContainerLeft.appendChild(divTreckInfosContainerLeftUp);
-        divTreckInfosContainerLeft.appendChild(divTreckInfosContainerLeftDown);
-
-        const divTreckInfosContainerRight = document.createElement("div");
-        const divTreckInfosContainerRightUp = document.createElement("div");
-        const strongDifficulty = document.createElement("strong");
-        const pDifficulty = document.createElement("p");
-        const divTreckInfosContainerRightDown = document.createElement("div");
-        const strongTime = document.createElement("strong");
-        const pTime = document.createElement("p");
-
-        divTreckInfosContainerRight.className = "mx-2";
-
-        strongDifficulty.innerHTML = "Hardness";
-        pDifficulty.innerHTML = arrayTrecks[i].hardness;
-
-        strongTime.innerHTML = "Time";
-        pTime.innerHTML = arrayTrecks[i].time;
-
-        divTreckInfosContainerRightUp.appendChild(strongDifficulty);
-        divTreckInfosContainerRightUp.appendChild(hrDifficulty);
-        divTreckInfosContainerRightUp.appendChild(pDifficulty);
-
-        divTreckInfosContainerRightDown.appendChild(strongTime);
-        divTreckInfosContainerRightDown.appendChild(hrTime);
-        divTreckInfosContainerRightDown.appendChild(pTime);
-
-        divTreckInfosContainerRight.appendChild(divTreckInfosContainerRightUp);
-        divTreckInfosContainerRight.appendChild(
-            divTreckInfosContainerRightDown
-        );
-        divTreckInfosContainer.appendChild(treckTitle);
         divTreckInfosContainer.appendChild(aDetailTreck);
-        divTreckInfosContainer.appendChild(divTreckInfosContainerLeft);
-        divTreckInfosContainer.appendChild(divTreckInfosContainerRight);
+        divTreckInfosContainer.appendChild(divTreckInfos);
+        divTreckInfosContainer.appendChild(btnTreck);
         divMainTecks.appendChild(divTreckInfosContainer);
     }
 }
