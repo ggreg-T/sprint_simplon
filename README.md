@@ -21,7 +21,7 @@ Pour visiter le site clliquez sur le lien ci-dessous:
     - Figma: création de la maquette
     - Bootstrap: framework CSS
     - Dribbble: pour le design
-    - Laravel: Dévelloppement du site (description du site et divers lien plus bas.)
+    - Laravel: Dévelloppement du site (description du framework et divers lien plus bas.)
 
 ## Auteurs
 BOCACE Stéphane, GREINER Steve, FÉLICITÉ Romain, TÉCHER Grégory 
