@@ -52,8 +52,8 @@
                                         value="{{ $treck->treckName }}" readonly>
                                 </form>
                             </td>
-                            <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}"
-                                    alt="{{ $treck->name }}"></td>
+                            <td><img style="width: 5rem; height: 3rem" src="{{ Storage::url($treck->img) }}" 
+                                    alt={{ URL::asset('img/treckingsecurLogo.png') }}></td>
                             <td>{{ $treck->dateTreck }}</td>
                             <td>{{ $treck->treckStart }}</td>
                             <td>{{ $treck->treckEnd }}</td>

@@ -11,23 +11,25 @@
             <div class="modal-body">
                 <form method="POST" action="{{ route('login.action') }}">
                     @csrf
-                    <div class="form-group form-floating mb-3">
-                        <input type="text" class="form-control" name="inputRegister" value="{{ old('inputRegister') }}" 
+                    <div class="d-flex form-group form-floating mb-3">
+                        <input type="text" class="form-control flex-fill" name="inputRegister" value="{{ old('inputRegister') }}" 
                         placeholder="Pseudo or E-mail" id="loginFloatingName">
                         <label for="loginFloatingName">Pseudo or E-mail</label>
                     </div>
                     
-                    <div class="form-group form-floating mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password"  id="loginFloatingPassword">
+                    <div class="d-flex form-group form-floating mb-3">
+                        <input type="password" class="form-control flex-fill" name="password" placeholder="Password"  id="loginFloatingPassword">
                         <label for="loginFloatingPassword">Password</label>
                     </div>
             <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary" type="submit" style="width:45%;">GoGo</button></div>
+                    <button class="btn btn-primary" type="submit" style="width:45%;">Confirm</button></div>
                 </form>
+                
             </div>
-                <button type="button" class="btn btn-light modal" data-bs-toggle="modal" data-bs-target="#modalRegister">
+                
+            <div class="modal-footer d-flex justify-content-between">
+                <button class="btn vert_foncé text-white" data-bs-toggle="modal" data-bs-target="#modalRegister">
                     Register</button>
-            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>

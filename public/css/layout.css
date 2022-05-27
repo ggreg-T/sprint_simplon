@@ -74,8 +74,10 @@ footer {
 #nav {
     background-color: #1b998b;
     height: 200px;
-    /* style="background-color:black;" */
-    /* a mettre dans ligne 2 */
+}
+#wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* ########### Partie modal ######## */
@@ -93,6 +95,10 @@ footer {
 #loginFloatingName {
     border-color: #1b998b;
     border-width: 2px;
+}
+#form_btn {
+    height: 2rem !important;
+    z-index: 1;
 }
 
 /* ############## Register ############## */
@@ -125,4 +131,62 @@ footer {
 }
 .logo:hover {
     transform: scale(1.2) !important;
+}
+.card {
+    width: 25rem !important;
+    height: 22rem !important;
+}
+
+.card-img-top {
+    height: 12rem !important;
+}
+.list_treck {
+    padding-left: 1%;
+    /* height: 2.5px !important; */
+    margin-top: 15px;
+    margin-bottom: 1.5rem;
+    margin-left: 5px;
+    width: 100%;
+    margin-right: 5px;
+
+    border: none;
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+}
+.list_treck_fin {
+    padding-left: 1%;
+    /* height: 2.5px !important; */
+    margin-top: 15px;
+    /* margin-bottom: 1.5rem; */
+    margin-left: 5px;
+    width: 100%;
+    margin-right: 5px;
+
+    border: none;
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+}
+.clas_ligne_listtreck {
+    width: 150px;
+}
+.form-control {
+    width: 50% !important;
+}
+.bareacueil {
+    height: 2.5px !important;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+}
+.bare_text_aceuil {
+    padding-left: 1%;
+    height: 2.5px !important;
+    margin-top: 5px;
+    margin-left: -5px;
+    width: 100%;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
 }
