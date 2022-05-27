@@ -9,10 +9,12 @@
             <p class="alert alert-danger mt-3">{{ session('error') }}</p>
         @endif
 
-        <p class="mt-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At blanditiis, aliquam sapiente
-            ipsa
-            sed cupiditate eaque
-            maiores labore libero eius commodi harum iure debitis. Ipsa at qui nisi possimus quam?</p>
+        <p class="mt-4 fs-4">Are you coming or living in Reunion Island? Are you hiking or 
+            walking around to visit the island? Here are a few hundred ideas 
+            for outings to rest from hiking or when the day's hike is over. 
+            Only places that can be visited without hiking, that take very 
+            short routes that never require great effort, small walks that do 
+            not require any special training are offered.</p>
         <div class="d-flex flex-wrap ms-4{{-- justify-content-between --}}   ">
             @foreach ($trecks as $treck)
                 <div class="d-flex flex-row border_vert_clair border-2 my-3 me-3 rounded-3"
