@@ -1,6 +1,6 @@
 ## Treckin'Secu.re
 
-forthebadge forthebadge
+
 Bienvenue sur Treckin Secu.re, un site qui prpopose un suivi de parcours et une personnalisation de trajet.
 
 ## Pour commencer
