@@ -186,8 +186,6 @@ function reconstructDOM(arrayTrecks) {
         // imgTreck.src = "storage/app/" + arrayTrecks[i].img;
         img = arrayTrecks[i].img.replace("public", "/storage");
         imgTreck.src = img;
-        imgTreck.alt =
-            "http://treckinsecur-sprint-08.dwwm-12-2021.simplon.re/img/treckingsecurLogo.png";
 
         imgTreck.className = "rounded-3 ratio_img";
         divTreckInfos.className = "text-center ms-2";
@@ -203,6 +201,8 @@ function reconstructDOM(arrayTrecks) {
             "http://treckinsecur-sprint-08.dwwm-12-2021.simplon.re/" +
                 arrayTrecks[i].id
         );
+        imgTreck.alt =
+            "http://treckinsecur-sprint-08.dwwm-12-2021.simplon.re/img/treckingsecurLogo.png";
 
         //####---local---#########################################################
         // <a href="http://127.0.0.1:8000/detailTrek/21">
@@ -210,6 +210,8 @@ function reconstructDOM(arrayTrecks) {
         //     "href",
         //     "http://127.0.0.1:8000/detailTrek/" + arrayTrecks[i].id
         // );
+        // imgTreck.alt =
+        //     "http://127.0.0.1:8000/detailTrek//img/treckingsecurLogo.png";
 
         aDetailTreck.appendChild(imgTreck);
 

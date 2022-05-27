@@ -7,7 +7,7 @@
                         alt="not found"> </a>
             </div>
             <div class="d-flex align-items-center me-5">
-                <a class="dropdown-item"
+                <a class="dropdown-item" style="color:#ffffff;"
                     href="{{ route('getlistTrecks', ['location' => 'Reunion', 'filter' => 'all']) }}">Réunion</a>
             </div>
             <div>
@@ -23,7 +23,7 @@
             <div class="d-flex flex-row position-absolute top-0 end-0 pe-3  mt-2">
                 @auth
                     <div class="mt-2">
-                        <a class="nav-link dropdown-toggle text-white ms-3" href="#" id="userPages" role="button"
+                        <a class="nav-link dropdown-toggle text-white ms-3 dropdown-item" href="#" id="userPages" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <b>
                                 @if (Auth::user()->admin == 1)
@@ -55,13 +55,13 @@
                             @endauth
                         </ul>
                     </div>
-                    <a class="btn text-white mt-2" href="{{ route('logout') }}">Logout</a>
+                    <a class="btn text-white mt-2 dropdown-item" href="{{ route('logout') }}">Logout</a>
                 @endauth
                 @guest
-                    <button type="button" class="btn text-white me-3 mt-2 " data-bs-toggle="modal"
+                    <button type="button" class="btn text-white me-3 mt-2 dropdown-item" data-bs-toggle="modal"
                         data-bs-target="#modalLogin">
                         Login</button>
-                    <button type="button" class="btn text-white mt-2" data-bs-toggle="modal"
+                    <button type="button" class="btn text-white mt-2 dropdown-item" data-bs-toggle="modal"
                         data-bs-target="#modalRegister">
                         Register</button>
                 @endguest

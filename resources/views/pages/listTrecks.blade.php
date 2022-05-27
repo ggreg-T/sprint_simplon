@@ -76,48 +76,43 @@
                 </tr>
                 @endforeach
             </table> --}}
+        <div class="d-flex flex-wrap mb-5">
             @foreach ($trecks as $treck)
-                <div id="divTreck" class="d-flex flex-row border_vert_clair border-2 my-3 me-3 rounded-3"
-                    style="width:28rem; height:18.8rem;">
-                    <a href="{{ route('detailTrek', $treck->id) }}">
-                        <img
-                            style=" height:299px;" class="rounded-3 ratio_img" src=" {{ Storage::url($treck->img) }}"
-                            alt="not "></a>
-
-                    <div class=" text-center ms-2 ">
-                        <p class="mb-5">{{ $treck->treckName }}</p>
-                        <div class="d-flex flex-row"> 
-                            <div class="ms-2 "> 
-                                <div class="mb-4"> 
-                                    <strong>Distance</strong>
-                                    <hr
-                                        style="padding-left:1%;height:2.5px;margin-top:5px;margin-left:-5px;width:120%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                                    <p>{{ $treck->distance }} Km</p>
-                                </div>
-                                <div> 
-                                    <strong>Type</strong>
-                                    <hr
-                                        style="height:2.5px;margin-top:5px;margin-left:-5px;width:120%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                                    {{ $treck->type }}
-                                </div>
+                <div class="card ms-5 mt-3 mb-1">
+                    <img src="{{ Storage::url($treck->img) }}" class=" card-img-top  rounded-3 ratio_img"
+                            alt="image non chargé">
+                    <div class="card-body ">
+                        <div class="   px-3 text-nowrap   d-flex justify-content-between">
+                            <div>
+                                <p class="  mb-0 ">Distance</p>
+                                <p class=" mb-0 ">Type</p>
+                                <p class=" mb-0 ">Difficulty</p>
+                                <p class=" mb-0 ">During</p>
                             </div>
-                            <div class="ps-3"> 
-                                <div class="mb-4"><strong>Difficulty</strong>
-                                    <hr
-                                        style="height:2.5px;margin-top:5px;width:100%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                                    {{ $treck->hardness }}
-                                </div>
-                                <div class="">
-                                    <strong>Time
-                                    </strong>
-                                    <hr
-                                        style="height:2.5px;margin-top:5px;width:100%;border:none;background-color:rgb(0, 0, 0); opacity:1;" />
-                                    {{ $treck->time }} min
-                                </div>
+                            <div class="clas_ligne_listtreck">
+                                <hr class="list_treck " />
+                                <hr class="list_treck " />
+                                <hr class="list_treck " />
+                                <hr class="list_treck_fin " />
+                            </div>
+                            <div class="text-end ">
+                                <p class=" mb-0">{{ $treck->distance }} Km</p>
+                                <p class=" mb-0">{{ $treck->type }}</p>
+                                <p class=" mb-0">{{ $treck->hardness }}</p>
+                                <p class=" mb-0">{{ $treck->time }} min</p>
                             </div>
                         </div>
+                        <form action="{{ route('detailTrek', $treck->id) }}" method="get">
+                                {{-- <input type="text" class="visually-hidden" name="inputTreckId" value="{{ $treck->id }}"
+                                    readonly> --}}
+                            <div class="d-flex justify-content-center ">
+                                <input type="submit" class="form-control  me-2 text-white btn bouton " id="form_btn"
+                                        name="inputDetailUser" value="{{ $treck->treckName }}" readonly>
+                             </div>
+                        </form>
                     </div>
                 </div>
             @endforeach
         </div>
-    @endsection
+    </div>
+@endsection
