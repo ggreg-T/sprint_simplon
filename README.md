@@ -1,3 +1,30 @@
+## Treckin'Secu.re
+
+forthebadge forthebadge
+Bienvenue sur Treckin Secu.re, un site qui prpopose un suivi de parcours et une personnalisation de trajet.
+
+## Pour commencer
+
+Pour prévisualiser le site cliquez sur le lien figam ci-dessous:
+ -version mobile:
+ https://www.figma.com/proto/SesYZrfcNNyQ2BXqhXsSvU/Trek?node-id=203%3A1578&starting-point-node-id=203%3A1578
+ 
+ -version PC:
+ https://www.figma.com/proto/SesYZrfcNNyQ2BXqhXsSvU/Trek?node-id=235%3A2968&starting-point-node-id=235%3A2968
+
+Pour visiter le site clliquez sur le lien ci-dessous:
+ https://treckinsecur-sprint-08.dwwm-12-2021.simplon.re
+
+## Frameworks
+    - Mapbox: API utilisé pour la récupération des coordonées
+    - Figma: création de la maquette
+    - Bootstrap: framework CSS
+    - Dribbble: pour le design
+    - Laravel: Dévelloppement du site (description du site et divers lien plus bas.)
+
+## Auteurs
+BOCACE Stéphane, GREINER Steve,FÉLICITÉ Romain, TÉCHER Grégory 
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
